@@ -64,7 +64,9 @@ jobs:
           output: trivy-${{ matrix.name }}.sarif
           severity: HIGH,CRITICAL
           ignore-unfixed: true
-          exit-code: "1"
+          # Generate the SARIF report even when findings exist; the diagnostic
+          # scan below is the workflow's security gate.
+          exit-code: "0"
       - name: Print vulnerability details
         if: always()
         uses: aquasecurity/trivy-action@v0.36.0
@@ -73,7 +75,7 @@ jobs:
           format: table
           severity: HIGH,CRITICAL
           ignore-unfixed: true
-          exit-code: "0"
+          exit-code: "1"
       - name: Upload image scan
         if: always() && hashFiles(format('trivy-{0}.sarif', matrix.name)) != ''
         uses: github/codeql-action/upload-sarif@v4
