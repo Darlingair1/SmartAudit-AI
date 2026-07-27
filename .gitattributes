@@ -2,6 +2,7 @@
 
 *.bat text eol=crlf
 *.sh text eol=lf
+backend-java/mvnw text eol=lf
 
 # Markdown hard breaks and upstream license formatting are intentional.
 *.md whitespace=-trailing-space,-blank-at-eof
