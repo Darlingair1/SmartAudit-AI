@@ -29,6 +29,10 @@ jobs:
   dependency-review:
     name: Dependency review
     if: github.event_name == 'pull_request'
+    # Dependency review requires the repository Dependency graph setting.
+    # Keep this optional so forks or repositories with that setting disabled
+    # do not fail the entire security workflow.
+    continue-on-error: true
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
