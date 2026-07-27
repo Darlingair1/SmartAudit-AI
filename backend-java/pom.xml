@@ -30,7 +30,7 @@
         <mybatis-plus.version>3.5.5</mybatis-plus.version>
         <springdoc.version>2.3.0</springdoc.version>
         <hutool.version>5.8.27</hutool.version>
-        <flyway.version>10.17.0</flyway.version>
+        <flyway.version>13.0.0</flyway.version>
     </properties>
 
     <dependencies>
