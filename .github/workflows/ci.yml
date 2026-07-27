@@ -15,7 +15,7 @@ jobs:
     name: Java tests
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
@@ -38,7 +38,7 @@ jobs:
     name: Python tests
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -66,7 +66,7 @@ jobs:
     name: Frontend tests and build
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
@@ -102,7 +102,7 @@ jobs:
       COMPOSE_PROJECT_NAME: smartaudit-ci-${{ github.run_id }}-${{ github.run_attempt }}
       MYSQL_HOST_PORT: "13306"
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
