@@ -11,6 +11,7 @@ on:
 
 permissions:
   contents: read
+  security-events: write
 
 jobs:
   sbom:
@@ -66,6 +67,13 @@ jobs:
           exit-code: "1"
       - name: Upload image scan
         if: always() && hashFiles(format('trivy-{0}.sarif', matrix.name)) != ''
-        uses: github/codeql-action/upload-sarif@v3
+        uses: github/codeql-action/upload-sarif@v4
+        continue-on-error: true
         with:
           sarif_file: trivy-${{ matrix.name }}.sarif
+      - name: Upload Trivy report
+        if: always() && hashFiles(format('trivy-{0}.sarif', matrix.name)) != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: trivy-${{ matrix.name }}
+          path: trivy-${{ matrix.name }}.sarif

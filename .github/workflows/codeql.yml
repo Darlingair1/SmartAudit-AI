@@ -24,7 +24,7 @@ jobs:
         language: [java-kotlin, python, javascript-typescript]
     steps:
       - uses: actions/checkout@v4
-      - uses: github/codeql-action/init@v3
+      - uses: github/codeql-action/init@v4
         with:
           languages: ${{ matrix.language }}
           queries: security-extended
@@ -39,7 +39,6 @@ jobs:
         if: matrix.language == 'java-kotlin'
         working-directory: backend-java
         run: ./mvnw --batch-mode -DskipTests package
-      - uses: github/codeql-action/analyze@v3
+      - uses: github/codeql-action/analyze@v4
         with:
           category: /language:${{ matrix.language }}
-
