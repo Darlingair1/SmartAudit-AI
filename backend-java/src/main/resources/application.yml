@@ -1,0 +1,95 @@
+﻿server:
+  port: 8080
+
+spring:
+  application:
+    name: smartaudit-backend
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}
+  servlet:
+    multipart:
+      # 单个文件最大 30MB
+      max-file-size: 30MB
+      # 单次请求总大小最大 30MB
+      max-request-size: 30MB
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # 建议通过环境变量注入数据库连接，避免明文泄露
+    url: ${DB_URL:jdbc:mysql://127.0.0.1:3306/smartaudit_ai?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true}
+    username: ${DB_USER:}
+    password: ${DB_PASS:}
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    locations: classpath:db/migration
+
+mybatis-plus:
+  configuration:
+    # 数据库下划线字段自动映射到 Java 驼峰属性
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      # 雪花算法 ID
+      id-type: assign_id
+      # 逻辑删除配置：0 未删，1 已删
+      logic-delete-field: isDeleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+      table-underline: true
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+smartaudit:
+  security:
+    fail-on-default-secrets: ${SMARTAUDIT_FAIL_ON_DEFAULT_SECRETS:true}
+    strict-auth-enabled: ${SMARTAUDIT_STRICT_AUTH_ENABLED:true}
+    jwt-secret: ${SMARTAUDIT_JWT_SECRET:}
+    jwt-expire-seconds: ${SMARTAUDIT_JWT_EXPIRE_SECONDS:7200}
+    bootstrap-admin:
+      username: ${SMARTAUDIT_BOOTSTRAP_ADMIN_USERNAME:admin}
+      password: ${SMARTAUDIT_BOOTSTRAP_ADMIN_PASSWORD:}
+      real-name: ${SMARTAUDIT_BOOTSTRAP_ADMIN_REAL_NAME:Bootstrap Administrator}
+  ai:
+    # 统一默认大模型（任务未指定时生效）
+    default-model: ${SMARTAUDIT_DEFAULT_MODEL:deepseek-v4-flash}
+    # Java -> Python 触发审查地址
+    python-job-url: ${SMARTAUDIT_AI_JOB_URL:http://localhost:8000/internal/v1/ai/audit/jobs}
+    # Java -> Python 删除任务时清理向量索引
+    python-cleanup-url: ${SMARTAUDIT_AI_CLEANUP_URL:http://localhost:8000/internal/v1/ai/audit/vector-index/cleanup}
+    # Java -> Python 内部接口令牌（可选）
+    python-internal-token: ${SMARTAUDIT_AI_INTERNAL_TOKEN:}
+    # Python -> Java 回调地址
+    callback-url: ${SMARTAUDIT_CALLBACK_URL:http://localhost:8080/api/v1/internal/audit/tasks/callback}
+    # 回调鉴权令牌（建议通过环境变量注入）
+    callback-token: ${SMARTAUDIT_CALLBACK_TOKEN:}
+    callback-signature:
+      enabled: ${SMARTAUDIT_CALLBACK_SIGNATURE_ENABLED:true}
+      secret: ${SMARTAUDIT_CALLBACK_SIGNATURE_SECRET:}
+      allowed-skew-seconds: ${SMARTAUDIT_CALLBACK_SIGNATURE_ALLOWED_SKEW_SECONDS:300}
+      nonce-ttl-seconds: ${SMARTAUDIT_CALLBACK_SIGNATURE_NONCE_TTL_SECONDS:600}
+    request-limit:
+      trigger-per-minute: ${SMARTAUDIT_TRIGGER_PER_MINUTE:30}
+      callback-per-minute: ${SMARTAUDIT_CALLBACK_PER_MINUTE:180}
+      sse-subscribe-per-minute: ${SMARTAUDIT_SSE_SUBSCRIBE_PER_MINUTE:120}
+  storage:
+    # 本地 PDF 存储根目录
+    local-base-dir: ${user.dir}/storage/pdfs
+    max-pdf-bytes: ${SMARTAUDIT_MAX_PDF_BYTES:31457280}
+  retention:
+    enabled: ${SMARTAUDIT_RETENTION_ENABLED:true}
+    days: ${SMARTAUDIT_RETENTION_DAYS:90}
+    cron: ${SMARTAUDIT_RETENTION_CRON:0 30 2 * * *}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      show-details: when_authorized

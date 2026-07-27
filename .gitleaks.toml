@@ -1,0 +1,17 @@
+title = "SmartAudit-AI secret scanning"
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Documentation placeholders that cannot authenticate"
+regexTarget = "match"
+regexes = [
+  '''<REQUIRED_[A-Z0-9_]+>''',
+  '''<SAME_AS_[A-Z0-9_]+>''',
+  '''your_[a-z0-9_]+'''
+]
+
+paths = [
+  '''(^|/)OPEN_SOURCE_ROADMAP\.md$'''
+]

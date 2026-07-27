@@ -1,0 +1,34 @@
+services:
+  mysql:
+    image: mysql:8.4
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-smartaudit_ai}
+      MYSQL_USER: ${DB_USER:-smartaudit}
+      MYSQL_PASSWORD: ${DB_PASS:-smartaudit}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-change-me-root}
+    ports: ["${MYSQL_HOST_PORT:-3306}:3306"]
+    volumes: ["mysql-data:/var/lib/mysql"]
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+  ai:
+    build: ./ai-python
+    env_file: [./ai-python/.env]
+    ports: ["8000:8000"]
+    depends_on: { mysql: { condition: service_healthy } }
+  backend:
+    build: ./backend-java
+    env_file: [./env.deploy]
+    environment:
+      DB_URL: jdbc:mysql://mysql:3306/${MYSQL_DATABASE:-smartaudit_ai}?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true
+      SMARTAUDIT_AI_JOB_URL: http://ai:8000/internal/v1/ai/audit/jobs
+    ports: ["8080:8080"]
+    depends_on: { mysql: { condition: service_healthy }, ai: { condition: service_started } }
+  frontend:
+    build: ./frontend
+    ports: ["5173:80"]
+    depends_on: [backend]
+volumes:
+  mysql-data:

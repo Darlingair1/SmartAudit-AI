@@ -1,0 +1,86 @@
+# IDE / OS
+.idea/
+.vscode/
+.claude/
+*.iml
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Local environment and credentials
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+env.deploy
+env.deploy.*
+!env.deploy.example
+backend-java/src/main/resources/application-local.yml
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+
+# Python environments and caches
+.venv/
+venv/
+**/.venv/
+**/venv/
+__pycache__/
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Node dependencies and build output
+node_modules/
+**/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/coverage/
+*.tsbuildinfo
+
+# Java/Maven build output
+backend-java/target/
+backend-java/.m2/
+*.class
+
+# Local models and release artifacts
+models/
+release/
+*.zip
+*.tar
+*.tar.gz
+*.7z
+*.bak
+local-backups/
+
+# Runtime data, databases, uploads and logs
+logs/
+storage/
+**/logs/
+**/storage/
+*.log
+*.db
+*.sqlite
+*.sqlite3
+*.pid
+*.tmp
+*.temp
+
+# Test and tool caches
+.cache/
+.scannerwork/
+playwright-report/
+test-results/
+ai-python/bench_*.json
+ai-python/mode_compare*.json
+
+# Local-only test artifacts pending provenance review
+ai-python/test.pdf

@@ -1,0 +1,57 @@
+services:
+  mysql:
+    environment:
+      MYSQL_DATABASE: smartaudit_e2e
+      MYSQL_USER: smartaudit_e2e
+      MYSQL_PASSWORD: e2e-db-pass
+      MYSQL_ROOT_PASSWORD: e2e-root-pass
+    volumes:
+      - mysql-e2e-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-pe2e-root-pass"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+  mock-llm:
+    build:
+      context: ./ai-python
+      dockerfile: Dockerfile.mock
+    command: ["python", "-m", "uvicorn", "e2e_mock_llm:app", "--host", "0.0.0.0", "--port", "9000"]
+    ports: ["9000:9000"]
+  ai:
+    depends_on: [mock-llm]
+    environment:
+      APP_ENV: e2e
+      LLM_PROVIDER: openai-compatible
+      OPENAI_API_KEY: e2e-not-real
+      OPENAI_BASE_URL: http://mock-llm:9000/v1
+      DEEPSEEK_BASE_URL: http://mock-llm:9000/v1
+      LLM_MODEL: e2e-mock
+      DEEPSEEK_API_KEY: e2e-not-real
+      CALLBACK_URL: http://backend:8080/api/v1/internal/audit/tasks/callback
+    volumes:
+      - e2e-storage:/app/storage
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+  backend:
+    environment:
+      SPRING_PROFILES_ACTIVE: e2e
+      DB_USER: smartaudit_e2e
+      DB_PASS: e2e-db-pass
+      DB_URL: jdbc:mysql://mysql:3306/smartaudit_e2e?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true
+      SMARTAUDIT_AI_JOB_URL: http://ai:8000/internal/v1/ai/audit/jobs
+      SMARTAUDIT_CALLBACK_URL: http://backend:8080/api/v1/internal/audit/tasks/callback
+    volumes:
+      - e2e-storage:/app/storage
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:8080/actuator/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+
+volumes:
+  mysql-e2e-data:
+  e2e-storage:

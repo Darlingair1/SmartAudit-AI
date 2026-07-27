@@ -1,0 +1,29 @@
+* text=auto
+
+*.bat text eol=crlf
+*.sh text eol=lf
+
+# Markdown hard breaks and upstream license formatting are intentional.
+*.md whitespace=-trailing-space,-blank-at-eof
+frontend/public/pdfjs/**/LICENSE* whitespace=-trailing-space,-blank-at-eof
+
+# Preserve the existing single blank line at EOF in source files.
+*.py whitespace=-blank-at-eof
+*.java whitespace=-blank-at-eof
+*.sql whitespace=-blank-at-eof
+*.html whitespace=-blank-at-eof
+*.js whitespace=-blank-at-eof
+*.vue whitespace=-blank-at-eof
+*.yml whitespace=-blank-at-eof
+
+*.pdf binary
+*.bcmap binary
+*.pfb binary
+*.ttf binary
+*.wasm binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.zip binary

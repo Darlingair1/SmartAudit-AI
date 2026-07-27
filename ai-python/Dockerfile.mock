@@ -1,0 +1,5 @@
+FROM python:3.12-slim
+WORKDIR /app
+RUN pip install --no-cache-dir fastapi==0.140.0 uvicorn==0.41.0
+COPY e2e_mock_llm.py .
+EXPOSE 9000
