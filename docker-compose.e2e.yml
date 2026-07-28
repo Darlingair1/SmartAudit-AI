@@ -28,6 +28,7 @@ services:
       DEEPSEEK_BASE_URL: http://mock-llm:9000/v1
       LLM_MODEL: e2e-mock
       DEEPSEEK_API_KEY: e2e-not-real
+      INTERNAL_API_TOKEN: e2e-internal-api-token
       CALLBACK_URL: http://backend:8080/api/v1/internal/audit/tasks/callback
       CALLBACK_SIGNATURE_SECRET: e2e-callback-signature-secret-32-chars-minimum
     volumes:
@@ -47,6 +48,7 @@ services:
       # Required by BootstrapAdminInitializer even though the E2E migration
       # already seeds the administrator account.
       SMARTAUDIT_BOOTSTRAP_ADMIN_PASSWORD: E2ePass1234!
+      SMARTAUDIT_AI_INTERNAL_TOKEN: e2e-internal-api-token
       SMARTAUDIT_CALLBACK_TOKEN: e2e-callback-token
       SMARTAUDIT_CALLBACK_SIGNATURE_SECRET: e2e-callback-signature-secret-32-chars-minimum
       DB_USER: smartaudit_e2e
