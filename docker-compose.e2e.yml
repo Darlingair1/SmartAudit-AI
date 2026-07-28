@@ -39,6 +39,13 @@ services:
   backend:
     environment:
       SPRING_PROFILES_ACTIVE: e2e
+      # E2E uses isolated, non-production credentials from this compose file.
+      # Disable the production secret preflight inherited from env.deploy.
+      SMARTAUDIT_FAIL_ON_DEFAULT_SECRETS: "false"
+      SMARTAUDIT_STRICT_AUTH_ENABLED: "false"
+      # Required by BootstrapAdminInitializer even though the E2E migration
+      # already seeds the administrator account.
+      SMARTAUDIT_BOOTSTRAP_ADMIN_PASSWORD: E2ePass1234!
       DB_USER: smartaudit_e2e
       DB_PASS: e2e-db-pass
       DB_URL: jdbc:mysql://mysql:3306/smartaudit_e2e?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true

@@ -1,3 +1,3 @@
 INSERT INTO sys_user (id, username, password_hash, real_name, role_code, status, is_deleted)
-VALUES (1, 'e2e-admin', 'E2ePass123!', 'E2E Admin', 'ADMIN', 1, 0)
+VALUES (1, 'e2e-admin', 'E2ePass1234!', 'E2E Admin', 'ADMIN', 1, 0)
 ON DUPLICATE KEY UPDATE username = VALUES(username), password_hash = VALUES(password_hash), real_name = VALUES(real_name), role_code = VALUES(role_code), status = 1, is_deleted = 0;
