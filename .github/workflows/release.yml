@@ -132,7 +132,7 @@ jobs:
           bash scripts/check-release-contents.sh release-check
           (cd release-artifacts && sha256sum -- ./* > SHA256SUMS)
       - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           tag_name: ${{ env.RELEASE_TAG }}
           generate_release_notes: true
