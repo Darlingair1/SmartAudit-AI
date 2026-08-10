@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import re
 import unicodedata
 from dataclasses import dataclass
@@ -76,6 +77,41 @@ def _same_page(retrieved_page: Any, expected_page: Any) -> bool:
         return False
 
 
+def _page_values(value: Any) -> list[int]:
+    decoded = value
+    if isinstance(value, str):
+        try:
+            decoded = json.loads(value)
+        except (TypeError, ValueError, json.JSONDecodeError):
+            return []
+    if not isinstance(decoded, (list, tuple, set)):
+        return []
+    pages: set[int] = set()
+    for page in decoded:
+        try:
+            normalized = int(page)
+        except (TypeError, ValueError):
+            continue
+        if normalized > 0:
+            pages.add(normalized)
+    return sorted(pages)
+
+
+def _matches_candidate_page(retrieved_chunk: Any, expected_page: Any) -> bool:
+    retrieved_pages = _page_values(_field(retrieved_chunk, "page_nos"))
+    if not retrieved_pages:
+        metadata = _field(retrieved_chunk, "metadata")
+        if isinstance(metadata, Mapping):
+            retrieved_pages = _page_values(metadata.get("page_nos"))
+    if retrieved_pages:
+        try:
+            return int(expected_page) in retrieved_pages
+        except (TypeError, ValueError):
+            return False
+    retrieved_page = _field(retrieved_chunk, "page", "page_no")
+    return _same_page(retrieved_page, expected_page)
+
+
 def match_evidence(
     retrieved_chunk: Any,
     expected_evidence: Any,
@@ -85,9 +121,8 @@ def match_evidence(
     if not 0.0 <= min_text_coverage <= 1.0:
         raise ValueError("min_text_coverage must be between 0 and 1")
 
-    retrieved_page = _field(retrieved_chunk, "page", "page_no")
     expected_page = _field(expected_evidence, "page", "page_no", "gold_page_no")
-    page_match = _same_page(retrieved_page, expected_page)
+    page_match = _matches_candidate_page(retrieved_chunk, expected_page)
     coverage = _text_coverage(
         str(_field(retrieved_chunk, "text", "snippet", "page_content") or ""),
         str(_field(expected_evidence, "text", "excerpt", "gold_excerpt") or ""),

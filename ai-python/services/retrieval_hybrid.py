@@ -1,13 +1,14 @@
 from __future__ import annotations
 
 import hashlib
+import json
 import math
 import re
 from collections import defaultdict
 from dataclasses import dataclass
 from pathlib import Path
 from time import perf_counter
-from typing import Any, Dict, List, Sequence, Tuple
+from typing import Any, Dict, Iterable, List, Sequence, Tuple
 
 from langchain_chroma import Chroma
 from langchain_core.documents import Document
@@ -18,6 +19,77 @@ from services.legal_tokenizer import tokenize_legal_text
 from services.v3_types import ChildChunk, ParentChunk, RetrievalCandidate, SecurityContext
 
 _EMBED_CACHE: Dict[Tuple[str, str, bool, int], HuggingFaceEmbeddings] = {}
+
+
+@dataclass(frozen=True)
+class PageSegment:
+    page_no: int
+    start_offset: int
+    end_offset: int
+
+
+def _canonical_page_nos(page_nos: Iterable[Any]) -> List[int]:
+    normalized: set[int] = set()
+    for page_no in page_nos:
+        try:
+            value = int(page_no)
+        except (TypeError, ValueError):
+            continue
+        if value > 0:
+            normalized.add(value)
+    return sorted(normalized)
+
+
+def _encode_page_nos_metadata(page_nos: Sequence[int]) -> str:
+    return json.dumps(_canonical_page_nos(page_nos), separators=(",", ":"))
+
+
+def _decode_page_nos_metadata(value: Any, fallback_page_no: Any = None) -> List[int]:
+    decoded: Any = value
+    if isinstance(value, str):
+        try:
+            decoded = json.loads(value)
+        except (TypeError, ValueError, json.JSONDecodeError):
+            decoded = []
+    if isinstance(decoded, (list, tuple, set)):
+        page_nos = _canonical_page_nos(decoded)
+        if page_nos:
+            return page_nos
+    try:
+        fallback = int(fallback_page_no)
+    except (TypeError, ValueError):
+        fallback = 0
+    return [fallback] if fallback > 0 else []
+
+
+def _build_parent_text_and_segments(
+    pages: Sequence[Tuple[int, str]],
+) -> tuple[str, List[PageSegment]]:
+    blocks = [f"[Page {page_no}] {text}" for page_no, text in pages]
+    combined = "\n".join(blocks).strip()
+    segments: List[PageSegment] = []
+    cursor = 0
+    for index, (page_no, text) in enumerate(pages):
+        if index:
+            cursor += 1
+        marker = f"[Page {page_no}] "
+        body_start = cursor + len(marker)
+        body_end = body_start + len(text)
+        if combined[body_start:body_end] != text:
+            raise ValueError("parent page segment offsets do not match combined text")
+        segments.append(PageSegment(page_no, body_start, body_end))
+        cursor += len(marker) + len(text)
+    return combined, segments
+
+
+def _page_nos_for_interval(
+    segments: Sequence[PageSegment], start_offset: int, end_offset: int
+) -> List[int]:
+    return _canonical_page_nos(
+        segment.page_no
+        for segment in segments
+        if start_offset < segment.end_offset and end_offset > segment.start_offset
+    )
 
 
 def _resolve_local_path(path_value: str) -> Path:
@@ -84,7 +156,7 @@ def build_parent_child_chunks(
         p_id = f"p-{parent_idx:04d}"
         page_start = carry_pages[0][0]
         page_end = carry_pages[-1][0]
-        parent_text = "\n".join([f"[Page {p}] {t}" for p, t in carry_pages]).strip()
+        parent_text, page_segments = _build_parent_text_and_segments(carry_pages)
         parent_meta = {
             "tenant_id": sec.tenant_id,
             "org_id": sec.org_id,
@@ -114,24 +186,29 @@ def build_parent_child_chunks(
         step = max(1, char_size - char_overlap)
         offset = 0
         while offset < len(compact):
-            chunk = compact[offset : offset + char_size].strip()
+            offset_end = min(len(compact), offset + char_size)
+            chunk = compact[offset:offset_end].strip()
             if not chunk:
                 break
             child_idx += 1
             c_id = f"c-{parent_idx:04d}-{child_idx:04d}"
-            page_no = page_start
-            # choose first page marker within chunk if present
-            m = re.search(r"\[Page\s+(\d+)\]", chunk)
-            if m:
-                page_no = int(m.group(1))
+            page_nos = _page_nos_for_interval(page_segments, offset, offset_end)
+            if not page_nos:
+                raise ValueError(f"child {c_id} does not overlap any physical page text")
+            child_page_start = page_nos[0]
+            child_page_end = page_nos[-1]
+            page_no = child_page_start
             meta = dict(parent_meta)
             meta.update(
                 {
                     "page_no": page_no,
+                    "page_start": child_page_start,
+                    "page_end": child_page_end,
+                    "page_nos": page_nos,
                     "parent_id": p_id,
                     "child_id": c_id,
                     "offset_start": offset,
-                    "offset_end": min(len(compact), offset + char_size),
+                    "offset_end": offset_end,
                 }
             )
             children.append(
@@ -141,8 +218,11 @@ def build_parent_child_chunks(
                     text=chunk,
                     page_no=page_no,
                     offset_start=offset,
-                    offset_end=min(len(compact), offset + char_size),
+                    offset_end=offset_end,
                     metadata=meta,
+                    page_start=child_page_start,
+                    page_end=child_page_end,
+                    page_nos=page_nos,
                 )
             )
             offset += step
@@ -233,6 +313,7 @@ def _index_vector_children(children: Sequence[ChildChunk], sec: SecurityContext,
     ids = []
     for chunk in children:
         meta = dict(chunk.metadata)
+        meta["page_nos"] = _encode_page_nos_metadata(chunk.page_nos)
         meta["tenant_id"] = sec.tenant_id
         meta["task_id"] = sec.task_id
         docs.append(Document(page_content=chunk.text, metadata=meta))
@@ -287,6 +368,9 @@ def retrieve_hybrid_for_risk(
                     query_source=query,
                     matched_terms=_extract_matched_terms(query, ch.text),
                     metadata=dict(ch.metadata),
+                    page_start=ch.page_start,
+                    page_end=ch.page_end,
+                    page_nos=list(ch.page_nos),
                 )
                 old = scored.get(cid)
                 if old is None or score > old[0]:
@@ -315,17 +399,24 @@ def retrieve_hybrid_for_risk(
                     if cid in seen:
                         continue
                     seen.add(cid)
+                    page_no = int(doc.metadata.get("page_no") or 1)
+                    page_nos = _decode_page_nos_metadata(
+                        doc.metadata.get("page_nos"), fallback_page_no=page_no
+                    )
                     cand = RetrievalCandidate(
                         candidate_id=cid,
                         parent_id=str(doc.metadata.get("parent_id") or ""),
                         child_id=child_id,
-                        page_no=int(doc.metadata.get("page_no") or 1),
+                        page_no=page_nos[0],
                         clause_id=str(doc.metadata.get("clause_id") or ""),
                         clause_title=str(doc.metadata.get("clause_title") or ""),
                         snippet=str(doc.page_content or "")[:700],
                         query_source=query,
                         matched_terms=_extract_matched_terms(query, str(doc.page_content or "")),
                         metadata=dict(doc.metadata),
+                        page_start=page_nos[0],
+                        page_end=page_nos[-1],
+                        page_nos=page_nos,
                     )
                     cand.vector_rank = rank
                     # Keep pure RRF fusion semantics:
@@ -357,6 +448,9 @@ def retrieve_hybrid_for_risk(
                         query_source="keyword_regex",
                         matched_terms=[risk_type],
                         metadata=dict(ch.metadata),
+                        page_start=ch.page_start,
+                        page_end=ch.page_end,
+                        page_nos=list(ch.page_nos),
                     )
                 )
             if len(vector_candidates) >= 5:

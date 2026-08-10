@@ -10,6 +10,26 @@
         "purpose": "integration_smoke_test_and_dev_bootstrap",
         "license": "project-authored synthetic fixture"
       }
+    },
+    {
+      "document_id": "synthetic_purchase_contract_001",
+      "path": "../documents/synthetic/synthetic_purchase_contract_001.md",
+      "source_type": "synthetic",
+      "sha256": "9362fc1974cc679b5d1d0bebdea4840160a5216f5a5f58be7b57d50b317fed72",
+      "metadata": {
+        "purpose": "development_benchmark",
+        "license": "project-authored synthetic evaluation document"
+      }
+    },
+    {
+      "document_id": "synthetic_software_service_contract_001",
+      "path": "../documents/synthetic/synthetic_software_service_contract_001.md",
+      "source_type": "synthetic",
+      "sha256": "265ad1b35374903377a2fced1064f68c8e2d1a21865bee2e20e1ff1f99997f16",
+      "metadata": {
+        "purpose": "development_benchmark",
+        "license": "project-authored synthetic evaluation document"
+      }
     }
   ]
 }

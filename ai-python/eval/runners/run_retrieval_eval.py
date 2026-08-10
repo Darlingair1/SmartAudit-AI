@@ -4,7 +4,7 @@ import argparse
 import hashlib
 import json
 import subprocess
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
 from time import perf_counter
@@ -28,6 +28,7 @@ class RetrievedChunk:
     page: int | None
     score: float
     text: str
+    page_nos: list[int] = field(default_factory=list)
 
 
 class Retriever(Protocol):
@@ -168,6 +169,7 @@ class CurrentPipelineRetriever:
                     candidate.metadata.get("rerank_score", candidate.rrf_score)
                 ),
                 text=candidate.snippet,
+                page_nos=list(candidate.page_nos),
             )
             for candidate in reranked[:limit]
         ]
@@ -246,6 +248,7 @@ def evaluate_case(
                 "chunk_id": chunk.chunk_id,
                 "parent_id": chunk.parent_id,
                 "page": chunk.page,
+                "page_nos": list(chunk.page_nos),
                 "score": chunk.score,
                 "text_preview": chunk.text[:500],
                 "matched_gold": matched_gold,

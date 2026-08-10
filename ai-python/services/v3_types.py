@@ -48,6 +48,9 @@ class ChildChunk:
     offset_start: int
     offset_end: int
     metadata: Dict[str, Any] = field(default_factory=dict)
+    page_start: int | None = None
+    page_end: int | None = None
+    page_nos: List[int] = field(default_factory=list)
 
 
 @dataclass
@@ -65,6 +68,9 @@ class RetrievalCandidate:
     query_source: str = ""
     matched_terms: List[str] = field(default_factory=list)
     metadata: Dict[str, Any] = field(default_factory=dict)
+    page_start: int | None = None
+    page_end: int | None = None
+    page_nos: List[int] = field(default_factory=list)
 
 
 @dataclass
@@ -93,4 +99,3 @@ class FinalCheckResult:
     overall_support_status: SupportStatus
     unsupported_claims: List[str]
     requires_human_review: bool
-
