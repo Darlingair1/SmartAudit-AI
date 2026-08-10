@@ -1,0 +1,15 @@
+{
+  "manifest_version": "v1",
+  "documents": [
+    {
+      "document_id": "synthetic-contract-smoke",
+      "path": "../documents/synthetic/synthetic_contract_smoke.md",
+      "source_type": "synthetic",
+      "sha256": "381654cb9c45c4b6f58db8818c4587fe7a03b71fe3d4e02568ca54eef36c06fd",
+      "metadata": {
+        "purpose": "integration_smoke_test_and_dev_bootstrap",
+        "license": "project-authored synthetic fixture"
+      }
+    }
+  ]
+}
