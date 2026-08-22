@@ -1,6 +1,8 @@
 from core.config import Settings
 from services.retrieval_hybrid import (
     _build_parent_text_and_segments,
+    _chroma_security_filter,
+    _encode_chroma_metadata,
     _decode_page_nos_metadata,
     _encode_page_nos_metadata,
     _page_nos_for_interval,
@@ -143,6 +145,55 @@ def test_chroma_page_nos_json_round_trip_is_canonical() -> None:
 def test_chroma_page_nos_legacy_fallback_uses_page_no() -> None:
     assert _decode_page_nos_metadata(None, fallback_page_no=5) == [5]
     assert _decode_page_nos_metadata("", fallback_page_no="6") == [6]
+
+
+def test_chroma_metadata_encoder_drops_none_and_preserves_scalars() -> None:
+    encoded = _encode_chroma_metadata(
+        {
+            "chapter_no": None,
+            "page_nos": [4, 3, 4],
+            "page_no": 3,
+            "score": 0.0,
+            "enabled": False,
+            "title": "clause",
+        }
+    )
+    assert encoded == {
+        "page_nos": "[3,4]",
+        "page_no": 3,
+        "score": 0.0,
+        "enabled": False,
+        "title": "clause",
+    }
+
+
+def test_chroma_metadata_encoder_rejects_unexpected_complex_values() -> None:
+    import pytest
+
+    with pytest.raises(TypeError, match="unsupported Chroma metadata type"):
+        _encode_chroma_metadata({"unexpected": {"nested": True}})
+
+
+def test_chroma_security_filter_uses_explicit_and_operator() -> None:
+    from chromadb.api.types import validate_where
+
+    security = SecurityContext(
+        tenant_id="tenant-a",
+        org_id="org-a",
+        user_id="user-a",
+        permission_scope="test",
+        task_id="task-a",
+        document_id="document-a",
+        contract_id="contract-a",
+    )
+    where = _chroma_security_filter(security)
+    assert where == {
+        "$and": [
+            {"tenant_id": {"$eq": "tenant-a"}},
+            {"task_id": {"$eq": "task-a"}},
+        ]
+    }
+    validate_where(where)
 
 
 def test_retrieval_candidate_page_nos_default_factory_is_not_shared() -> None:

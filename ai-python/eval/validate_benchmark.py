@@ -21,9 +21,9 @@ class BenchmarkValidationError(ValueError):
 def _load_document_pages(path: Path) -> list[str]:
     suffix = path.suffix.lower()
     if suffix == ".pdf":
-        from pypdf import PdfReader
+        from services.document_parser import load_pdf_pages
 
-        return [str(page.extract_text() or "") for page in PdfReader(str(path)).pages]
+        return load_pdf_pages(path)
     if suffix in {".txt", ".md"}:
         return path.read_text(encoding="utf-8").split("\f")
     raise ValueError(f"unsupported document type: {suffix or '<none>'}")

@@ -1,0 +1,603 @@
+{
+  "metadata": {
+    "dataset": "G:\\xiangmu\\ai-python\\eval\\datasets\\tmp_dos010_repeatability.jsonl",
+    "dataset_version": "v1",
+    "profile": "current",
+    "case_count": 3,
+    "dataset_case_count": 3,
+    "excluded_draft_count": 0,
+    "timestamp": "2026-08-22T07:19:54.393468Z",
+    "git_commit": "2e557d4d1f3e81cac54304905fcd2a88185bf184",
+    "embedding_model": "G:\\xiangmu\\models\\bge-m3",
+    "reranker_model": "bge-reranker-v2-m3",
+    "min_text_coverage": 0.7,
+    "require_page_match": true,
+    "environment": {
+      "python_version": "3.11.5",
+      "pypdf_version": "6.14.2"
+    },
+    "document_fingerprints": {
+      "public_uk_dwp_dos010_curam_technical_architect_2017": {
+        "document_sha256": "dd1f1e1da81075a1fb9f40d313f2c531ad9b7da9b61f4defb36d0a8c7fe9760b",
+        "extraction_sha256": "148357ca818fc3972ba37a4312da34e05323e614210b4c573e659baaf38aed34"
+      }
+    }
+  },
+  "coverage": {
+    "total_case_count": 3,
+    "retrieval_executed_count": 3,
+    "retrieval_success_count": 3,
+    "document_not_found_count": 0,
+    "retrieval_error_count": 0,
+    "evaluation_coverage": 1.0
+  },
+  "metrics": {
+    "hit_at_1": 1.0,
+    "recall_at_1": 0.555556,
+    "hit_at_3": 1.0,
+    "recall_at_3": 0.777778,
+    "hit_at_5": 1.0,
+    "recall_at_5": 0.888889,
+    "hit_at_10": 1.0,
+    "recall_at_10": 1.0,
+    "mrr": 1.0,
+    "latency": {
+      "mean_ms": 76591.032,
+      "median_ms": 6741.898,
+      "p95_ms": 218984.837
+    }
+  },
+  "execution": {
+    "total_runtime_ms": 231861.488,
+    "document_cache_hits": 2,
+    "document_cache_misses": 1,
+    "cross_encoder_success_count": 0,
+    "cross_encoder_timeout_fallback_count": 3,
+    "cross_encoder_other_fallback_count": 0
+  },
+  "cases": [
+    {
+      "case_id": "public_uk_dwp_dos010_curam_technical_architect_2017_q_004",
+      "document_id": "public_uk_dwp_dos010_curam_technical_architect_2017",
+      "query": "If a SOW has a capped or fixed price and that price is exceeded, who bears the excess cost?",
+      "status": "success",
+      "error_review_category": null,
+      "retrieval_executed": true,
+      "retrieval_successful": true,
+      "first_relevant_rank": 1,
+      "mrr": 1.0,
+      "hit_at_1": true,
+      "recall_at_1": 1.0,
+      "hit_at_3": true,
+      "recall_at_3": 1.0,
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "hit_at_10": true,
+      "recall_at_10": 1.0,
+      "latency_ms": 218984.837,
+      "timing": {
+        "document_cache_hit": false,
+        "runtime_initialization_ms": 21190.583,
+        "document_prepare_ms": 189618.351,
+        "document_cache_lookup_ms": 0.0,
+        "retrieval_ms": 773.8,
+        "reranker_ms": 7401.0,
+        "reranker_status": "timeout_fallback",
+        "retrieval_fallback_path": "hybrid",
+        "document_sha256": "dd1f1e1da81075a1fb9f40d313f2c531ad9b7da9b61f4defb36d0a8c7fe9760b",
+        "settings_fingerprint": "6f689848a1a719572b93ce7ccc9dc63fe307c8ee491efb7956100efc6154279e",
+        "matcher_ms": 28.73
+      },
+      "reranker_status": "timeout_fallback",
+      "matched_evidence": [
+        {
+          "gold_index": 0,
+          "rank": 1,
+          "page": 12,
+          "text": "3.4.3 If a capped or fixed price has been agreed for a SOW: \n● The Supplier will continue at its own cost and expense to provide the Services even where the \nagreed price has been exceeded; and \n● The Buyer will have no obligation or liability to pay for the cost of any Services delivered relating \nto this order after the agreed price has been exceeded.",
+          "text_coverage": 1.0
+        }
+      ],
+      "top_results": [
+        {
+          "rank": 1,
+          "chunk_id": "c-0012-0078",
+          "parent_id": "p-0012",
+          "page": 12,
+          "page_nos": [
+            12
+          ],
+          "score": 0.370993,
+          "text_preview": "Contract Change Note (CCN) to continue delivery of Services) \n \n3.4.3 If a capped or fixed price has been agreed for a SOW: \n● The Supplier will continue at its own cost and expense to provide the Services even where the \nagreed price has been exceeded; and \n● The Buyer will have no obligation or liability to pay for the cost of any Services delivered relating \nto this order after the agreed price has been exceeded.",
+          "matched_gold": [
+            0
+          ]
+        },
+        {
+          "rank": 2,
+          "chunk_id": "c-0012-0077",
+          "parent_id": "p-0012",
+          "page": 12,
+          "page_nos": [
+            12
+          ],
+          "score": 0.345788,
+          "text_preview": "to include: \n● Total value of this SOW \n● Overall Call-Off Contract value \n● Remainder of value under overall Call-Off Contract Charge \n Where:  \nRemainder of value under overall Call-Off Contract Charge = overall Call-Off Contract value - \nsum of total value of all SOWs invoiced \n● Whether there is any risk of exceeding Overall Call-Off Contract value (and thereby requiring a \nContract Change Note (CCN) to continue delivery of Services) \n \n3.4.3 If a capped or fixed price has been agreed for a",
+          "matched_gold": []
+        },
+        {
+          "rank": 3,
+          "chunk_id": "c-0028-0210",
+          "parent_id": "p-0028",
+          "page": 28,
+          "page_nos": [
+            28
+          ],
+          "score": 0.245128,
+          "text_preview": "acticable and the Parties will help and provide the documentation that the expert needs for the \ndetermination; \n● any amount payable by one Party to another as a result of the expert's determination will be \ndue and payable within 20 Working Days of the expert's determination being notified to the Parties  \n● the process will be conducted in private and will be confidential; \n● the expert will determine how and by whom the costs of the determination, including their \nfees and expenses, are to b",
+          "matched_gold": []
+        },
+        {
+          "rank": 4,
+          "chunk_id": "c-0028-0211",
+          "parent_id": "p-0028",
+          "page": 28,
+          "page_nos": [
+            28
+          ],
+          "score": 0.230566,
+          "text_preview": "● the expert will determine how and by whom the costs of the determination, including their \nfees and expenses, are to be paid. \n \n22.8  Without prejudice to any other rights of the Buyer under the Call-Off Contract, the obligations of the \nParties under the Call-Off Contract will not be suspended, ceased or delayed by the reference of a dispute \nsubmitted to mediation or expert determination and the Supplier and the Supplier Staff will comply fully with \nthe Requirements of the Call-Off Contrac",
+          "matched_gold": []
+        },
+        {
+          "rank": 5,
+          "chunk_id": "c-0014-0087",
+          "parent_id": "p-0014",
+          "page": 14,
+          "page_nos": [
+            14
+          ],
+          "score": 0.216272,
+          "text_preview": "SOW is lower than the  overall Call-Off \nContract value, and subsequent SOW(s) are required to ensure the Services are delivered, they \nmust be raised and signed by the Buyer and the Supplier, with a copy sent to CCS for its records.  \n \nIf you exceed the overall Call-Off Contract value and Supplier Staff are still required to deliver the \nservices, then a contract change note (CCN) must be raised, explaining the reason(s) for the \nextension.",
+          "matched_gold": []
+        },
+        {
+          "rank": 6,
+          "chunk_id": "c-0033-0264",
+          "parent_id": "p-0033",
+          "page": 33,
+          "page_nos": [
+            33
+          ],
+          "score": 0.216143,
+          "text_preview": "waived only in writing by  the Buyer or \nthe Supplier representatives in a way that expressly states that a waiver is intended, and such waiver will \nonly be operative regarding the specific circumstances referred to. \n \n35.2  Unless a right or remedy of the Buyer is expressed to be exclusive, the exercise of it by the Buyer is \nwithout prejudice to the Buyer’s other rights and remedies. Any failure to exercise, or any delay in exercising,",
+          "matched_gold": []
+        },
+        {
+          "rank": 7,
+          "chunk_id": "c-0022-0141",
+          "parent_id": "p-0022",
+          "page": 22,
+          "page_nos": [
+            22
+          ],
+          "score": 0.205311,
+          "text_preview": "ed to be a Material Breach. \n \n12.3  A conflict of interest may arise in situations including where a member of the Supplier Staff:  \n \n● is related to someone in another Supplier team who both form part of the same team \nperforming the Services under the Framework Agreement; \n● has a business interest in another Supplier who is part of the same team performing the \nServices under the Framework Agreement; \n● is providing, or has provided, Services to the Buyer for the discovery phase; or  \n● has",
+          "matched_gold": []
+        },
+        {
+          "rank": 8,
+          "chunk_id": "c-0019-0116",
+          "parent_id": "p-0019",
+          "page": 19,
+          "page_nos": [
+            19
+          ],
+          "score": 0.184033,
+          "text_preview": "rface and interoperability between third-party software \nor Services and software or Services developed by the Supplier. \n6.5  The Supplier warrants that it has full capacity and authority and all necessary authorisations, \nconsents, licences and permissions to perform the Call-Off Contract.",
+          "matched_gold": []
+        },
+        {
+          "rank": 9,
+          "chunk_id": "c-0012-0079",
+          "parent_id": "p-0012",
+          "page": 12,
+          "page_nos": [
+            12
+          ],
+          "score": 0.144918,
+          "text_preview": "fter the agreed price has been exceeded.",
+          "matched_gold": []
+        },
+        {
+          "rank": 10,
+          "chunk_id": "c-0004-0026",
+          "parent_id": "p-0004",
+          "page": 4,
+          "page_nos": [
+            4
+          ],
+          "score": 0.126739,
+          "text_preview": "ve and the Buyer reserves the right to \nprocure equivalent of similar services via methods at its discretion.",
+          "matched_gold": []
+        }
+      ],
+      "error": null
+    },
+    {
+      "case_id": "public_uk_dwp_dos010_curam_technical_architect_2017_q_005",
+      "document_id": "public_uk_dwp_dos010_curam_technical_architect_2017",
+      "query": "Under the confidentiality rules, is disclosure permitted where it is legally required, and is it permitted merely because the information became public through a breach? Which Supplier Staff may receive the Buyer’s Confidential Information?",
+      "status": "success",
+      "error_review_category": null,
+      "retrieval_executed": true,
+      "retrieval_successful": true,
+      "first_relevant_rank": 1,
+      "mrr": 1.0,
+      "hit_at_1": true,
+      "recall_at_1": 0.3333333333333333,
+      "hit_at_3": true,
+      "recall_at_3": 0.6666666666666666,
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "hit_at_10": true,
+      "recall_at_10": 1.0,
+      "latency_ms": 6741.898,
+      "timing": {
+        "document_cache_hit": true,
+        "runtime_initialization_ms": 0.042,
+        "document_prepare_ms": 0.0,
+        "document_cache_lookup_ms": 8.05,
+        "retrieval_ms": 3696.084,
+        "reranker_ms": 3037.0,
+        "reranker_status": "timeout_fallback",
+        "retrieval_fallback_path": "hybrid",
+        "document_sha256": "dd1f1e1da81075a1fb9f40d313f2c531ad9b7da9b61f4defb36d0a8c7fe9760b",
+        "settings_fingerprint": "6f689848a1a719572b93ce7ccc9dc63fe307c8ee491efb7956100efc6154279e",
+        "matcher_ms": 37.001
+      },
+      "reranker_status": "timeout_fallback",
+      "matched_evidence": [
+        {
+          "gold_index": 0,
+          "rank": 4,
+          "page": 21,
+          "text": "● must be disclosed to comply with legal obligations placed on the Party making the disclosure",
+          "text_coverage": 1.0
+        },
+        {
+          "gold_index": 1,
+          "rank": 5,
+          "page": 21,
+          "text": "● is, or becomes, public knowledge, other than by breach of this Clause or the Call -Off \nContract",
+          "text_coverage": 1.0
+        },
+        {
+          "gold_index": 2,
+          "rank": 2,
+          "page": 22,
+          "text": "11.5  The Supplier may only disclose the Buyer’s Confidential Information to Supplier Staff who are \ndirectly involved in the provision of the Services and who need to know the information to provide the \nServices. The Supplier will ensure that its Supplier Staff will comply with these obligations.",
+          "text_coverage": 1.0
+        }
+      ],
+      "top_results": [
+        {
+          "rank": 1,
+          "chunk_id": "c-0021-0133",
+          "parent_id": "p-0021",
+          "page": 21,
+          "page_nos": [
+            21
+          ],
+          "score": 0.336051,
+          "text_preview": "ecomes, public knowledge, other than by breach of this Clause or the Call -Off \nContract \n● is independently developed without access to the other Party’s Confidential Information  \n● is disclosed to obtain confidential legal professional advice. \n11.3  The Buyer may disclose the Supplier’s Confidential Information: \n● to any central government body on the basis that the information may only be further \ndisclosed to central government bodies; \n● to the UK Parliament, Scottish Parliament or Welsh",
+          "matched_gold": [
+            1
+          ]
+        },
+        {
+          "rank": 2,
+          "chunk_id": "c-0022-0137",
+          "parent_id": "p-0022",
+          "page": 22,
+          "page_nos": [
+            22
+          ],
+          "score": 0.3359,
+          "text_preview": "confident iality \nagreement or arrangement containing the same terms as those placed on the Buyer under this Clause.  \n \n11.5  The Supplier may only disclose the Buyer’s Confidential Information to Supplier Staff who are \ndirectly involved in the provision of the Services and who need to know the information to provide the \nServices. The Supplier will ensure that its Supplier Staff will comply with these obligations.  \n \n11.6  Either Party may use techniques, ideas or knowledge gained during the",
+          "matched_gold": [
+            2
+          ]
+        },
+        {
+          "rank": 3,
+          "chunk_id": "c-0022-0138",
+          "parent_id": "p-0022",
+          "page": 22,
+          "page_nos": [
+            22
+          ],
+          "score": 0.302161,
+          "text_preview": "taff will comply with these obligations.  \n \n11.6  Either Party may use techniques, ideas or knowledge gained during the Call-Off Contract unless the \nuse of these things results in them disclosing the other Party’s Confidential Information where such \ndisclosure is not permitted by the Framework Agreement, or is an infringement of Intellectual Property \nRights. \n \n11.7  Information about orders placed by a Buyer (including pricing information and the terms of any Call-\nOff Contract) may be publ",
+          "matched_gold": []
+        },
+        {
+          "rank": 4,
+          "chunk_id": "c-0021-0131",
+          "parent_id": "p-0021",
+          "page": 21,
+          "page_nos": [
+            21
+          ],
+          "score": 0.287267,
+          "text_preview": "for insurance excess or any deductible \nfrom CCS or the Buyer. \n \n11. Confidentiality  \n \n11.1  Except where disclosure is clearly permitted by the Call-Off Contract, neither Party will disclose the \nother Party’s Confidential Information without the relevant Party’s prior written consent.  \n \n11.2  Disclosure of Confidential Information is permitted where information: \n● must be disclosed to comply with legal obligations placed on the Party making the disclosure \n● belongs to the Party making t",
+          "matched_gold": [
+            0
+          ]
+        },
+        {
+          "rank": 5,
+          "chunk_id": "c-0021-0132",
+          "parent_id": "p-0021",
+          "page": 21,
+          "page_nos": [
+            21
+          ],
+          "score": 0.283248,
+          "text_preview": "be disclosed to comply with legal obligations placed on the Party making the disclosure \n● belongs to the Party making the disclosure (who is not under any obligation of confidentiality) \nbefore its disclosure by the information owner \n● was obtained from a third party who is not under any obligation of confidentiality, before \nreceiving it from the disclosing Party \n● is, or becomes, public knowledge, other than by breach of this Clause or the Call -Off \nContract \n● is independently developed w",
+          "matched_gold": [
+            0,
+            1
+          ]
+        },
+        {
+          "rank": 6,
+          "chunk_id": "c-0004-0021",
+          "parent_id": "p-0004",
+          "page": 4,
+          "page_nos": [
+            4
+          ],
+          "score": 0.275987,
+          "text_preview": "s, as \ncontained within Part B Schedule 2 (Supplier’s response) are confidential and \ncommercially sensitive \n \nAny information relating to the Supplier’s other customers that has been \nobtained as a result of the Services or as result of procuring the Services \n(including pre-contract references) is commercially sensitive information. \n \nThe Supplier’s IPR or where the Supplier has reasonably and formally \ninstructed to the Buyer that, if disclosed by the Buyer, would cause the \nSupplier signif",
+          "matched_gold": []
+        },
+        {
+          "rank": 7,
+          "chunk_id": "c-0030-0229",
+          "parent_id": "p-0030",
+          "page": 30,
+          "page_nos": [
+            30
+          ],
+          "score": 0.268699,
+          "text_preview": "d; and  \n○ the Buyer and the replacement supplier can conduct due diligence. \n \n24.4 Each Party will return all of the other Party’s Confidential Information. Each Party will confirm that it \ndoes not retain the other Party’s Confidential Information except where the informati on must be retained by \nthe Party as a legal requirement or where the Call-Off Contract states otherwise. \n \n24.5 All licences, leases and authorisations granted by the Buyer to the Supplier in relation to the \nServices wi",
+          "matched_gold": []
+        },
+        {
+          "rank": 8,
+          "chunk_id": "c-0025-0175",
+          "parent_id": "p-0025",
+          "page": 25,
+          "page_nos": [
+            25
+          ],
+          "score": 0.250868,
+          "text_preview": "n in a format that requires conversion before \npublication as open source software, the Supplier shall also provide the converted format to the Authority \nunless the Authority agrees in advance in writing that the converted format is not re quired. \n \n14.  Data Protection and Disclosure \n14.1 The Supplier shall comply with any notification requirements under the DPA and both Parties will duly \nobserve all their obligations under the DPA which arise in connection with the Framework Agreement or u",
+          "matched_gold": []
+        },
+        {
+          "rank": 9,
+          "chunk_id": "c-0025-0174",
+          "parent_id": "p-0025",
+          "page": 25,
+          "page_nos": [
+            25
+          ],
+          "score": 0.239666,
+          "text_preview": "om the Buyer Software or the Buyer Data, \nwhile the Buyer Data was under the control of the Buyer. \n \n13.24 All Deliverables that are software shall be created in a format, or able to be converted into a format, \nwhich is suitable for publication by the Buyer as open source software, unless otherwise agreed by the \nBuyer. \n \n13.25 Where Deliverables that are software are written in a format that requires conversion before \npublication as open source software, the Supplier shall also provide the",
+          "matched_gold": []
+        },
+        {
+          "rank": 10,
+          "chunk_id": "c-0036-0284",
+          "parent_id": "p-0036",
+          "page": 36,
+          "page_nos": [
+            36
+          ],
+          "score": 0.218726,
+          "text_preview": "[Page 36] Digital Outcomes & Specialists 2 Framework Agreement Call Off Contract  \nDOS_010 - CURAM Technical Architect required for the delivery of a Cúram upgrade  \n_________________________________________________________ _____________________________ \n \nDigital Outcomes and Specialists 2 Framework Agreement Call-off Contract  Page 36 of 41 \nAny other information clearly designated as being confidential or \nwhich ought reasonably be considered to be confidential (whether \nor not it is marked '",
+          "matched_gold": []
+        }
+      ],
+      "error": null
+    },
+    {
+      "case_id": "public_uk_dwp_dos010_curam_technical_architect_2017_q_008",
+      "document_id": "public_uk_dwp_dos010_curam_technical_architect_2017",
+      "query": "Which Supplier indemnities are unlimited, and are regulatory losses or fines arising from the Supplier’s breach of Law treated as recoverable direct loss?",
+      "status": "success",
+      "error_review_category": null,
+      "retrieval_executed": true,
+      "retrieval_successful": true,
+      "first_relevant_rank": 1,
+      "mrr": 1.0,
+      "hit_at_1": true,
+      "recall_at_1": 0.3333333333333333,
+      "hit_at_3": true,
+      "recall_at_3": 0.6666666666666666,
+      "hit_at_5": true,
+      "recall_at_5": 0.6666666666666666,
+      "hit_at_10": true,
+      "recall_at_10": 1.0,
+      "latency_ms": 4046.36,
+      "timing": {
+        "document_cache_hit": true,
+        "runtime_initialization_ms": 0.035,
+        "document_prepare_ms": 0.0,
+        "document_cache_lookup_ms": 3.991,
+        "retrieval_ms": 999.79,
+        "reranker_ms": 3042.0,
+        "reranker_status": "timeout_fallback",
+        "retrieval_fallback_path": "hybrid",
+        "document_sha256": "dd1f1e1da81075a1fb9f40d313f2c531ad9b7da9b61f4defb36d0a8c7fe9760b",
+        "settings_fingerprint": "6f689848a1a719572b93ce7ccc9dc63fe307c8ee491efb7956100efc6154279e",
+        "matcher_ms": 25.579
+      },
+      "reranker_status": "timeout_fallback",
+      "matched_evidence": [
+        {
+          "gold_index": 0,
+          "rank": 7,
+          "page": 32,
+          "text": "34.2  In respect of the indemnities in Clause 13 (Intellectual Property Rights) and Clause 28 (Staff \nTransfer) the Supplier’s total liability will be unlimited. Buyers are not limited in the number of times they can \ncall on this indemnity.",
+          "text_coverage": 1.0
+        },
+        {
+          "gold_index": 1,
+          "rank": 1,
+          "page": 33,
+          "text": "34.5  The Supplier will be liable for the following types of loss which will be regarded as direct and will be \nrecoverable by the Buyer:",
+          "text_coverage": 1.0
+        },
+        {
+          "gold_index": 2,
+          "rank": 2,
+          "page": 33,
+          "text": "any regulatory losses, fines, expenses or other losses arising from a breach by the Supplier \nof any Law.",
+          "text_coverage": 1.0
+        }
+      ],
+      "top_results": [
+        {
+          "rank": 1,
+          "chunk_id": "c-0033-0259",
+          "parent_id": "p-0033",
+          "page": 33,
+          "page_nos": [
+            33
+          ],
+          "score": 0.379479,
+          "text_preview": "other for any:  \n● loss of profits; \n● loss of business;  \n● loss of revenue;  \n● loss of or damage to goodwill; \n● loss of savings (whether anticipated or otherwise); or \n● any indirect, special or consequential loss or damage. \n \n34.5  The Supplier will be liable for the following types of loss which will be regarded as direct and will be \nrecoverable by the Buyer: \n● the additional operational or administrative costs and expenses arising from any Material \nBreach; and/or \n● any regulatory lo",
+          "matched_gold": [
+            1
+          ]
+        },
+        {
+          "rank": 2,
+          "chunk_id": "c-0033-0260",
+          "parent_id": "p-0033",
+          "page": 33,
+          "page_nos": [
+            33
+          ],
+          "score": 0.354839,
+          "text_preview": "ditional operational or administrative costs and expenses arising from any Material \nBreach; and/or \n● any regulatory losses, fines, expenses or other losses arising from a breach by the Supplier \nof any Law. \n \n34.6  No enquiry, inspection, approval, sanction, comment, consent, or decision at any time made or given \nby, or on behalf of, the Buyer to any document or information provided by the Supplier in its provision of the \nServices, and no failure of the Buyer to discern any defect in, or om",
+          "matched_gold": [
+            2
+          ]
+        },
+        {
+          "rank": 3,
+          "chunk_id": "c-0033-0263",
+          "parent_id": "p-0033",
+          "page": 33,
+          "page_nos": [
+            33
+          ],
+          "score": 0.321729,
+          "text_preview": "ntract on the \npart of the Buyer to the Supplier.  \n \n34.8  Any liabilities which are unlimited will not be taken into account for the purposes of establishing \nwhether any limits relating to direct loss or damage to physical Property within this Clause have been \nreached.  \n  \n35. Waiver and cumulative remedies  \n \n35.1 The rights and remedies provided by this agreement may be waived only in writing by  the Buyer or \nthe Supplier representatives in a way that expressly states that a waiver is i",
+          "matched_gold": []
+        },
+        {
+          "rank": 4,
+          "chunk_id": "c-0034-0269",
+          "parent_id": "p-0034",
+          "page": 34,
+          "page_nos": [
+            34
+          ],
+          "score": 0.305423,
+          "text_preview": "sate CCS and/or the Buyer, in full, for any loss sustained by \nCCS and/or the Buyer at any time (whether such loss is incurred before or after the making of a demand \nfollowing the indemnity hereunder) in consequence of any breach of this Clause.  \n \n37. Prevention of bribery and corruption \n  \n37.1 The Supplier will not commit any Prohibited Act. \n \n37.2 The Buyer and CCS will be entitled to recover in full from the Supplier and the Supplier will, on demand, \ncompensate CCS and/or the Buyer in",
+          "matched_gold": []
+        },
+        {
+          "rank": 5,
+          "chunk_id": "c-0025-0172",
+          "parent_id": "p-0025",
+          "page": 25,
+          "page_nos": [
+            25
+          ],
+          "score": 0.27657,
+          "text_preview": "asonable endeavours to help the Buyer to mitigate any losses and restore \nthe provision of the Services to the desired operating efficiency as soon as possible.  \n \n13.23  Any costs arising from the actions of the Buyer or Supplier taken in compliance with the provisions of \nthe above clause, and clause 20.3, will be dealt with by the Buyer and the Supplier as follows: \n● by the Supplier, where the Malicious Software originates from the Supplier Software or the \nBuyer Data while the Buyer Data w",
+          "matched_gold": []
+        },
+        {
+          "rank": 6,
+          "chunk_id": "c-0034-0270",
+          "parent_id": "p-0034",
+          "page": 34,
+          "page_nos": [
+            34
+          ],
+          "score": 0.276508,
+          "text_preview": "be entitled to recover in full from the Supplier and the Supplier will, on demand, \ncompensate CCS and/or the Buyer in full from and against: \n● the amount of value of any such gift, consideration or commission; and \n● any other loss sustained by CCS and/or the Buyer in consequence of any breach of this \nClause \n \n38. Legislative change  \n \n38.1 The Supplier will neither be relieved of its obligations under the Call-Off Contract nor be entitled to \nincrease the Call-Off Contract prices as the r",
+          "matched_gold": []
+        },
+        {
+          "rank": 7,
+          "chunk_id": "c-0032-0253",
+          "parent_id": "p-0032",
+          "page": 32,
+          "page_nos": [
+            32
+          ],
+          "score": 0.242189,
+          "text_preview": "or limited by Law. \n \n34.2  In respect of the indemnities in Clause 13 (Intellectual Property Rights) and Clause 28 (Staff \nTransfer) the Supplier’s total liability will be unlimited. Buyers are not limited in the number of times they can \ncall on this indemnity.",
+          "matched_gold": [
+            0
+          ]
+        },
+        {
+          "rank": 8,
+          "chunk_id": "c-0007-0046",
+          "parent_id": "p-0007",
+          "page": 7,
+          "page_nos": [
+            7
+          ],
+          "score": 0.143869,
+          "text_preview": "ude any materials \ncovered by Supplier Background IPRs or third-\nparty IPRs in any release or Deliverable that is",
+          "matched_gold": []
+        },
+        {
+          "rank": 9,
+          "chunk_id": "c-0040-0330",
+          "parent_id": "p-0040",
+          "page": 40,
+          "page_nos": [
+            40
+          ],
+          "score": 0.13561,
+          "text_preview": "d and Wales, from 9am to 5pm unless otherwise agreed \nwith the Buyer and the Supplier in the Call-Off Contract",
+          "matched_gold": []
+        },
+        {
+          "rank": 10,
+          "chunk_id": "c-0036-0294",
+          "parent_id": "p-0036",
+          "page": 36,
+          "page_nos": [
+            36
+          ],
+          "score": 0.123125,
+          "text_preview": "he Framework Agreement and in \nrelation to a Default of the Call-Off Contract, the Supplier is liable",
+          "matched_gold": []
+        }
+      ],
+      "error": null
+    }
+  ]
+}

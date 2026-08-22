@@ -1,0 +1,149 @@
+{
+  "status": "diagnostic_baseline_candidate",
+  "frozen": true,
+  "frozen_at": "2026-08-22T07:55:40.576Z",
+  "ci_regression_gate": false,
+  "dataset_version": "rag_eval_dev_v1",
+  "annotation_revision": "dos010_q001_option_a_split",
+  "reviewed_case_count": 40,
+  "draft_case_count": 1,
+  "document_count": 6,
+  "public_pdf_count": 3,
+  "dataset_sha256": "b00e0a9b9a83c8e838edca6f48c5cebe7878f75d50d38550307b0c00e62737be",
+  "manifest_sha256": "c484e5ec45fcc8e2be770097eaa4d53229da10c5f052295daeb9168a773e8bff",
+  "requirements_lock_sha256": "7b4f5ab0c784c12931bc1c7afdf6e439c8b942acb088f969169a9f4257ed1045",
+  "report": {
+    "path": "../reports/retrieval_eval_dev_v1_dos010_option_a.json",
+    "sha256": "ccade9c5e028338231a2ea280fd0c974e684c183dfde271e0a9ee34cf7eb88a5",
+    "case_result_count": 40,
+    "contains_candidate_ids_and_scores": true,
+    "ranking_projection": {
+      "fields": [
+        "case_id",
+        "first_relevant_rank",
+        "top_results.rank",
+        "top_results.chunk_id",
+        "top_results.parent_id",
+        "top_results.page",
+        "top_results.page_nos",
+        "top_results.score"
+      ],
+      "serialization": "json(sort_keys=true,separators=(',',':'),ensure_ascii=false)",
+      "sha256": "4533c536a58e551f6f8530b64bd331a64e5290bec9445b5ebfc2928fcec10675"
+    }
+  },
+  "repeatability_check": {
+    "case_ids": [
+      "public_uk_dwp_dos010_curam_technical_architect_2017_q_004",
+      "public_uk_dwp_dos010_curam_technical_architect_2017_q_005",
+      "public_uk_dwp_dos010_curam_technical_architect_2017_q_008"
+    ],
+    "report_path": "../reports/retrieval_eval_dos010_repeatability.json",
+    "report_sha256": "919701757347a0fee50ac684fb2c85b38f7028d9a537fe92d4a9b882e39037e8",
+    "ranking_projection_sha256": "494b1917728f4a953e06dde6a960bef1142434b932dccd9f0eb59c999be66272",
+    "top_10_candidate_ids_equal": true,
+    "top_10_scores_exact": true,
+    "maximum_absolute_score_delta": 0.0,
+    "reranker_status_equal": true,
+    "reranker_status": "timeout_fallback"
+  },
+  "environment": {
+    "python_version": "3.11.5",
+    "pypdf_version": "6.14.2",
+    "torch_version": "2.10.0+cpu",
+    "cuda_available": false,
+    "embedding_device": "cpu",
+    "embedding_model": "G:\\xiangmu\\models\\bge-m3",
+    "reranker_model": "bge-reranker-v2-m3",
+    "reranker_timeout_ms": 3000,
+    "reranker_batch_size": 8,
+    "reranker_max_length": 512,
+    "retrieval_settings_fingerprint": "6f689848a1a719572b93ce7ccc9dc63fe307c8ee491efb7956100efc6154279e",
+    "git_commit": "2e557d4d1f3e81cac54304905fcd2a88185bf184",
+    "worktree_dirty_at_capture": true
+  },
+  "coverage": {
+    "total_case_count": 40,
+    "retrieval_executed_count": 40,
+    "retrieval_success_count": 40,
+    "document_not_found_count": 0,
+    "retrieval_error_count": 0,
+    "evaluation_coverage": 1.0
+  },
+  "metrics": {
+    "hit_at_1": 0.875,
+    "recall_at_1": 0.670833,
+    "hit_at_3": 0.95,
+    "recall_at_3": 0.84375,
+    "hit_at_5": 0.975,
+    "recall_at_5": 0.933333,
+    "hit_at_10": 0.975,
+    "recall_at_10": 0.95,
+    "mrr": 0.909167,
+    "latency": {
+      "mean_ms": 21567.372,
+      "median_ms": 3311.314,
+      "p95_ms": 66613.002
+    }
+  },
+  "execution": {
+    "total_runtime_ms": 865943.664,
+    "document_cache_hits": 34,
+    "document_cache_misses": 6,
+    "cross_encoder_success_count": 0,
+    "cross_encoder_timeout_fallback_count": 40,
+    "cross_encoder_other_fallback_count": 0
+  },
+  "cross_encoder_integration_smoke": {
+    "status": "pass",
+    "verified_at": "2026-08-22T08:18:30.615Z",
+    "case_id": "dev_smoke_payment_001",
+    "report_path": "../reports/retrieval_eval_cross_encoder_success_smoke.json",
+    "report_sha256": "a012a2a7ae2a2beb6bb35adaada385a4edc08f66c876db02c6055474f323e2af",
+    "environment_overrides": {
+      "OMP_NUM_THREADS": "8",
+      "MKL_NUM_THREADS": "8"
+    },
+    "production_timeout_ms": 3000,
+    "cross_encoder_success_count": 1,
+    "cross_encoder_timeout_fallback_count": 0,
+    "cross_encoder_other_fallback_count": 0,
+    "evaluation_coverage": 1.0,
+    "hit_at_1": 1.0,
+    "recall_at_1": 1.0,
+    "mrr": 1.0,
+    "reranker_status": "success",
+    "candidate_count": 2,
+    "note": "The reported reranker latency includes model loading; the prediction future completed within the unchanged 3000 ms timeout."
+  },
+  "q001_option_a": {
+    "decision": "implemented",
+    "order_form_case_id": "public_uk_dwp_dos010_curam_technical_architect_2017_q_001",
+    "extension_procedure_case_id": "public_uk_dwp_dos010_curam_technical_architect_2017_q_009",
+    "order_form_recall_at_5": 1.0,
+    "extension_procedure_recall_at_5": 0.6666666666666666,
+    "extension_procedure_recall_at_10": 1.0,
+    "alternative_evidence_semantics_resolved": true
+  },
+  "entry_gate": {
+    "minimum_reviewed_cases": 30,
+    "minimum_public_pdf_documents": 2,
+    "reviewed_cases_satisfied": true,
+    "public_pdf_documents_satisfied": true,
+    "full_evaluation_reproducible": true,
+    "validator_passed": true,
+    "ranking_repeatability_passed": true,
+    "cross_encoder_execution_succeeded": true,
+    "phase_1_5_entry_gate_satisfied": true,
+    "q001_alternative_evidence_semantics_resolved": true,
+    "formal_regression_baseline_ready": false
+  },
+  "limitations": [
+    "This is a frozen diagnostic development candidate, not a formal regression or CI gate.",
+    "All 40 cases used cross-encoder timeout fallback; this snapshot represents the deterministic fallback path, not successful cross-encoder reranking.",
+    "A separate current-profile integration smoke completed one real CrossEncoder rerank successfully with the unchanged timeout and CPU thread environment recorded above.",
+    "The integration smoke closes the Phase 1.5 execution gate but does not convert the 40-case fallback metrics into an all-case reranked baseline.",
+    "The q001 Option A split was an explicit human annotation decision and was validated before this run.",
+    "The worktree was dirty at capture time; artifact hashes, rather than git commit alone, define this snapshot."
+  ]
+}

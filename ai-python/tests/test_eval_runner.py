@@ -1,8 +1,11 @@
 import json
 from pathlib import Path
+from types import SimpleNamespace
 
 from eval.dataset_loader import load_dataset
 from eval.runners.run_retrieval_eval import (
+    CurrentPipelineRetriever,
+    EvaluationDocumentContext,
     RetrievedChunk,
     build_document_resolver,
     evaluate_case,
@@ -142,3 +145,74 @@ def test_checked_in_smoke_document_resolves():
     case = load_dataset(dataset)[0]
     resolved = build_document_resolver(dataset)(case)
     assert resolved == root / "eval" / "fixtures" / "synthetic_contract_smoke.md"
+
+
+def test_evaluation_document_context_cache_reuses_same_document(monkeypatch, tmp_path):
+    dataset = tmp_path / "dataset.jsonl"
+    _write_dataset(dataset)
+    document = tmp_path / "doc.txt"
+    document.write_text("content", encoding="utf-8")
+    case = load_dataset(dataset)[0]
+    settings = SimpleNamespace(child_chunk_size_tokens=250)
+    retriever = CurrentPipelineRetriever.__new__(CurrentPipelineRetriever)
+    retriever._document_cache = {}
+    retriever.cache_hits = 0
+    retriever.cache_misses = 0
+    built = []
+
+    def build(case, path, settings, document_hash, settings_fingerprint):
+        built.append((case.document_id, document_hash, settings_fingerprint))
+        return EvaluationDocumentContext(
+            security_context=object(),
+            parents=[],
+            children=[],
+            vector_store=None,
+            prepare_ms=12.0,
+            document_sha256=document_hash,
+            settings_fingerprint=settings_fingerprint,
+        )
+
+    monkeypatch.setattr(retriever, "_build_document_context", build)
+    first, first_hit = retriever._get_document_context(case, document, settings)
+    second, second_hit = retriever._get_document_context(case, document, settings)
+    assert first is second
+    assert (first_hit, second_hit) == (False, True)
+    assert len(built) == 1
+    assert (retriever.cache_hits, retriever.cache_misses) == (1, 1)
+
+
+def test_settings_fingerprint_changes_with_chunk_configuration():
+    first = SimpleNamespace(child_chunk_size_tokens=250)
+    second = SimpleNamespace(child_chunk_size_tokens=251)
+    assert CurrentPipelineRetriever._settings_fingerprint(first) != CurrentPipelineRetriever._settings_fingerprint(second)
+
+
+def test_execution_metadata_aggregates_cache_and_reranker_status(tmp_path):
+    dataset = tmp_path / "dataset.jsonl"
+    _write_dataset(dataset)
+    (tmp_path / "doc.txt").write_text("pay on time", encoding="utf-8")
+
+    class DiagnosticRetriever:
+        last_diagnostics = {}
+
+        def __call__(self, case, path, limit):
+            self.last_diagnostics = {
+                "document_cache_hit": False,
+                "document_prepare_ms": 4.0,
+                "retrieval_ms": 2.0,
+                "reranker_ms": 3.0,
+                "reranker_status": "timeout_fallback",
+            }
+            return [RetrievedChunk("c1", "p1", 2, 0.9, "pay on time")]
+
+    report = run_evaluation(
+        dataset_path=dataset,
+        retriever=DiagnosticRetriever(),
+        document_resolver=build_document_resolver(dataset),
+        top_ks=(1,),
+    )
+    assert report["execution"]["document_cache_misses"] == 1
+    assert report["execution"]["document_cache_hits"] == 0
+    assert report["execution"]["cross_encoder_timeout_fallback_count"] == 1
+    assert report["cases"][0]["timing"]["matcher_ms"] >= 0
+    assert report["cases"][0]["reranker_status"] == "timeout_fallback"

@@ -18,7 +18,7 @@ from langchain_openai import ChatOpenAI
 from services.llm_client import InjectableLLM, build_openai_llm
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from pydantic import BaseModel, ConfigDict, Field
-from pypdf import PdfReader
+from services.document_parser import load_pdf_pages
 
 from core.config import get_settings
 from schemas.models import AuditJobRequest, CallbackSummary, RiskItem
@@ -99,20 +99,7 @@ class _DraftOutput(BaseModel):
 
 
 def _load_pdf_pages(file_path: str) -> List[str]:
-    if not os.path.isfile(file_path):
-        raise FileNotFoundError(f"PDF file not found: {file_path}")
-
-    reader = PdfReader(file_path)
-    if not reader.pages:
-        raise ValueError("PDF content is empty")
-
-    page_texts: List[str] = []
-    for page in reader.pages:
-        page_texts.append((page.extract_text() or "").strip())
-
-    if not any(page_texts):
-        raise ValueError("PDF has no extractable text")
-    return page_texts
+    return load_pdf_pages(file_path)
 
 
 def _build_chunk_ranges(total_pages: int, chunk_pages: int, overlap_pages: int) -> List[Tuple[int, int]]:

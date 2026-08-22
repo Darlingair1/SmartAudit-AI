@@ -62,6 +62,24 @@ def _decode_page_nos_metadata(value: Any, fallback_page_no: Any = None) -> List[
     return [fallback] if fallback > 0 else []
 
 
+def _encode_chroma_metadata(metadata: Dict[str, Any]) -> Dict[str, str | int | float | bool]:
+    encoded: Dict[str, str | int | float | bool] = {}
+    for key, value in metadata.items():
+        if value is None:
+            continue
+        if key == "page_nos":
+            if not isinstance(value, (list, tuple, set)):
+                raise TypeError("page_nos must be a sequence before Chroma encoding")
+            encoded[key] = _encode_page_nos_metadata(value)
+        elif isinstance(value, (str, int, float, bool)):
+            encoded[key] = value
+        else:
+            raise TypeError(
+                f"unsupported Chroma metadata type for {key}: {type(value).__name__}"
+            )
+    return encoded
+
+
 def _build_parent_text_and_segments(
     pages: Sequence[Tuple[int, str]],
 ) -> tuple[str, List[PageSegment]]:
@@ -106,6 +124,15 @@ def _safe_collection_name(prefix: str, sec: SecurityContext) -> str:
     if len(value) < 3:
         value = "smartaudit-v3"
     return value[:63]
+
+
+def _chroma_security_filter(sec: SecurityContext) -> Dict[str, Any]:
+    return {
+        "$and": [
+            {"tenant_id": {"$eq": sec.tenant_id}},
+            {"task_id": {"$eq": sec.task_id}},
+        ]
+    }
 
 
 def _get_embeddings(settings: Settings) -> HuggingFaceEmbeddings:
@@ -305,7 +332,7 @@ def _index_vector_children(children: Sequence[ChildChunk], sec: SecurityContext,
 
     if settings.vector_reindex_each_run:
         try:
-            store.delete(where={"tenant_id": sec.tenant_id, "task_id": sec.task_id})
+            store.delete(where=_chroma_security_filter(sec))
         except Exception:
             pass
 
@@ -313,10 +340,15 @@ def _index_vector_children(children: Sequence[ChildChunk], sec: SecurityContext,
     ids = []
     for chunk in children:
         meta = dict(chunk.metadata)
-        meta["page_nos"] = _encode_page_nos_metadata(chunk.page_nos)
+        meta["page_nos"] = list(chunk.page_nos)
         meta["tenant_id"] = sec.tenant_id
         meta["task_id"] = sec.task_id
-        docs.append(Document(page_content=chunk.text, metadata=meta))
+        docs.append(
+            Document(
+                page_content=chunk.text,
+                metadata=_encode_chroma_metadata(meta),
+            )
+        )
         ids.append(f"{sec.tenant_id}-{sec.task_id}-{chunk.child_id}")
     if docs:
         store.add_documents(docs, ids=ids)
@@ -389,7 +421,7 @@ def retrieve_hybrid_for_risk(
                 results = vector_store.similarity_search_with_score(
                     query,
                     k=max(1, settings.vector_top_k_v3),
-                    filter={"tenant_id": sec.tenant_id, "task_id": sec.task_id},
+                    filter=_chroma_security_filter(sec),
                 )
                 for rank, (doc, distance) in enumerate(results, start=1):
                     child_id = str(doc.metadata.get("child_id") or "")

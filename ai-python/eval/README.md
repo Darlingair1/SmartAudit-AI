@@ -21,6 +21,10 @@ are `datasets/rag_eval_smoke.jsonl` and `datasets/rag_eval_dev_v1.jsonl`.
 Document IDs are mapped by `manifests/rag_eval_dev_v1_documents.json`, which
 stores a relative path, source type, and SHA256.
 
+PDF evidence is localized against the same canonical page texts used by
+production retrieval (`services.document_parser.load_pdf_pages`). The loader
+preserves physical page slots and strips only leading/trailing page whitespace.
+
 ## Evidence Matching
 
 Both texts are normalized with Unicode NFKC, common Unicode punctuation is
@@ -76,6 +80,38 @@ include `success`, `partial_evidence_retrieved`,
 Invalid dataset cases fail loading with `DatasetValidationError`, rather than
 appearing in a partial report as `invalid_eval_case`.
 
+Within one evaluation process, immutable document preparation is cached by
+document ID, document SHA256, and a chunk/vector settings fingerprint. Page
+loading, parent/child construction, and vector indexing run once per document;
+query expansion, retrieval, RRF, reranking, matching, and metrics still run for
+every case. The report's `execution` object records cache hits/misses, total
+runtime, and cross-encoder success or fallback counts. Case-level `timing`
+separates runtime initialization, document preparation, retrieval, reranking,
+and matching. These diagnostics are not retrieval quality metrics.
+
+## Retrieval Ablation
+
+Run the fixed Phase 2 matrix from `ai-python`:
+
+```text
+python -m eval.run_ablation
+```
+
+The command executes each distinct production configuration in an isolated
+subprocess and retains one raw report per profile plus `summary.json`. The
+matrix covers lexical only, vector only, hybrid without RRF, hybrid with RRF,
+the current fallback-capable profile, and the current profile under the stricter
+requirement that CrossEncoder succeed for every executed case. The last two
+profiles share one execution because their environment switches are identical;
+only their acceptance rules differ.
+
+`hybrid_no_rrf` reflects the existing production behavior: BM25 candidates are
+followed by vector candidates. It is not a learned or score-normalized fusion.
+If the vector-only control falls back to `keyword_regex`, its metrics and the
+dependent hybrid/RRF comparisons are marked `unavailable`, rather than being
+presented as vector-quality measurements. `current_fallback` remains a valid
+record of the production fallback path, with the limitation recorded.
+
 ## Benchmark Validation
 
 Validate document paths, hashes, page bounds, duplicate queries/evidence, and
@@ -98,8 +134,23 @@ accepts a gold excerpt that cannot be located in its source document.
 4. Set `metadata.annotation_status` to `reviewed` only after review; leave drafts as `draft`.
 5. Run `validate_benchmark`, then retrieval evaluation, then inspect failed cases.
 
-The recommended development path is 30-50 reviewed cases. The checked-in dev
-bootstrap intentionally contains only two reviewed cases and one draft case.
+The recommended development path is 30-50 reviewed cases. The current dev
+benchmark contains 40 reviewed cases across six documents and one draft case.
+`baselines/rag_eval_dev_v1_candidate_lock.json` preserves the earlier 31-case
+snapshot. `baselines/rag_eval_dev_v1_dos010_candidate_lock.json` freezes the
+historical 39-case pre-adjudication snapshot. The current 40-case Option A
+snapshot is frozen in
+`baselines/rag_eval_dev_v1_dos010_option_a_candidate_lock.json`, including
+hashed full and repeatability ranking projections. All remain baseline
+candidates only and are not formal regression or CI gates.
+
+On the current CPU-only Windows environment, a real CrossEncoder integration
+smoke succeeds with the unchanged 3000 ms production timeout when the process
+is started with `OMP_NUM_THREADS=8` and `MKL_NUM_THREADS=8`. This has been
+verified for the two-candidate reviewed smoke case. Normal 10-candidate batches
+remain slower than the timeout on this machine, so the full benchmark report is
+still explicitly a timeout-fallback snapshot rather than an all-case reranked
+baseline.
 
 ## Dependency Reproduction
 
@@ -117,9 +168,10 @@ same lock contents; `requirements.txt` is an unpinned convenience input only.
 
 ## Known Limitations
 
-- Public source documents are intentionally not stored in this repository.
+- Public documents require explicit provenance and manual visual/extraction review.
 - The checked-in synthetic fixture is not a quality benchmark or legal corpus.
 - PDF quality depends on the existing production parser; OCR is not added here.
 - Text coverage is deterministic and interpretable but does not detect semantic paraphrases.
 - The current vector pipeline may write an isolated `offline-eval` Chroma collection.
-- No ablation, baseline gate, CI gate, or Evidence Judge evaluation is included.
+- Ablation results are development diagnostics, not a formal baseline or CI gate.
+- Evidence Judge evaluation is not included.

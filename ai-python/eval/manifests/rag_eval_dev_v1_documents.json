@@ -30,6 +30,69 @@
         "purpose": "development_benchmark",
         "license": "project-authored synthetic evaluation document"
       }
+    },
+    {
+      "document_id": "public_jiyuan_vehicle_procurement_2024_245_a",
+      "path": "../documents/public/jiyuan_vehicle_procurement_contract_2024_245_a.pdf",
+      "source_type": "public",
+      "sha256": "406db9334a41d7baddd7cd6f2a57fd0a00c1c5f07dd0f3e6972f2001930af12b",
+      "metadata": {
+        "purpose": "development_benchmark",
+        "physical_page_count": 6
+      }
+    },
+    {
+      "document_id": "public_guangdong_tax_e_tax_development_2023_gpcgd23c500fg157f",
+      "path": "../documents/public/guangdong_tax_e_tax_development_contract_2023_gpcgd23c500fg157f.pdf",
+      "source_type": "public",
+      "sha256": "8b7410a66f0448b0314b1b0f0c6af07da90f9d997675016c25ca45e82742be32",
+      "metadata": {
+        "purpose": "development_benchmark",
+        "document_title": "国家税务总局广东省税务局2023年电子税务局开发服务项目合同",
+        "publisher": "国家税务总局广东省税务局",
+        "contract_number": "GPCGD23C500FG157F",
+        "contract_signed_date": "2024-05-20",
+        "publication_date": "2024-05-24",
+        "physical_page_count": 15,
+        "extraction_sha256": "800f1cd3abeb00fc5cfb6b624d135104e256551ad2f776e67983da1ac1e52991",
+        "canonical_extraction_environment": {
+          "python_version": "3.11.5",
+          "pypdf_version": "6.14.2"
+        },
+        "source_catalog_url": "https://guangdong.chinatax.gov.cn/gdzdgkjbml/mlzfcg/xxgkml_list.shtml",
+        "contract_detail_url": "https://htgs.ccgp.gov.cn/GS8/contractpublish/detail/2c8382aa8f85ade4018f8ab0eb2f0829?contractSign=0",
+        "official_pdf_url": "https://guangdong.chinatax.gov.cn/gdsw/qtgg/202405/b7bc2afdf1364f8fbdee8d8ca9983427/files/136ec51ffad6459a94a119415c0eb677.pdf",
+        "publication_basis": "Government procurement contract listed in the publisher's official disclosure catalog and linked to the China Government Procurement Network.",
+        "license": "No explicit CC, open-data, or other reuse license identified.",
+        "redistribution_status": "Repository redistribution requires review under project copyright policy."
+      }
+    },
+    {
+      "document_id": "public_uk_dwp_dos010_curam_technical_architect_2017",
+      "path": "../documents/public/uk_dwp_dos010_curam_technical_architect_call_off_contract_2017.pdf",
+      "source_type": "public",
+      "sha256": "dd1f1e1da81075a1fb9f40d313f2c531ad9b7da9b61f4defb36d0a8c7fe9760b",
+      "metadata": {
+        "purpose": "development_benchmark",
+        "document_title": "DOS_010 - CURAM Technical Architect required for the delivery of a Cúram upgrade",
+        "buyer": "UK Department for Work and Pensions",
+        "supplier": "IBM United Kingdom Limited",
+        "framework": "Digital Outcomes & Specialists 2 Framework Agreement (RM1043iv)",
+        "contract_date": "2017-08-29",
+        "contract_end_date": "2017-12-22",
+        "contract_value": 137229.40,
+        "currency": "GBP",
+        "physical_page_count": 41,
+        "extraction_sha256": "148357ca818fc3972ba37a4312da34e05323e614210b4c573e659baaf38aed34",
+        "canonical_extraction_environment": {
+          "python_version": "3.11.5",
+          "pypdf_version": "6.14.2"
+        },
+        "official_attachment_url": "https://www.contractsfinder.service.gov.uk/Notice/Attachment/151314ec-09ed-4149-a303-3c3c999457ae",
+        "redaction_status": "Published copy contains explicit redactions for personal and selected commercial information.",
+        "license": "No explicit reuse license confirmed.",
+        "redistribution_status": "Repository redistribution requires review under project copyright policy."
+      }
     }
   ]
 }

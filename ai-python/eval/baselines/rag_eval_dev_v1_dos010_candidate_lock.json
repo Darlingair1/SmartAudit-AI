@@ -1,0 +1,159 @@
+{
+  "status": "diagnostic_baseline_candidate",
+  "frozen": true,
+  "frozen_at": "2026-08-22T07:21:42.318Z",
+  "ci_regression_gate": false,
+  "dataset_version": "rag_eval_dev_v1",
+  "reviewed_case_count": 39,
+  "draft_case_count": 1,
+  "document_count": 6,
+  "public_pdf_count": 3,
+  "dataset_sha256": "2e01b6abd1325b1d864cf5d169690e3ddb15d6d8c85f9384c94099b41d227065",
+  "manifest_sha256": "c484e5ec45fcc8e2be770097eaa4d53229da10c5f052295daeb9168a773e8bff",
+  "requirements_lock_sha256": "7b4f5ab0c784c12931bc1c7afdf6e439c8b942acb088f969169a9f4257ed1045",
+  "report": {
+    "path": "../reports/retrieval_eval_dev_v1_uk_dwp_dos010.json",
+    "sha256": "03c8da3c542763b123524ceda33c083776c741b6447a21d46b6a5258a3675c66",
+    "case_result_count": 39,
+    "contains_candidate_ids_and_scores": true,
+    "ranking_projection": {
+      "fields": [
+        "case_id",
+        "first_relevant_rank",
+        "top_results.rank",
+        "top_results.chunk_id",
+        "top_results.parent_id",
+        "top_results.page",
+        "top_results.page_nos",
+        "top_results.score"
+      ],
+      "serialization": "json(sort_keys=true,separators=(',',':'),ensure_ascii=false)",
+      "sha256": "25e6c9d6a0be80d96ef9889d5f181d35d995210bf0ce91153c830572d14312ca"
+    }
+  },
+  "repeatability_check": {
+    "case_ids": [
+      "public_uk_dwp_dos010_curam_technical_architect_2017_q_004",
+      "public_uk_dwp_dos010_curam_technical_architect_2017_q_005",
+      "public_uk_dwp_dos010_curam_technical_architect_2017_q_008"
+    ],
+    "report_path": "../reports/retrieval_eval_dos010_repeatability.json",
+    "report_sha256": "919701757347a0fee50ac684fb2c85b38f7028d9a537fe92d4a9b882e39037e8",
+    "ranking_projection_sha256": "494b1917728f4a953e06dde6a960bef1142434b932dccd9f0eb59c999be66272",
+    "top_10_candidate_ids_equal": true,
+    "top_10_scores_exact": true,
+    "maximum_absolute_score_delta": 0.0,
+    "reranker_status_equal": true,
+    "reranker_status": "timeout_fallback"
+  },
+  "environment": {
+    "python_version": "3.11.5",
+    "pypdf_version": "6.14.2",
+    "torch_version": "2.10.0+cpu",
+    "cuda_available": false,
+    "embedding_device": "cpu",
+    "embedding_model": "G:\\xiangmu\\models\\bge-m3",
+    "reranker_model": "bge-reranker-v2-m3",
+    "reranker_model_path": "models/bge-reranker-v2-m3",
+    "reranker_timeout_ms": 3000,
+    "reranker_batch_size": 8,
+    "reranker_max_length": 512,
+    "retrieval_settings_fingerprint": "6f689848a1a719572b93ce7ccc9dc63fe307c8ee491efb7956100efc6154279e",
+    "git_commit": "2e557d4d1f3e81cac54304905fcd2a88185bf184",
+    "worktree_dirty_at_capture": true
+  },
+  "cross_encoder_diagnostic": {
+    "model_load_seconds": 2.934,
+    "pair_count": 10,
+    "direct_cpu_inference_seconds": 6.07,
+    "configured_timeout_seconds": 3.0,
+    "model_files_present": true,
+    "finding": "A direct 10-pair CPU prediction exceeds the unchanged production timeout. Timed-out work continues in the single-worker executor, so later calls may also time out while queued."
+  },
+  "coverage": {
+    "total_case_count": 39,
+    "retrieval_executed_count": 39,
+    "retrieval_success_count": 39,
+    "document_not_found_count": 0,
+    "retrieval_error_count": 0,
+    "evaluation_coverage": 1.0
+  },
+  "metrics": {
+    "hit_at_1": 0.871795,
+    "recall_at_1": 0.679487,
+    "hit_at_3": 0.974359,
+    "recall_at_3": 0.861111,
+    "hit_at_5": 0.974359,
+    "recall_at_5": 0.918803,
+    "hit_at_10": 0.974359,
+    "recall_at_10": 0.92735,
+    "mrr": 0.91453,
+    "latency": {
+      "mean_ms": 20903.1,
+      "median_ms": 3372.786,
+      "p95_ms": 134942.61
+    }
+  },
+  "execution": {
+    "total_runtime_ms": 818180.453,
+    "document_cache_hits": 33,
+    "document_cache_misses": 6,
+    "cross_encoder_success_count": 0,
+    "cross_encoder_timeout_fallback_count": 39,
+    "cross_encoder_other_fallback_count": 0
+  },
+  "documents": [
+    {
+      "document_id": "synthetic-contract-smoke",
+      "source_type": "synthetic",
+      "sha256": "381654cb9c45c4b6f58db8818c4587fe7a03b71fe3d4e02568ca54eef36c06fd"
+    },
+    {
+      "document_id": "synthetic_purchase_contract_001",
+      "source_type": "synthetic",
+      "sha256": "9362fc1974cc679b5d1d0bebdea4840160a5216f5a5f58be7b57d50b317fed72"
+    },
+    {
+      "document_id": "synthetic_software_service_contract_001",
+      "source_type": "synthetic",
+      "sha256": "265ad1b35374903377a2fced1064f68c8e2d1a21865bee2e20e1ff1f99997f16"
+    },
+    {
+      "document_id": "public_jiyuan_vehicle_procurement_2024_245_a",
+      "source_type": "public",
+      "sha256": "406db9334a41d7baddd7cd6f2a57fd0a00c1c5f07dd0f3e6972f2001930af12b",
+      "extraction_sha256": "0cc4716e018abc4e92b9bda5628dfb7fbcfb4bb0c358fcf8df523ddc2acc43c5"
+    },
+    {
+      "document_id": "public_guangdong_tax_e_tax_development_2023_gpcgd23c500fg157f",
+      "source_type": "public",
+      "sha256": "8b7410a66f0448b0314b1b0f0c6af07da90f9d997675016c25ca45e82742be32",
+      "extraction_sha256": "800f1cd3abeb00fc5cfb6b624d135104e256551ad2f776e67983da1ac1e52991"
+    },
+    {
+      "document_id": "public_uk_dwp_dos010_curam_technical_architect_2017",
+      "source_type": "public",
+      "sha256": "dd1f1e1da81075a1fb9f40d313f2c531ad9b7da9b61f4defb36d0a8c7fe9760b",
+      "extraction_sha256": "148357ca818fc3972ba37a4312da34e05323e614210b4c573e659baaf38aed34"
+    }
+  ],
+  "entry_gate": {
+    "minimum_reviewed_cases": 30,
+    "minimum_public_pdf_documents": 2,
+    "reviewed_cases_satisfied": true,
+    "public_pdf_documents_satisfied": true,
+    "full_evaluation_reproducible": true,
+    "validator_passed": true,
+    "ranking_repeatability_passed": true,
+    "cross_encoder_execution_succeeded": false,
+    "q001_alternative_evidence_semantics_resolved": false,
+    "formal_regression_baseline_ready": false
+  },
+  "limitations": [
+    "This is a frozen diagnostic development candidate, not a formal regression or CI gate.",
+    "All 39 cases used cross-encoder timeout fallback; this snapshot represents the deterministic fallback path, not successful cross-encoder reranking.",
+    "q001 retrieves a valid alternative statement on physical page 3 that is not representable as optional evidence in the current all-required Gold schema.",
+    "The q001 reviewed Gold was not changed after metrics were observed; annotation adjudication remains open.",
+    "The worktree was dirty at capture time; artifact hashes, rather than git commit alone, define this snapshot."
+  ]
+}
