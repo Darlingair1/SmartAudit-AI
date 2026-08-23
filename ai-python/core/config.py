@@ -194,6 +194,7 @@ class Settings:
     rerank_batch_size: int = int(os.getenv("RERANK_BATCH_SIZE", "8"))
     rerank_max_length: int = int(os.getenv("RERANK_MAX_LENGTH", "512"))
     rerank_timeout_ms: int = int(os.getenv("RERANK_TIMEOUT_MS", "3000"))
+    rerank_strict: bool = _to_bool(os.getenv("RERANK_STRICT"), default=False)
     rerank_model_version: str = os.getenv("RERANK_MODEL_VERSION", "bge-reranker-v2-m3").strip()
 
     # -----------------------

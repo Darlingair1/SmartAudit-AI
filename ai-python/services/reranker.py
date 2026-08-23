@@ -18,6 +18,10 @@ _RERANKER_CACHE: Dict[tuple[str, str, int], CrossEncoder] = {}
 _RERANK_EXECUTOR = ThreadPoolExecutor(max_workers=1, thread_name_prefix="rerank-ce")
 
 
+class CrossEncoderError(RuntimeError):
+    """CrossEncoder failed without permitting heuristic fallback."""
+
+
 def _resolve_model_path(path_value: str) -> str:
     candidate = Path((path_value or "").strip())
     if candidate.is_absolute():
@@ -131,6 +135,7 @@ def rerank_candidates(
     tail = candidates[top_n:]
     batch_size = max(1, int(getattr(settings, "rerank_batch_size", 8)))
     timeout_ms = max(500, int(getattr(settings, "rerank_timeout_ms", 3000)))
+    strict = bool(getattr(settings, "rerank_strict", False))
 
     try:
         model = _get_cross_encoder(settings)
@@ -162,13 +167,33 @@ def rerank_candidates(
             "top1_rerank_score": round(top1, 6),
             "topk_avg_rerank_score": round(avg, 6),
             "rerank_backend": "cross_encoder",
+            "candidate_count": len(limited),
+            "batch_size": batch_size,
+            "max_length": int(getattr(settings, "rerank_max_length", 512)),
         }
     except FileNotFoundError as ex:
         logger.warning("Cross-encoder model missing, fallback to heuristic rerank: %s", ex)
+        failure_reason = f"model_missing: {ex}"
     except FutureTimeoutError:
         logger.warning("Cross-encoder rerank timeout, fallback to heuristic rerank")
+        failure_reason = f"timeout_after_{timeout_ms}ms"
     except Exception as ex:  # noqa: PERF203
         logger.warning("Cross-encoder rerank failed, fallback to heuristic rerank: %s", ex)
+        failure_reason = f"error: {type(ex).__name__}: {ex}"
+
+    if strict:
+        return candidates, {
+            "rerank_applied": False,
+            "rerank_latency_ms": int((perf_counter() - t0) * 1000),
+            "rerank_model_version": model_version,
+            "top1_rerank_score": 0.0,
+            "topk_avg_rerank_score": 0.0,
+            "rerank_backend": "cross_encoder_error",
+            "rerank_failure_reason": failure_reason,
+            "candidate_count": len(limited),
+            "batch_size": batch_size,
+            "max_length": int(getattr(settings, "rerank_max_length", 512)),
+        }
 
     fallback_sorted, scores = _heuristic_rerank(query, limited)
     fallback_sorted.extend(tail)
@@ -182,4 +207,8 @@ def rerank_candidates(
         "top1_rerank_score": round(top1, 6),
         "topk_avg_rerank_score": round(avg, 6),
         "rerank_backend": "heuristic_fallback",
+        "rerank_failure_reason": failure_reason,
+        "candidate_count": len(limited),
+        "batch_size": batch_size,
+        "max_length": int(getattr(settings, "rerank_max_length", 512)),
     }

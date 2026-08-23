@@ -1,0 +1,913 @@
+{
+  "metadata": {
+    "generated_at": "2026-08-23T01:50:24.557306Z",
+    "source_report": "eval/baselines/retrieval_baseline_v1/reports/hybrid_rrf.json",
+    "python_version": "3.11.5",
+    "torch_version": "2.10.0+cpu",
+    "torch_num_threads": 8,
+    "torch_num_interop_threads": 1,
+    "model": "bge-reranker-v2-m3",
+    "model_init_ms": 2371.237,
+    "model_cache_lookup_ms": 1.425,
+    "model_cache_reused_instance": true,
+    "warmup_pairs": 0,
+    "warmup_ms": 0.0,
+    "max_length": 512,
+    "batch_size": 8,
+    "micro_batch_size": 8,
+    "production_timeout_ms": 3000,
+    "case_count": 40,
+    "benchmark_process_model": "one process for all cases in a profile",
+    "production_predict_uses_batch": true
+  },
+  "summary": {
+    "candidate_count": {
+      "mean": 9.25,
+      "p50": 10.0,
+      "p95": 10.0,
+      "max": 10.0
+    },
+    "input_char_length": {
+      "mean": 510.139,
+      "p50": 508.2,
+      "p95": 629.3,
+      "max": 740.0
+    },
+    "input_token_length": {
+      "mean": 281.762,
+      "p50": 319.0,
+      "p95": 361.0,
+      "max": 379.3
+    },
+    "tokenization_ms": {
+      "mean": 5.17,
+      "p50": 5.271,
+      "p95": 6.823,
+      "max": 8.371
+    },
+    "batched_inference_ms": {
+      "mean": 8669.474,
+      "p50": 9322.832,
+      "p95": 13149.071,
+      "max": 13441.415
+    },
+    "rerank_total_ms": {
+      "mean": 8675.609,
+      "p50": 9328.26,
+      "p95": 13156.366,
+      "max": 13448.129
+    },
+    "source_end_to_end_retrieval_ms": {
+      "mean": 8777.833,
+      "p50": 975.144,
+      "p95": 26382.761,
+      "max": 189748.383
+    },
+    "would_exceed_production_timeout_count": 38,
+    "source_fallback_reasons": {
+      "disabled": 40
+    }
+  },
+  "cases": [
+    {
+      "case_id": "dev_smoke_payment_001",
+      "candidate_count": 3,
+      "batch_size": 8,
+      "micro_batch_size": 8,
+      "input_char_length": {
+        "mean": 354.333,
+        "max": 511
+      },
+      "input_token_length": {
+        "mean": 220.333,
+        "max": 320
+      },
+      "tokenization_ms": 3.131,
+      "batched_inference_ms": 2757.651,
+      "rerank_total_ms": 2786.518,
+      "source_end_to_end_retrieval_ms": 25256.905,
+      "source_reranker_ms": 0.0,
+      "source_reranker_status": "disabled",
+      "score_count": 3
+    },
+    {
+      "case_id": "dev_smoke_termination_001",
+      "candidate_count": 3,
+      "batch_size": 8,
+      "micro_batch_size": 8,
+      "input_char_length": {
+        "mean": 357.333,
+        "max": 514
+      },
+      "input_token_length": {
+        "mean": 223.333,
+        "max": 323
+      },
+      "tokenization_ms": 2.028,
+      "batched_inference_ms": 2496.556,
+      "rerank_total_ms": 2498.742,
+      "source_end_to_end_retrieval_ms": 810.184,
+      "source_reranker_ms": 0.0,
+      "source_reranker_status": "disabled",
+      "score_count": 3
+    },
+    {
+      "case_id": "synthetic_purchase_contract_001_q_001",
+      "candidate_count": 8,
+      "batch_size": 8,
+      "micro_batch_size": 8,
+      "input_char_length": {
+        "mean": 511.375,
+        "max": 533
+      },
+      "input_token_length": {
+        "mean": 343.0,
+        "max": 382
+      },
+      "tokenization_ms": 3.754,
+      "batched_inference_ms": 7810.773,
+      "rerank_total_ms": 7814.713,
+      "source_end_to_end_retrieval_ms": 11694.358,
+      "source_reranker_ms": 0.0,
+      "source_reranker_status": "disabled",
+      "score_count": 8
+    },
+    {
+      "case_id": "synthetic_purchase_contract_001_q_002",
+      "candidate_count": 8,
+      "batch_size": 8,
+      "micro_batch_size": 8,
+      "input_char_length": {
+        "mean": 512.375,
+        "max": 534
+      },
+      "input_token_length": {
+        "mean": 343.0,
+        "max": 382
+      },
+      "tokenization_ms": 3.384,
+      "batched_inference_ms": 7583.016,
+      "rerank_total_ms": 7586.569,
+      "source_end_to_end_retrieval_ms": 300.94,
+      "source_reranker_ms": 0.0,
+      "source_reranker_status": "disabled",
+      "score_count": 8
+    },
+    {
+      "case_id": "synthetic_purchase_contract_001_q_003",
+      "candidate_count": 8,
+      "batch_size": 8,
+      "micro_batch_size": 8,
+      "input_char_length": {
+        "mean": 520.375,
+        "max": 542
+      },
+      "input_token_length": {
+        "mean": 353.0,
+        "max": 392
+      },
+      "tokenization_ms": 3.595,
+      "batched_inference_ms": 7728.074,
+      "rerank_total_ms": 7731.862,
+      "source_end_to_end_retrieval_ms": 688.149,
+      "source_reranker_ms": 0.0,
+      "source_reranker_status": "disabled",
+      "score_count": 8
+    },
+    {
+      "case_id": "synthetic_purchase_contract_001_q_004",
+      "candidate_count": 8,
+      "batch_size": 8,
+      "micro_batch_size": 8,
+      "input_char_length": {
+        "mean": 512.375,
+        "max": 534
+      },
+      "input_token_length": {
+        "mean": 346.0,
+        "max": 385
+      },
+      "tokenization_ms": 3.336,
+      "batched_inference_ms": 7560.555,
+      "rerank_total_ms": 7564.066,
+      "source_end_to_end_retrieval_ms": 892.613,
+      "source_reranker_ms": 0.0,
+      "source_reranker_status": "disabled",
+      "score_count": 8
+    },
+    {
+      "case_id": "synthetic_purchase_contract_001_q_005",
+      "candidate_count": 8,
+      "batch_size": 8,
+      "micro_batch_size": 8,
+      "input_char_length": {
+        "mean": 521.375,
+        "max": 543
+      },
+      "input_token_length": {
+        "mean": 352.0,
+        "max": 391
+      },
+      "tokenization_ms": 3.304,
+      "batched_inference_ms": 7643.749,
+      "rerank_total_ms": 7647.252,
+      "source_end_to_end_retrieval_ms": 351.178,
+      "source_reranker_ms": 0.0,
+      "source_reranker_status": "disabled",
+      "score_count": 8
+    },
+    {
+      "case_id": "synthetic_purchase_contract_001_q_006",
+      "candidate_count": 8,
+      "batch_size": 8,
+      "micro_batch_size": 8,
+      "input_char_length": {
+        "mean": 534.375,
+        "max": 556
+      },
+      "input_token_length": {
+        "mean": 361.0,
+        "max": 400
+      },
+      "tokenization_ms": 3.307,
+      "batched_inference_ms": 8066.5,
+      "rerank_total_ms": 8070.004,
+      "source_end_to_end_retrieval_ms": 794.152,
+      "source_reranker_ms": 0.0,
+      "source_reranker_status": "disabled",
+      "score_count": 8
+    },
+    {
+      "case_id": "synthetic_purchase_contract_001_q_007",
+      "candidate_count": 8,
+      "batch_size": 8,
+      "micro_batch_size": 8,
+      "input_char_length": {
+        "mean": 541.375,
+        "max": 563
+      },
+      "input_token_length": {
+        "mean": 358.0,
+        "max": 397
+      },
+      "tokenization_ms": 3.313,
+      "batched_inference_ms": 7850.222,
+      "rerank_total_ms": 7853.691,
+      "source_end_to_end_retrieval_ms": 805.727,
+      "source_reranker_ms": 0.0,
+      "source_reranker_status": "disabled",
+      "score_count": 8
+    },
+    {
+      "case_id": "synthetic_purchase_contract_001_q_008",
+      "candidate_count": 8,
+      "batch_size": 8,
+      "micro_batch_size": 8,
+      "input_char_length": {
+        "mean": 503.375,
+        "max": 525
+      },
+      "input_token_length": {
+        "mean": 341.0,
+        "max": 380
+      },
+      "tokenization_ms": 3.312,
+      "batched_inference_ms": 7570.752,
+      "rerank_total_ms": 7574.241,
+      "source_end_to_end_retrieval_ms": 261.475,
+      "source_reranker_ms": 0.0,
+      "source_reranker_status": "disabled",
+      "score_count": 8
+    },
+    {
+      "case_id": "synthetic_software_service_contract_001_q_001",
+      "candidate_count": 10,
+      "batch_size": 8,
+      "micro_batch_size": 8,
+      "input_char_length": {
+        "mean": 487.4,
+        "max": 531
+      },
+      "input_token_length": {
+        "mean": 313.1,
+        "max": 355
+      },
+      "tokenization_ms": 5.501,
+      "batched_inference_ms": 9002.882,
+      "rerank_total_ms": 9008.7,
+      "source_end_to_end_retrieval_ms": 26382.761,
+      "source_reranker_ms": 0.0,
+      "source_reranker_status": "disabled",
+      "score_count": 10
+    },
+    {
+      "case_id": "synthetic_software_service_contract_001_q_002",
+      "candidate_count": 10,
+      "batch_size": 8,
+      "micro_batch_size": 8,
+      "input_char_length": {
+        "mean": 542.4,
+        "max": 548
+      },
+      "input_token_length": {
+        "mean": 359.0,
+        "max": 375
+      },
+      "tokenization_ms": 5.195,
+      "batched_inference_ms": 9485.757,
+      "rerank_total_ms": 9491.262,
+      "source_end_to_end_retrieval_ms": 1055.62,
+      "source_reranker_ms": 0.0,
+      "source_reranker_status": "disabled",
+      "score_count": 10
+    },
+    {
+      "case_id": "synthetic_software_service_contract_001_q_003",
+      "candidate_count": 10,
+      "batch_size": 8,
+      "micro_batch_size": 8,
+      "input_char_length": {
+        "mean": 536.3,
+        "max": 542
+      },
+      "input_token_length": {
+        "mean": 353.4,
+        "max": 370
+      },
+      "tokenization_ms": 5.129,
+      "batched_inference_ms": 9322.832,
+      "rerank_total_ms": 9328.26,
+      "source_end_to_end_retrieval_ms": 450.672,
+      "source_reranker_ms": 0.0,
+      "source_reranker_status": "disabled",
+      "score_count": 10
+    },
+    {
+      "case_id": "synthetic_software_service_contract_001_q_004",
+      "candidate_count": 10,
+      "batch_size": 8,
+      "micro_batch_size": 8,
+      "input_char_length": {
+        "mean": 548.2,
+        "max": 554
+      },
+      "input_token_length": {
+        "mean": 356.3,
+        "max": 372
+      },
+      "tokenization_ms": 4.903,
+      "batched_inference_ms": 9485.263,
+      "rerank_total_ms": 9490.459,
+      "source_end_to_end_retrieval_ms": 544.594,
+      "source_reranker_ms": 0.0,
+      "source_reranker_status": "disabled",
+      "score_count": 10
+    },
+    {
+      "case_id": "synthetic_software_service_contract_001_q_005",
+      "candidate_count": 10,
+      "batch_size": 8,
+      "micro_batch_size": 8,
+      "input_char_length": {
+        "mean": 578.5,
+        "max": 584
+      },
+      "input_token_length": {
+        "mean": 379.3,
+        "max": 397
+      },
+      "tokenization_ms": 5.103,
+      "batched_inference_ms": 10337.505,
+      "rerank_total_ms": 10342.908,
+      "source_end_to_end_retrieval_ms": 818.083,
+      "source_reranker_ms": 0.0,
+      "source_reranker_status": "disabled",
+      "score_count": 10
+    },
+    {
+      "case_id": "synthetic_software_service_contract_001_q_006",
+      "candidate_count": 10,
+      "batch_size": 8,
+      "micro_batch_size": 8,
+      "input_char_length": {
+        "mean": 504.2,
+        "max": 553
+      },
+      "input_token_length": {
+        "mean": 330.9,
+        "max": 377
+      },
+      "tokenization_ms": 4.902,
+      "batched_inference_ms": 9879.66,
+      "rerank_total_ms": 9884.871,
+      "source_end_to_end_retrieval_ms": 1023.954,
+      "source_reranker_ms": 0.0,
+      "source_reranker_status": "disabled",
+      "score_count": 10
+    },
+    {
+      "case_id": "synthetic_software_service_contract_001_q_007",
+      "candidate_count": 10,
+      "batch_size": 8,
+      "micro_batch_size": 8,
+      "input_char_length": {
+        "mean": 552.5,
+        "max": 553
+      },
+      "input_token_length": {
+        "mean": 364.4,
+        "max": 376
+      },
+      "tokenization_ms": 5.774,
+      "batched_inference_ms": 10474.414,
+      "rerank_total_ms": 10480.524,
+      "source_end_to_end_retrieval_ms": 1142.899,
+      "source_reranker_ms": 0.0,
+      "source_reranker_status": "disabled",
+      "score_count": 10
+    },
+    {
+      "case_id": "synthetic_software_service_contract_001_q_008",
+      "candidate_count": 10,
+      "batch_size": 8,
+      "micro_batch_size": 8,
+      "input_char_length": {
+        "mean": 508.2,
+        "max": 557
+      },
+      "input_token_length": {
+        "mean": 332.8,
+        "max": 379
+      },
+      "tokenization_ms": 5.397,
+      "batched_inference_ms": 11142.268,
+      "rerank_total_ms": 11148.007,
+      "source_end_to_end_retrieval_ms": 975.144,
+      "source_reranker_ms": 0.0,
+      "source_reranker_status": "disabled",
+      "score_count": 10
+    },
+    {
+      "case_id": "public_jiyuan_vehicle_procurement_2024_245_a_q_001",
+      "candidate_count": 10,
+      "batch_size": 8,
+      "micro_batch_size": 8,
+      "input_char_length": {
+        "mean": 418.9,
+        "max": 523
+      },
+      "input_token_length": {
+        "mean": 279.1,
+        "max": 358
+      },
+      "tokenization_ms": 5.949,
+      "batched_inference_ms": 10291.719,
+      "rerank_total_ms": 10298.028,
+      "source_end_to_end_retrieval_ms": 16561.052,
+      "source_reranker_ms": 0.0,
+      "source_reranker_status": "disabled",
+      "score_count": 10
+    },
+    {
+      "case_id": "public_jiyuan_vehicle_procurement_2024_245_a_q_002",
+      "candidate_count": 10,
+      "batch_size": 8,
+      "micro_batch_size": 8,
+      "input_char_length": {
+        "mean": 477.3,
+        "max": 544
+      },
+      "input_token_length": {
+        "mean": 319.0,
+        "max": 375
+      },
+      "tokenization_ms": 6.671,
+      "batched_inference_ms": 11227.756,
+      "rerank_total_ms": 11234.811,
+      "source_end_to_end_retrieval_ms": 885.915,
+      "source_reranker_ms": 0.0,
+      "source_reranker_status": "disabled",
+      "score_count": 10
+    },
+    {
+      "case_id": "public_jiyuan_vehicle_procurement_2024_245_a_q_003",
+      "candidate_count": 10,
+      "batch_size": 8,
+      "micro_batch_size": 8,
+      "input_char_length": {
+        "mean": 468.4,
+        "max": 535
+      },
+      "input_token_length": {
+        "mean": 314.1,
+        "max": 369
+      },
+      "tokenization_ms": 6.87,
+      "batched_inference_ms": 13149.071,
+      "rerank_total_ms": 13156.366,
+      "source_end_to_end_retrieval_ms": 355.539,
+      "source_reranker_ms": 0.0,
+      "source_reranker_status": "disabled",
+      "score_count": 10
+    },
+    {
+      "case_id": "public_jiyuan_vehicle_procurement_2024_245_a_q_004",
+      "candidate_count": 10,
+      "batch_size": 8,
+      "micro_batch_size": 8,
+      "input_char_length": {
+        "mean": 466.3,
+        "max": 533
+      },
+      "input_token_length": {
+        "mean": 313.0,
+        "max": 369
+      },
+      "tokenization_ms": 6.249,
+      "batched_inference_ms": 10910.421,
+      "rerank_total_ms": 10917.056,
+      "source_end_to_end_retrieval_ms": 1154.92,
+      "source_reranker_ms": 0.0,
+      "source_reranker_status": "disabled",
+      "score_count": 10
+    },
+    {
+      "case_id": "public_jiyuan_vehicle_procurement_2024_245_a_q_006",
+      "candidate_count": 10,
+      "batch_size": 8,
+      "micro_batch_size": 8,
+      "input_char_length": {
+        "mean": 479.3,
+        "max": 546
+      },
+      "input_token_length": {
+        "mean": 315.6,
+        "max": 369
+      },
+      "tokenization_ms": 6.124,
+      "batched_inference_ms": 11006.36,
+      "rerank_total_ms": 11012.877,
+      "source_end_to_end_retrieval_ms": 892.46,
+      "source_reranker_ms": 0.0,
+      "source_reranker_status": "disabled",
+      "score_count": 10
+    },
+    {
+      "case_id": "public_guangdong_tax_e_tax_development_2023_gpcgd23c500fg157f_q_001",
+      "candidate_count": 10,
+      "batch_size": 8,
+      "micro_batch_size": 8,
+      "input_char_length": {
+        "mean": 468.8,
+        "max": 529
+      },
+      "input_token_length": {
+        "mean": 307.0,
+        "max": 360
+      },
+      "tokenization_ms": 6.818,
+      "batched_inference_ms": 10730.195,
+      "rerank_total_ms": 10737.403,
+      "source_end_to_end_retrieval_ms": 52600.776,
+      "source_reranker_ms": 0.0,
+      "source_reranker_status": "disabled",
+      "score_count": 10
+    },
+    {
+      "case_id": "public_guangdong_tax_e_tax_development_2023_gpcgd23c500fg157f_q_002",
+      "candidate_count": 10,
+      "batch_size": 8,
+      "micro_batch_size": 8,
+      "input_char_length": {
+        "mean": 493.1,
+        "max": 524
+      },
+      "input_token_length": {
+        "mean": 319.3,
+        "max": 357
+      },
+      "tokenization_ms": 6.783,
+      "batched_inference_ms": 10953.98,
+      "rerank_total_ms": 10961.168,
+      "source_end_to_end_retrieval_ms": 322.601,
+      "source_reranker_ms": 0.0,
+      "source_reranker_status": "disabled",
+      "score_count": 10
+    },
+    {
+      "case_id": "public_guangdong_tax_e_tax_development_2023_gpcgd23c500fg157f_q_003",
+      "candidate_count": 10,
+      "batch_size": 8,
+      "micro_batch_size": 8,
+      "input_char_length": {
+        "mean": 484.4,
+        "max": 529
+      },
+      "input_token_length": {
+        "mean": 317.4,
+        "max": 361
+      },
+      "tokenization_ms": 6.823,
+      "batched_inference_ms": 11478.323,
+      "rerank_total_ms": 11485.569,
+      "source_end_to_end_retrieval_ms": 392.357,
+      "source_reranker_ms": 0.0,
+      "source_reranker_status": "disabled",
+      "score_count": 10
+    },
+    {
+      "case_id": "public_guangdong_tax_e_tax_development_2023_gpcgd23c500fg157f_q_004",
+      "candidate_count": 10,
+      "batch_size": 8,
+      "micro_batch_size": 8,
+      "input_char_length": {
+        "mean": 496.6,
+        "max": 526
+      },
+      "input_token_length": {
+        "mean": 320.7,
+        "max": 357
+      },
+      "tokenization_ms": 6.317,
+      "batched_inference_ms": 11618.156,
+      "rerank_total_ms": 11624.897,
+      "source_end_to_end_retrieval_ms": 336.753,
+      "source_reranker_ms": 0.0,
+      "source_reranker_status": "disabled",
+      "score_count": 10
+    },
+    {
+      "case_id": "public_guangdong_tax_e_tax_development_2023_gpcgd23c500fg157f_q_005",
+      "candidate_count": 10,
+      "batch_size": 8,
+      "micro_batch_size": 8,
+      "input_char_length": {
+        "mean": 507.4,
+        "max": 524
+      },
+      "input_token_length": {
+        "mean": 322.1,
+        "max": 346
+      },
+      "tokenization_ms": 6.416,
+      "batched_inference_ms": 12039.347,
+      "rerank_total_ms": 12046.147,
+      "source_end_to_end_retrieval_ms": 275.563,
+      "source_reranker_ms": 0.0,
+      "source_reranker_status": "disabled",
+      "score_count": 10
+    },
+    {
+      "case_id": "public_guangdong_tax_e_tax_development_2023_gpcgd23c500fg157f_q_006",
+      "candidate_count": 10,
+      "batch_size": 8,
+      "micro_batch_size": 8,
+      "input_char_length": {
+        "mean": 446.0,
+        "max": 532
+      },
+      "input_token_length": {
+        "mean": 290.1,
+        "max": 357
+      },
+      "tokenization_ms": 6.315,
+      "batched_inference_ms": 12486.65,
+      "rerank_total_ms": 12493.38,
+      "source_end_to_end_retrieval_ms": 401.173,
+      "source_reranker_ms": 0.0,
+      "source_reranker_status": "disabled",
+      "score_count": 10
+    },
+    {
+      "case_id": "public_guangdong_tax_e_tax_development_2023_gpcgd23c500fg157f_q_007",
+      "candidate_count": 10,
+      "batch_size": 8,
+      "micro_batch_size": 8,
+      "input_char_length": {
+        "mean": 443.8,
+        "max": 530
+      },
+      "input_token_length": {
+        "mean": 296.2,
+        "max": 380
+      },
+      "tokenization_ms": 8.371,
+      "batched_inference_ms": 13256.024,
+      "rerank_total_ms": 13264.814,
+      "source_end_to_end_retrieval_ms": 1291.824,
+      "source_reranker_ms": 0.0,
+      "source_reranker_status": "disabled",
+      "score_count": 10
+    },
+    {
+      "case_id": "public_guangdong_tax_e_tax_development_2023_gpcgd23c500fg157f_q_008",
+      "candidate_count": 10,
+      "batch_size": 8,
+      "micro_batch_size": 8,
+      "input_char_length": {
+        "mean": 474.0,
+        "max": 535
+      },
+      "input_token_length": {
+        "mean": 324.1,
+        "max": 386
+      },
+      "tokenization_ms": 6.331,
+      "batched_inference_ms": 13441.415,
+      "rerank_total_ms": 13448.129,
+      "source_end_to_end_retrieval_ms": 1017.029,
+      "source_reranker_ms": 0.0,
+      "source_reranker_status": "disabled",
+      "score_count": 10
+    },
+    {
+      "case_id": "public_uk_dwp_dos010_curam_technical_architect_2017_q_001",
+      "candidate_count": 10,
+      "batch_size": 8,
+      "micro_batch_size": 8,
+      "input_char_length": {
+        "mean": 596.0,
+        "max": 643
+      },
+      "input_token_length": {
+        "mean": 130.2,
+        "max": 150
+      },
+      "tokenization_ms": 5.323,
+      "batched_inference_ms": 4976.589,
+      "rerank_total_ms": 4982.282,
+      "source_end_to_end_retrieval_ms": 189748.383,
+      "source_reranker_ms": 0.0,
+      "source_reranker_status": "disabled",
+      "score_count": 10
+    },
+    {
+      "case_id": "public_uk_dwp_dos010_curam_technical_architect_2017_q_002",
+      "candidate_count": 10,
+      "batch_size": 8,
+      "micro_batch_size": 8,
+      "input_char_length": {
+        "mean": 513.1,
+        "max": 606
+      },
+      "input_token_length": {
+        "mean": 125.3,
+        "max": 153
+      },
+      "tokenization_ms": 5.253,
+      "batched_inference_ms": 5204.72,
+      "rerank_total_ms": 5210.367,
+      "source_end_to_end_retrieval_ms": 1432.849,
+      "source_reranker_ms": 0.0,
+      "source_reranker_status": "disabled",
+      "score_count": 10
+    },
+    {
+      "case_id": "public_uk_dwp_dos010_curam_technical_architect_2017_q_003",
+      "candidate_count": 10,
+      "batch_size": 8,
+      "micro_batch_size": 8,
+      "input_char_length": {
+        "mean": 468.6,
+        "max": 576
+      },
+      "input_token_length": {
+        "mean": 113.2,
+        "max": 147
+      },
+      "tokenization_ms": 5.028,
+      "batched_inference_ms": 4889.836,
+      "rerank_total_ms": 4895.285,
+      "source_end_to_end_retrieval_ms": 1209.979,
+      "source_reranker_ms": 0.0,
+      "source_reranker_status": "disabled",
+      "score_count": 10
+    },
+    {
+      "case_id": "public_uk_dwp_dos010_curam_technical_architect_2017_q_004",
+      "candidate_count": 10,
+      "batch_size": 8,
+      "micro_batch_size": 8,
+      "input_char_length": {
+        "mean": 492.1,
+        "max": 591
+      },
+      "input_token_length": {
+        "mean": 120.5,
+        "max": 154
+      },
+      "tokenization_ms": 4.895,
+      "batched_inference_ms": 5071.678,
+      "rerank_total_ms": 5076.973,
+      "source_end_to_end_retrieval_ms": 1001.437,
+      "source_reranker_ms": 0.0,
+      "source_reranker_status": "disabled",
+      "score_count": 10
+    },
+    {
+      "case_id": "public_uk_dwp_dos010_curam_technical_architect_2017_q_005",
+      "candidate_count": 10,
+      "batch_size": 8,
+      "micro_batch_size": 8,
+      "input_char_length": {
+        "mean": 740.0,
+        "max": 740
+      },
+      "input_token_length": {
+        "mean": 159.7,
+        "max": 167
+      },
+      "tokenization_ms": 5.475,
+      "batched_inference_ms": 5808.043,
+      "rerank_total_ms": 5813.871,
+      "source_end_to_end_retrieval_ms": 3108.696,
+      "source_reranker_ms": 0.0,
+      "source_reranker_status": "disabled",
+      "score_count": 10
+    },
+    {
+      "case_id": "public_uk_dwp_dos010_curam_technical_architect_2017_q_006",
+      "candidate_count": 10,
+      "batch_size": 8,
+      "micro_batch_size": 8,
+      "input_char_length": {
+        "mean": 524.2,
+        "max": 620
+      },
+      "input_token_length": {
+        "mean": 122.1,
+        "max": 157
+      },
+      "tokenization_ms": 4.854,
+      "batched_inference_ms": 5325.951,
+      "rerank_total_ms": 5331.216,
+      "source_end_to_end_retrieval_ms": 983.042,
+      "source_reranker_ms": 0.0,
+      "source_reranker_status": "disabled",
+      "score_count": 10
+    },
+    {
+      "case_id": "public_uk_dwp_dos010_curam_technical_architect_2017_q_007",
+      "candidate_count": 10,
+      "batch_size": 8,
+      "micro_batch_size": 8,
+      "input_char_length": {
+        "mean": 656.5,
+        "max": 665
+      },
+      "input_token_length": {
+        "mean": 157.3,
+        "max": 168
+      },
+      "tokenization_ms": 5.396,
+      "batched_inference_ms": 5579.105,
+      "rerank_total_ms": 5584.898,
+      "source_end_to_end_retrieval_ms": 1036.671,
+      "source_reranker_ms": 0.0,
+      "source_reranker_status": "disabled",
+      "score_count": 10
+    },
+    {
+      "case_id": "public_uk_dwp_dos010_curam_technical_architect_2017_q_008",
+      "candidate_count": 10,
+      "batch_size": 8,
+      "micro_batch_size": 8,
+      "input_char_length": {
+        "mean": 629.3,
+        "max": 654
+      },
+      "input_token_length": {
+        "mean": 152.2,
+        "max": 175
+      },
+      "tokenization_ms": 5.271,
+      "batched_inference_ms": 6011.118,
+      "rerank_total_ms": 6016.773,
+      "source_end_to_end_retrieval_ms": 1079.336,
+      "source_reranker_ms": 0.0,
+      "source_reranker_status": "disabled",
+      "score_count": 10
+    },
+    {
+      "case_id": "public_uk_dwp_dos010_curam_technical_architect_2017_q_009",
+      "candidate_count": 10,
+      "batch_size": 8,
+      "micro_batch_size": 8,
+      "input_char_length": {
+        "mean": 535.1,
+        "max": 627
+      },
+      "input_token_length": {
+        "mean": 122.4,
+        "max": 150
+      },
+      "tokenization_ms": 4.896,
+      "batched_inference_ms": 5124.086,
+      "rerank_total_ms": 5129.4,
+      "source_end_to_end_retrieval_ms": 775.572,
+      "source_reranker_ms": 0.0,
+      "source_reranker_status": "disabled",
+      "score_count": 10
+    }
+  ]
+}

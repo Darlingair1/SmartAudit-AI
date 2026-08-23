@@ -273,6 +273,10 @@ class CurrentPipelineRetriever:
             "retrieval_ms": retrieval_ms,
             "reranker_ms": float(rerank_metrics.get("rerank_latency_ms") or 0),
             "reranker_status": reranker_status,
+            "reranker_failure_reason": rerank_metrics.get("rerank_failure_reason"),
+            "reranker_candidate_count": rerank_metrics.get("candidate_count"),
+            "reranker_batch_size": rerank_metrics.get("batch_size"),
+            "reranker_max_length": rerank_metrics.get("max_length"),
             "retrieval_fallback_path": retrieval.fallback_path,
             "document_sha256": context.document_sha256,
             "settings_fingerprint": context.settings_fingerprint,
@@ -474,6 +478,7 @@ def run_evaluation(
         "success": 0,
         "timeout_fallback": 0,
         "other_fallback": 0,
+        "cross_encoder_error": 0,
     }
     for result in case_results:
         status = result.get("reranker_status")
@@ -517,6 +522,7 @@ def run_evaluation(
             "cross_encoder_success_count": reranker_counts["success"],
             "cross_encoder_timeout_fallback_count": reranker_counts["timeout_fallback"],
             "cross_encoder_other_fallback_count": reranker_counts["other_fallback"],
+            "cross_encoder_error_count": reranker_counts["cross_encoder_error"],
         },
         "cases": case_results,
     }

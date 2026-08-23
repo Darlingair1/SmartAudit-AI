@@ -1,0 +1,241 @@
+{
+  "metadata": {
+    "generated_at": "2026-08-23T01:57:21.608647Z",
+    "source_report": "eval/baselines/retrieval_baseline_v1/reports/hybrid_rrf.json",
+    "python_version": "3.11.5",
+    "torch_version": "2.10.0+cpu",
+    "torch_num_threads": 16,
+    "torch_num_interop_threads": 1,
+    "model": "bge-reranker-v2-m3",
+    "model_init_ms": 2345.28,
+    "model_cache_lookup_ms": 1.622,
+    "model_cache_reused_instance": true,
+    "warmup_pairs": 2,
+    "warmup_ms": 2109.216,
+    "max_length": 512,
+    "batch_size": 8,
+    "micro_batch_size": 8,
+    "production_timeout_ms": 3000,
+    "case_count": 8,
+    "benchmark_process_model": "one process for all cases in a profile",
+    "production_predict_uses_batch": true
+  },
+  "summary": {
+    "candidate_count": {
+      "mean": 6.75,
+      "p50": 8.0,
+      "p95": 8.0,
+      "max": 8.0
+    },
+    "input_char_length": {
+      "mean": 477.99,
+      "p50": 512.375,
+      "p95": 534.375,
+      "max": 534.375
+    },
+    "input_token_length": {
+      "mean": 317.708,
+      "p50": 346.0,
+      "p95": 361.0,
+      "max": 361.0
+    },
+    "tokenization_ms": {
+      "mean": 3.992,
+      "p50": 4.408,
+      "p95": 5.221,
+      "max": 5.221
+    },
+    "batched_inference_ms": {
+      "mean": 8776.936,
+      "p50": 10861.957,
+      "p95": 11221.162,
+      "max": 11221.162
+    },
+    "rerank_total_ms": {
+      "mean": 8781.15,
+      "p50": 10867.006,
+      "p95": 11225.789,
+      "max": 11225.789
+    },
+    "source_end_to_end_retrieval_ms": {
+      "mean": 5098.56,
+      "p50": 810.184,
+      "p95": 25256.905,
+      "max": 25256.905
+    },
+    "would_exceed_production_timeout_count": 6,
+    "source_fallback_reasons": {
+      "disabled": 8
+    }
+  },
+  "cases": [
+    {
+      "case_id": "dev_smoke_payment_001",
+      "candidate_count": 3,
+      "batch_size": 8,
+      "micro_batch_size": 8,
+      "input_char_length": {
+        "mean": 354.333,
+        "max": 511
+      },
+      "input_token_length": {
+        "mean": 220.333,
+        "max": 320
+      },
+      "tokenization_ms": 2.105,
+      "batched_inference_ms": 2518.702,
+      "rerank_total_ms": 2521.078,
+      "source_end_to_end_retrieval_ms": 25256.905,
+      "source_reranker_ms": 0.0,
+      "source_reranker_status": "disabled",
+      "score_count": 3
+    },
+    {
+      "case_id": "dev_smoke_termination_001",
+      "candidate_count": 3,
+      "batch_size": 8,
+      "micro_batch_size": 8,
+      "input_char_length": {
+        "mean": 357.333,
+        "max": 514
+      },
+      "input_token_length": {
+        "mean": 223.333,
+        "max": 323
+      },
+      "tokenization_ms": 2.113,
+      "batched_inference_ms": 2770.167,
+      "rerank_total_ms": 2772.435,
+      "source_end_to_end_retrieval_ms": 810.184,
+      "source_reranker_ms": 0.0,
+      "source_reranker_status": "disabled",
+      "score_count": 3
+    },
+    {
+      "case_id": "synthetic_purchase_contract_001_q_001",
+      "candidate_count": 8,
+      "batch_size": 8,
+      "micro_batch_size": 8,
+      "input_char_length": {
+        "mean": 511.375,
+        "max": 533
+      },
+      "input_token_length": {
+        "mean": 343.0,
+        "max": 382
+      },
+      "tokenization_ms": 4.375,
+      "batched_inference_ms": 10202.989,
+      "rerank_total_ms": 10207.597,
+      "source_end_to_end_retrieval_ms": 11694.358,
+      "source_reranker_ms": 0.0,
+      "source_reranker_status": "disabled",
+      "score_count": 8
+    },
+    {
+      "case_id": "synthetic_purchase_contract_001_q_002",
+      "candidate_count": 8,
+      "batch_size": 8,
+      "micro_batch_size": 8,
+      "input_char_length": {
+        "mean": 512.375,
+        "max": 534
+      },
+      "input_token_length": {
+        "mean": 343.0,
+        "max": 382
+      },
+      "tokenization_ms": 4.683,
+      "batched_inference_ms": 10505.855,
+      "rerank_total_ms": 10510.793,
+      "source_end_to_end_retrieval_ms": 300.94,
+      "source_reranker_ms": 0.0,
+      "source_reranker_status": "disabled",
+      "score_count": 8
+    },
+    {
+      "case_id": "synthetic_purchase_contract_001_q_003",
+      "candidate_count": 8,
+      "batch_size": 8,
+      "micro_batch_size": 8,
+      "input_char_length": {
+        "mean": 520.375,
+        "max": 542
+      },
+      "input_token_length": {
+        "mean": 353.0,
+        "max": 392
+      },
+      "tokenization_ms": 5.221,
+      "batched_inference_ms": 10914.356,
+      "rerank_total_ms": 10919.799,
+      "source_end_to_end_retrieval_ms": 688.149,
+      "source_reranker_ms": 0.0,
+      "source_reranker_status": "disabled",
+      "score_count": 8
+    },
+    {
+      "case_id": "synthetic_purchase_contract_001_q_004",
+      "candidate_count": 8,
+      "batch_size": 8,
+      "micro_batch_size": 8,
+      "input_char_length": {
+        "mean": 512.375,
+        "max": 534
+      },
+      "input_token_length": {
+        "mean": 346.0,
+        "max": 385
+      },
+      "tokenization_ms": 4.211,
+      "batched_inference_ms": 11220.298,
+      "rerank_total_ms": 11224.704,
+      "source_end_to_end_retrieval_ms": 892.613,
+      "source_reranker_ms": 0.0,
+      "source_reranker_status": "disabled",
+      "score_count": 8
+    },
+    {
+      "case_id": "synthetic_purchase_contract_001_q_005",
+      "candidate_count": 8,
+      "batch_size": 8,
+      "micro_batch_size": 8,
+      "input_char_length": {
+        "mean": 521.375,
+        "max": 543
+      },
+      "input_token_length": {
+        "mean": 352.0,
+        "max": 391
+      },
+      "tokenization_ms": 4.816,
+      "batched_inference_ms": 10861.957,
+      "rerank_total_ms": 10867.006,
+      "source_end_to_end_retrieval_ms": 351.178,
+      "source_reranker_ms": 0.0,
+      "source_reranker_status": "disabled",
+      "score_count": 8
+    },
+    {
+      "case_id": "synthetic_purchase_contract_001_q_006",
+      "candidate_count": 8,
+      "batch_size": 8,
+      "micro_batch_size": 8,
+      "input_char_length": {
+        "mean": 534.375,
+        "max": 556
+      },
+      "input_token_length": {
+        "mean": 361.0,
+        "max": 400
+      },
+      "tokenization_ms": 4.408,
+      "batched_inference_ms": 11221.162,
+      "rerank_total_ms": 11225.789,
+      "source_end_to_end_retrieval_ms": 794.152,
+      "source_reranker_ms": 0.0,
+      "source_reranker_status": "disabled",
+      "score_count": 8
+    }
+  ]
+}

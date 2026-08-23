@@ -28,6 +28,7 @@ PROFILES: tuple[AblationProfile, ...] = (
     AblationProfile("hybrid_rrf", {"RAG_MODE": "hybrid", "LEGAL_BM25_ENABLED": "true", "RRF_ENABLED": "true", "RERANK_ENABLED": "false"}, "Production hybrid retrieval with RRF and without reranking."),
     AblationProfile("current_fallback", {"RAG_MODE": "hybrid", "LEGAL_BM25_ENABLED": "true", "RRF_ENABLED": "true", "RERANK_ENABLED": "true"}, "Current production profile; CrossEncoder fallback is accepted and counted."),
     AblationProfile("hybrid_crossencoder", {"RAG_MODE": "hybrid", "LEGAL_BM25_ENABLED": "true", "RRF_ENABLED": "true", "RERANK_ENABLED": "true"}, "Current production profile requiring CrossEncoder success for every executed case.", True),
+    AblationProfile("hybrid_rrf_crossencoder_strict", {"RAG_MODE": "hybrid", "LEGAL_BM25_ENABLED": "true", "RRF_ENABLED": "true", "RERANK_ENABLED": "true", "RERANK_STRICT": "true"}, "RRF with strict CrossEncoder failure semantics; no heuristic fallback.", True),
 )
 
 DEFAULT_DATASET = Path("eval/datasets/rag_eval_dev_v1.jsonl")
@@ -212,6 +213,13 @@ def summarize_report(profile: AblationProfile, report_path: Path, report: Mappin
     if profile.require_cross_encoder_success and (successes != executed or timeout_fallbacks or other_fallbacks):
         status = "unavailable"
         reason = "CrossEncoder did not succeed for every executed case under the fixed production timeout. The report is retained as diagnostic evidence."
+    strict_errors = sum(
+        result.get("timing", {}).get("reranker_status") == "cross_encoder_error"
+        for result in report.get("cases", [])
+    )
+    if profile.name == "hybrid_rrf_crossencoder_strict" and strict_errors:
+        status = "unavailable"
+        reason = f"Strict CrossEncoder recorded {strict_errors} explicit errors; heuristic fallback was disabled."
     return {
         "profile": profile.name,
         "description": profile.description,
@@ -224,6 +232,7 @@ def summarize_report(profile: AblationProfile, report_path: Path, report: Mappin
         "coverage": coverage,
         "metrics": report.get("metrics", {}),
         "execution": execution,
+        "strict_cross_encoder_error_count": strict_errors,
         "retrieval_fallback_counts": fallback_counts,
         "metadata": report.get("metadata", {}),
         "case_deltas_vs_current_fallback": [],

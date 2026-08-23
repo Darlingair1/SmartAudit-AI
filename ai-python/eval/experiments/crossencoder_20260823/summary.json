@@ -1,0 +1,50 @@
+{
+  "experiment": "crossencoder_20260823",
+  "baseline": {
+    "path": "eval/baselines/retrieval_baseline_v1",
+    "commit": "5825dfbe18f2de720f8103149bd9a6ce11ef09d8",
+    "profile": "hybrid_rrf",
+    "metrics": {
+      "hit_at_1": 0.725,
+      "recall_at_1": 0.560417,
+      "recall_at_3": 0.808333,
+      "recall_at_5": 0.891667,
+      "recall_at_10": 0.922917,
+      "mrr": 0.81
+    }
+  },
+  "root_cause": {
+    "model_initialization_ms": 2371.237,
+    "cache_lookup_ms": 1.425,
+    "candidate_count_mean": 9.25,
+    "input_chars_mean": 510,
+    "input_tokens_mean": 282,
+    "tokenization_ms": {"mean": 5.17, "p50": 5.271, "p95": 6.823, "max": 8.371},
+    "batched_inference_ms": {"mean": 8669.474, "p50": 9322.832, "p95": 13149.071, "max": 13441.415},
+    "rerank_total_ms": {"mean": 8675.609, "p50": 9328.26, "p95": 13156.366, "max": 13448.129},
+    "finding": "CPU CrossEncoder forward dominates; cache is singleton, evaluation is one process, and predict uses batch_size=8. 38/40 direct samples exceed the fixed 3000 ms timeout."
+  },
+  "optimization_comparison": [
+    {"name": "warmup", "sample": 8, "max_length": 512, "batch_size": 8, "mean_rerank_ms": 8257, "result": "small improvement"},
+    {"name": "batch_size_1", "sample": 8, "max_length": 512, "batch_size": 1, "mean_rerank_ms": 8769, "result": "no improvement"},
+    {"name": "threads_4", "sample": 8, "max_length": 512, "batch_size": 8, "mean_rerank_ms": 11746, "result": "worse"},
+    {"name": "threads_16", "sample": 8, "max_length": 512, "batch_size": 8, "mean_rerank_ms": 8781, "result": "no improvement"},
+    {"name": "max_length_256", "sample": 8, "max_length": 256, "batch_size": 10, "mean_rerank_ms": 6267, "result": "best measured improvement, still above timeout"},
+    {"name": "max_length_384", "sample": 8, "max_length": 384, "batch_size": 10, "mean_rerank_ms": 8753, "result": "no improvement"},
+    {"name": "microbatch_4", "sample": 8, "max_length": 384, "batch_size": 10, "mean_rerank_ms": 8724, "result": "no improvement"}
+  ],
+  "runs": {
+    "ablation_controls": {
+      "report": "eval/experiments/crossencoder_20260823/ablation_summary.json",
+      "profiles": {
+        "lexical_only": {"status": "success", "hit_at_1": 0.65, "recall_at_5": 0.84, "mrr": 0.77, "latency_mean_ms": 608.26},
+        "vector_only": {"status": "success", "hit_at_1": 0.65, "recall_at_5": 0.85, "mrr": 0.77, "latency_mean_ms": 6084.76},
+        "hybrid_no_rrf": {"status": "success", "hit_at_1": 0.65, "recall_at_5": 0.84, "mrr": 0.77, "latency_mean_ms": 6633.49},
+        "hybrid_rrf": {"status": "success", "hit_at_1": 0.75, "recall_at_5": 0.89, "mrr": 0.83, "latency_mean_ms": 5944.32}
+      }
+    },
+    "hybrid_rrf_crossencoder_max256_fallback": {"report": "eval/experiments/crossencoder_20260823/hybrid_rrf_crossencoder_max256_fallback.json", "metrics": {"hit_at_1": 0.875, "recall_at_1": 0.670833, "recall_at_3": 0.858333, "recall_at_5": 0.91875, "recall_at_10": 0.935417, "mrr": 0.908333, "latency_mean_ms": 13491.312, "latency_p50_ms": 5355.215, "latency_p95_ms": 41173.3}, "cross_encoder_success_count": 2, "timeout_count": 38, "error_count": 0, "fallback_count": 38},
+    "hybrid_rrf_crossencoder_strict_max256": {"report": "eval/experiments/crossencoder_20260823/hybrid_rrf_crossencoder_strict_max256.json", "metrics": {"hit_at_1": 0.75, "recall_at_1": 0.560417, "recall_at_3": 0.808333, "recall_at_5": 0.891667, "recall_at_10": 0.935417, "mrr": 0.83, "latency_mean_ms": 80201.558, "latency_p50_ms": 4632.484, "latency_p95_ms": 53142.684}, "cross_encoder_success_count": 2, "timeout_count": 0, "error_count": 38, "fallback_count": 0}
+  },
+  "recommendation": "Do not enable CrossEncoder as the default production reranker on this CPU environment. max_length=256 reduces measured inference time but remains too slow and succeeds only 2/40 cases; strict mode is unavailable. Keep RRF/fallback baseline unchanged and revisit with GPU or separately provisioned inference service."
+}

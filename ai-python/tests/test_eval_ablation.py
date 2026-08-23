@@ -32,12 +32,13 @@ def _report(case_id: str = "case-1", mrr: float = 1.0) -> dict:
 
 
 def test_fixed_profile_matrix_has_expected_switches() -> None:
-    assert [profile.name for profile in PROFILES] == ["lexical_only", "vector_only", "hybrid_no_rrf", "hybrid_rrf", "current_fallback", "hybrid_crossencoder"]
+    assert [profile.name for profile in PROFILES] == ["lexical_only", "vector_only", "hybrid_no_rrf", "hybrid_rrf", "current_fallback", "hybrid_crossencoder", "hybrid_rrf_crossencoder_strict"]
     assert _profile("lexical_only").env_patch["RAG_MODE"] == "keyword"
     assert _profile("vector_only").env_patch["LEGAL_BM25_ENABLED"] == "false"
     assert _profile("hybrid_no_rrf").env_patch["RRF_ENABLED"] == "false"
     assert _profile("hybrid_rrf").env_patch["RERANK_ENABLED"] == "false"
     assert _profile("hybrid_crossencoder").require_cross_encoder_success is True
+    assert _profile("hybrid_rrf_crossencoder_strict").env_patch["RERANK_STRICT"] == "true"
 
 
 def test_build_command_uses_current_runner_and_fixed_inputs(tmp_path: Path) -> None:
