@@ -97,6 +97,17 @@ Run the fixed Phase 2 matrix from `ai-python`:
 python -m eval.run_ablation
 ```
 
+To create the frozen, repo-relative Baseline V1 artifact in one command:
+
+```text
+python -m eval.run_ablation --baseline-dir eval/baselines/retrieval_baseline_v1
+```
+
+The command writes `summary.json`, `summary.md`, and one report per profile.
+It refuses to overwrite an existing baseline directory unless
+`--overwrite` is passed explicitly. All local paths in the baseline artifacts
+are normalized relative to the repository root.
+
 The command executes each distinct production configuration in an isolated
 subprocess and retains one raw report per profile plus `summary.json`. The
 matrix covers lexical only, vector only, hybrid without RRF, hybrid with RRF,

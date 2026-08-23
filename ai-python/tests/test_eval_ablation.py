@@ -9,6 +9,9 @@ from eval.run_ablation import (
     build_profile_environment,
     paired_case_deltas,
     run_profile,
+    normalize_paths,
+    render_baseline_markdown,
+    repo_relative_path,
     sha256_file,
     summarize_report,
 )
@@ -57,6 +60,50 @@ def test_sha256_file_is_content_hash(tmp_path: Path) -> None:
     first.write_bytes(b"same")
     second.write_bytes(b"same")
     assert sha256_file(first) == sha256_file(second)
+
+
+def test_repo_relative_paths_never_emit_local_absolute_paths(tmp_path: Path) -> None:
+    repo_root = tmp_path / "repo"
+    inside = repo_root / "ai-python" / "eval" / "report.json"
+    assert repo_relative_path(str(inside), repo_root) == "ai-python/eval/report.json"
+    assert repo_relative_path(str(tmp_path / "outside"), repo_root) == "<external-path>"
+    normalized = normalize_paths(
+        {
+            "report_path": str(inside),
+            "command": ["python", "--output", str(inside)],
+            "text_preview": "G://contract text that is not a local path",
+        },
+        repo_root,
+    )
+    assert normalized == {
+        "report_path": "ai-python/eval/report.json",
+        "command": ["python", "--output", "ai-python/eval/report.json"],
+        "text_preview": "G://contract text that is not a local path",
+    }
+
+
+def test_baseline_markdown_contains_provenance_and_fallback_warning() -> None:
+    summary = {
+        "metadata": {
+            "git_commit": "abc123",
+            "dataset": "ai-python/eval/datasets/data.jsonl",
+            "dataset_sha256": "dataset-hash",
+            "manifest": "ai-python/eval/manifests/manifest.json",
+            "manifest_sha256": "manifest-hash",
+            "environment": {"python_version": "3.11.5", "pypdf_version": "6.14.2"},
+            "reviewed_case_count": 40,
+        },
+        "matrix": [{
+            "profile": "current_fallback",
+            "status": "success",
+            "metrics": {"hit_at_1": 1.0, "recall_at_5": 1.0, "recall_at_10": 1.0, "mrr": 1.0, "latency": {"mean_ms": 1}},
+            "execution": {"cross_encoder_success_count": 0, "cross_encoder_timeout_fallback_count": 1, "cross_encoder_other_fallback_count": 0},
+        }],
+    }
+    markdown = render_baseline_markdown(summary)
+    assert "abc123" in markdown
+    assert "timeout fallback 1" in markdown
+    assert "must not be attributed" in markdown
 
 
 def test_paired_case_deltas_are_calculated_by_case_id() -> None:

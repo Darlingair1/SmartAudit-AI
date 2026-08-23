@@ -84,3 +84,4 @@ ai-python/mode_compare*.json
 
 # Local-only test artifacts pending provenance review
 ai-python/test.pdf
+ai-python/tmp/

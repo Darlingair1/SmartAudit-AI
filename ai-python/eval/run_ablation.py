@@ -39,6 +39,121 @@ def sha256_file(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def repo_relative_path(value: str, repo_root: Path) -> str:
+    candidate = Path(value)
+    if not candidate.is_absolute():
+        return value.replace("\\", "/")
+    try:
+        return candidate.resolve().relative_to(repo_root.resolve()).as_posix()
+    except ValueError:
+        return "<external-path>"
+
+
+_PATH_FIELDS = {"dataset", "manifest", "report_path", "embedding_model"}
+
+
+def normalize_paths(value: Any, repo_root: Path, field_name: str | None = None) -> Any:
+    if isinstance(value, dict):
+        return {key: normalize_paths(item, repo_root, key) for key, item in value.items()}
+    if isinstance(value, list):
+        if field_name == "command":
+            return [repo_relative_path(item, repo_root) if isinstance(item, str) else item for item in value]
+        return [normalize_paths(item, repo_root) for item in value]
+    if isinstance(value, str) and field_name in _PATH_FIELDS:
+        return repo_relative_path(value, repo_root)
+    return value
+
+
+def _git_commit(repo_root: Path) -> str:
+    try:
+        return subprocess.run(
+            ["git", "-c", f"safe.directory={repo_root.as_posix()}", "rev-parse", "HEAD"],
+            cwd=repo_root,
+            capture_output=True,
+            text=True,
+            check=True,
+            timeout=5,
+        ).stdout.strip()
+    except (OSError, subprocess.SubprocessError):
+        return ""
+
+
+def render_baseline_markdown(summary: Mapping[str, Any]) -> str:
+    metadata = summary["metadata"]
+    lines = [
+        "# Retrieval Baseline V1",
+        "",
+        "Frozen evaluation snapshot for the 40 reviewed `rag_eval_dev_v1` cases.",
+        "This is a retrieval diagnostic baseline, not a CI quality gate.",
+        "",
+        "## Reproduction",
+        "",
+        "```powershell",
+        "cd ai-python",
+        "python -m eval.run_ablation --baseline-dir eval/baselines/retrieval_baseline_v1",
+        "```",
+        "",
+        "## Provenance",
+        "",
+        f"- Git commit: `{metadata.get('git_commit', '')}`",
+        f"- Dataset: `{metadata.get('dataset', '')}`",
+        f"- Dataset SHA256: `{metadata.get('dataset_sha256', '')}`",
+        f"- Manifest: `{metadata.get('manifest', '')}`",
+        f"- Manifest SHA256: `{metadata.get('manifest_sha256', '')}`",
+        f"- Python: `{metadata.get('environment', {}).get('python_version', '')}`",
+        f"- pypdf: `{metadata.get('environment', {}).get('pypdf_version', '')}`",
+        f"- Dataset cases: `{metadata.get('reviewed_case_count', '')} reviewed`",
+        "",
+        "## Profiles",
+        "",
+        "| Profile | Status | Hit@1 | Recall@5 | Recall@10 | MRR | Mean latency ms |",
+        "|---|---|---:|---:|---:|---:|---:|",
+    ]
+    for item in summary["matrix"]:
+        metrics = item.get("metrics", {})
+        latency = metrics.get("latency", {})
+        lines.append(
+            "| {profile} | {status} | {hit1} | {recall5} | {recall10} | {mrr} | {mean} |".format(
+                profile=item["profile"],
+                status=item["status"],
+                hit1=metrics.get("hit_at_1"),
+                recall5=metrics.get("recall_at_5"),
+                recall10=metrics.get("recall_at_10"),
+                mrr=metrics.get("mrr"),
+                mean=latency.get("mean_ms"),
+            )
+        )
+    lines.extend(
+        [
+            "",
+            "## Reranker Status",
+            "",
+        ]
+    )
+    for item in summary["matrix"]:
+        execution = item.get("execution", {})
+        lines.append(
+            f"- `{item['profile']}`: CrossEncoder success "
+            f"{execution.get('cross_encoder_success_count', 0)}, "
+            f"timeout fallback {execution.get('cross_encoder_timeout_fallback_count', 0)}, "
+            f"other fallback {execution.get('cross_encoder_other_fallback_count', 0)}."
+        )
+    lines.extend(
+        [
+            "",
+            "CrossEncoder timeout fallback metrics must not be attributed to a successful CrossEncoder.",
+            "The current CPU environment retains the production 3000 ms timeout; the full reranked arm is unavailable when all cases time out.",
+            "",
+            "## Limitations",
+            "",
+            "- This baseline freezes current behavior and is not a regression gate.",
+            "- Any change to retrieval, chunking, embeddings, RRF, reranking, dependencies, dataset, or manifest requires a new baseline.",
+            "- Latency is environment-dependent and is diagnostic only.",
+        ]
+    )
+    return "\n".join(lines) + "\n"
+
+
 def build_command(python_executable: str, dataset: Path, manifest: Path, output: Path, top_k: str = DEFAULT_TOP_K) -> list[str]:
     return [python_executable, "-m", "eval.runners.run_retrieval_eval", "--dataset", str(dataset), "--manifest", str(manifest), "--profile", "current", "--top-k", top_k, "--output", str(output)]
 
@@ -135,13 +250,16 @@ def apply_matrix_validity(results: list[dict[str, Any]]) -> None:
             result.setdefault("limitations", []).append(limitation)
 
 
-def run_profile(*, profile: AblationProfile, python_executable: str, dataset: Path, manifest: Path, output: Path, top_k: str, cwd: Path, base_environment: Mapping[str, str]) -> dict[str, Any]:
+def run_profile(*, profile: AblationProfile, python_executable: str, dataset: Path, manifest: Path, output: Path, top_k: str, cwd: Path, base_environment: Mapping[str, str], repo_root: Path | None = None) -> dict[str, Any]:
     command = build_command(python_executable, dataset, manifest, output, top_k=top_k)
     completed = subprocess.run(command, cwd=cwd, env=build_profile_environment(base_environment, profile), capture_output=True, text=True, check=False)
     if completed.returncode != 0 or not output.is_file():
         return {"profile": profile.name, "description": profile.description, "env_patch": dict(profile.env_patch), "command": command, "status": "failed", "reason": f"evaluation subprocess exited with code {completed.returncode}", "stdout": completed.stdout[-4000:], "stderr": completed.stderr[-4000:], "report_path": str(output), "case_deltas_vs_current_fallback": []}
     try:
         report = json.loads(output.read_text(encoding="utf-8"))
+        if repo_root is not None:
+            report = normalize_paths(report, repo_root)
+            output.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
     except (OSError, json.JSONDecodeError) as error:
         return {"profile": profile.name, "description": profile.description, "env_patch": dict(profile.env_patch), "command": command, "status": "failed", "reason": f"invalid evaluation report: {error}", "report_path": str(output), "case_deltas_vs_current_fallback": []}
     return summarize_report(profile, output, report, command)
@@ -171,18 +289,29 @@ def main() -> None:
     parser.add_argument("--profiles", type=_parse_profiles, default=list(PROFILES), help="comma-separated profile names (default: full fixed matrix)")
     parser.add_argument("--reports-dir", type=Path, default=Path("eval/reports"))
     parser.add_argument("--output", type=Path)
+    parser.add_argument("--baseline-dir", type=Path, help="write stable baseline_v1 summary and Markdown")
+    parser.add_argument("--overwrite", action="store_true", help="allow replacing an existing baseline directory")
     args = parser.parse_args()
 
     dataset = (root / args.dataset).resolve() if not args.dataset.is_absolute() else args.dataset
     manifest = (root / args.manifest).resolve() if not args.manifest.is_absolute() else args.manifest
     reports_dir = (root / args.reports_dir).resolve() if not args.reports_dir.is_absolute() else args.reports_dir
+    baseline_dir = None
+    if args.baseline_dir:
+        baseline_dir = (root / args.baseline_dir).resolve() if not args.baseline_dir.is_absolute() else args.baseline_dir.resolve()
+        if baseline_dir.exists() and not args.overwrite:
+            parser.error(f"baseline directory exists; pass --overwrite to replace it: {baseline_dir}")
+        if baseline_dir.exists() and args.overwrite:
+            shutil.rmtree(baseline_dir)
+        baseline_dir.mkdir(parents=True, exist_ok=False)
+        reports_dir = baseline_dir / "reports"
     if not dataset.is_file():
         parser.error(f"dataset not found: {dataset}")
     if not manifest.is_file():
         parser.error(f"manifest not found: {manifest}")
 
     timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
-    run_dir = reports_dir / f"ablation_{timestamp}"
+    run_dir = reports_dir if baseline_dir else reports_dir / f"ablation_{timestamp}"
     run_dir.mkdir(parents=True, exist_ok=False)
     profile_results: list[dict[str, Any]] = []
     loaded_reports: dict[str, dict[str, Any]] = {}
@@ -212,7 +341,7 @@ def main() -> None:
             result = summarize_report(profile, report_path, report, command)
             result["execution_reused_from"] = equivalent_source.name
         else:
-            result = run_profile(profile=profile, python_executable=sys.executable, dataset=dataset, manifest=manifest, output=report_path, top_k=args.top_k, cwd=root, base_environment=os.environ)
+            result = run_profile(profile=profile, python_executable=sys.executable, dataset=dataset, manifest=manifest, output=report_path, top_k=args.top_k, cwd=root, base_environment=os.environ, repo_root=root.parent)
         profile_results.append(result)
         if report_path.is_file():
             try:
@@ -240,14 +369,23 @@ def main() -> None:
             "baseline_profile": "current_fallback",
             "runner_profile": "current",
             "production_code_modified": False,
+            "git_commit": _git_commit(root.parent),
+            "reviewed_case_count": next((item.get("coverage", {}).get("total_case_count") for item in profile_results if item.get("coverage")), 0),
+            "environment": {
+                "python_version": sys.version.split()[0],
+                "pypdf_version": __import__("pypdf").__version__,
+            },
         },
         "matrix": profile_results,
     }
-    summary_path = args.output or run_dir / "summary.json"
+    summary = normalize_paths(summary, root.parent)
+    summary_path = args.output or (baseline_dir / "summary.json" if baseline_dir else run_dir / "summary.json")
     if not summary_path.is_absolute():
         summary_path = (root / summary_path).resolve()
     summary_path.parent.mkdir(parents=True, exist_ok=True)
     summary_path.write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
+    if baseline_dir:
+        (baseline_dir / "summary.md").write_text(render_baseline_markdown(summary), encoding="utf-8")
     print(str(summary_path))
 
 
