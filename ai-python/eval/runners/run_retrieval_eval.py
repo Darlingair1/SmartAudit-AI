@@ -34,6 +34,16 @@ class RetrievedChunk:
     page_nos: list[int] = field(default_factory=list)
 
 
+def _ranking_fingerprint(case_results: Sequence[dict[str, Any]]) -> dict[str, Any]:
+    """Hash only case IDs and ordered candidate IDs for drift detection."""
+    lines = []
+    for result in sorted(case_results, key=lambda item: str(item.get("case_id") or "")):
+        ids = [str(item.get("chunk_id") or "") for item in result.get("top_results", [])]
+        lines.append(f"{result.get('case_id', '')}\t{'|'.join(ids)}")
+    payload = "\n".join(lines).encode("utf-8")
+    return {"algorithm": "sha256(case_id\\tordered_candidate_ids)", "case_count": len(lines), "sha256": hashlib.sha256(payload).hexdigest()}
+
+
 @dataclass
 class EvaluationDocumentContext:
     security_context: Any
@@ -280,6 +290,7 @@ class CurrentPipelineRetriever:
             "retrieval_fallback_path": retrieval.fallback_path,
             "document_sha256": context.document_sha256,
             "settings_fingerprint": context.settings_fingerprint,
+            "retrieval_stage_diagnostics": retrieval.metrics,
         }
         return [
             RetrievedChunk(
@@ -493,6 +504,7 @@ def run_evaluation(
         for result in case_results
     )
     now = datetime.now(timezone.utc)
+    ranking_fingerprint = _ranking_fingerprint(case_results)
     return {
         "metadata": {
             "dataset": str(dataset_path.resolve()),
@@ -512,6 +524,7 @@ def run_evaluation(
                 "pypdf_version": __import__("pypdf").__version__,
             },
             "document_fingerprints": document_fingerprints,
+            "ranking_fingerprint": ranking_fingerprint,
         },
         "coverage": calculate_evaluation_coverage(case_results),
         "metrics": aggregate_retrieval_metrics(case_results, top_ks),

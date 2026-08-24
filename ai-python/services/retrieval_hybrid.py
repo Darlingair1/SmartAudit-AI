@@ -527,6 +527,23 @@ def retrieve_hybrid_for_risk(
         "rrf_overlap_count": len({x.candidate_id for x in bm25_candidates} & {x.candidate_id for x in vector_candidates}),
         "retrieval_latency_ms": latency_ms,
         "fallback_path": fallback_path,
+        # Diagnostics only: preserve each retrieval stage without changing ordering.
+        "lexical_candidates": [
+            {"candidate_id": c.candidate_id, "score": round(float(score), 9)}
+            for score, c in sorted(scored.values(), key=lambda x: x[0], reverse=True)[: settings.bm25_top_k]
+        ] if settings.legal_bm25_enabled else [],
+        "vector_candidates": [
+            {"candidate_id": c.candidate_id, "rank": c.vector_rank, "distance": c.metadata.get("vector_distance")}
+            for c in vector_candidates
+        ],
+        "rrf_input": {
+            "lexical_ids": [c.candidate_id for c in bm25_candidates[: settings.max_risk_candidates_before_rrf]],
+            "vector_ids": [c.candidate_id for c in vector_candidates[: settings.max_risk_candidates_before_rrf]],
+        },
+        "rrf_scores": [
+            {"candidate_id": c.candidate_id, "score": round(float(c.rrf_score), 12)} for c in fused
+        ],
+        "final_candidate_ids": [c.candidate_id for c in fused],
     }
     return RetrievalOutput(
         candidates=fused,

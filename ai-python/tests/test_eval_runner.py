@@ -11,6 +11,17 @@ from eval.runners.run_retrieval_eval import (
     evaluate_case,
     run_evaluation,
 )
+from eval.runners.run_retrieval_eval import _ranking_fingerprint
+
+
+def test_ranking_fingerprint_uses_case_and_ordered_ids() -> None:
+    cases = [{"case_id": "b", "top_results": [{"chunk_id": "2"}, {"chunk_id": "1"}]}, {"case_id": "a", "top_results": [{"chunk_id": "3"}]}]
+    first = _ranking_fingerprint(cases)
+    second = _ranking_fingerprint(list(reversed(cases)))
+    assert first == second
+    assert first["case_count"] == 2
+    cases[0]["top_results"].reverse()
+    assert _ranking_fingerprint(cases)["sha256"] != first["sha256"]
 
 
 def _write_dataset(path: Path) -> None:

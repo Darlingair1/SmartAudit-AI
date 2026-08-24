@@ -16,10 +16,33 @@ logger = logging.getLogger("smartaudit.ai.reranker")
 
 _RERANKER_CACHE: Dict[tuple[str, str, int], CrossEncoder] = {}
 _RERANK_EXECUTOR = ThreadPoolExecutor(max_workers=1, thread_name_prefix="rerank-ce")
+_RERANKER_CIRCUIT_OPEN = False
+_RERANKER_CIRCUIT_REASON = ""
 
 
 class CrossEncoderError(RuntimeError):
     """CrossEncoder failed without permitting heuristic fallback."""
+
+
+def reset_reranker_circuit() -> None:
+    global _RERANKER_CIRCUIT_OPEN, _RERANKER_CIRCUIT_REASON
+    _RERANKER_CIRCUIT_OPEN = False
+    _RERANKER_CIRCUIT_REASON = ""
+
+
+def _circuit_result(candidates: List[RetrievalCandidate], model_version: str, reason: str, settings: Any) -> tuple[List[RetrievalCandidate], Dict[str, Any]]:
+    return candidates, {
+        "rerank_applied": False,
+        "rerank_latency_ms": 0,
+        "rerank_model_version": model_version,
+        "top1_rerank_score": candidates[0].rrf_score if candidates else 0.0,
+        "topk_avg_rerank_score": 0.0,
+        "rerank_backend": "cross_encoder_circuit_open",
+        "rerank_failure_reason": reason,
+        "candidate_count": min(len(candidates), max(1, int(getattr(settings, "rerank_top_n", 10)))),
+        "batch_size": max(1, int(getattr(settings, "rerank_batch_size", 8))),
+        "max_length": int(getattr(settings, "rerank_max_length", 512)),
+    }
 
 
 def _resolve_model_path(path_value: str) -> str:
@@ -108,6 +131,7 @@ def rerank_candidates(
     candidates: List[RetrievalCandidate],
     settings: Any,
 ) -> tuple[List[RetrievalCandidate], Dict[str, Any]]:
+    global _RERANKER_CIRCUIT_OPEN, _RERANKER_CIRCUIT_REASON
     t0 = perf_counter()
     model_version = str(getattr(settings, "rerank_model_version", "na"))
     if not candidates:
@@ -136,6 +160,9 @@ def rerank_candidates(
     batch_size = max(1, int(getattr(settings, "rerank_batch_size", 8)))
     timeout_ms = max(500, int(getattr(settings, "rerank_timeout_ms", 3000)))
     strict = bool(getattr(settings, "rerank_strict", False))
+
+    if _RERANKER_CIRCUIT_OPEN:
+        return _circuit_result(candidates, model_version, _RERANKER_CIRCUIT_REASON, settings)
 
     try:
         model = _get_cross_encoder(settings)
@@ -175,20 +202,22 @@ def rerank_candidates(
         logger.warning("Cross-encoder model missing, fallback to heuristic rerank: %s", ex)
         failure_reason = f"model_missing: {ex}"
     except FutureTimeoutError:
-        logger.warning("Cross-encoder rerank timeout, fallback to heuristic rerank")
+        logger.warning("Cross-encoder rerank timeout; opening fail-fast circuit")
         failure_reason = f"timeout_after_{timeout_ms}ms"
+        _RERANKER_CIRCUIT_OPEN = True
+        _RERANKER_CIRCUIT_REASON = "circuit_open_after_timeout"
     except Exception as ex:  # noqa: PERF203
         logger.warning("Cross-encoder rerank failed, fallback to heuristic rerank: %s", ex)
         failure_reason = f"error: {type(ex).__name__}: {ex}"
 
-    if strict:
+    if strict or _RERANKER_CIRCUIT_OPEN:
         return candidates, {
             "rerank_applied": False,
             "rerank_latency_ms": int((perf_counter() - t0) * 1000),
             "rerank_model_version": model_version,
             "top1_rerank_score": 0.0,
             "topk_avg_rerank_score": 0.0,
-            "rerank_backend": "cross_encoder_error",
+            "rerank_backend": "cross_encoder_error" if strict else "cross_encoder_circuit_open",
             "rerank_failure_reason": failure_reason,
             "candidate_count": len(limited),
             "batch_size": batch_size,
