@@ -85,3 +85,28 @@ ai-python/mode_compare*.json
 # Local-only test artifacts pending provenance review
 ai-python/test.pdf
 ai-python/tmp/
+
+# Benchmark publication policy: real source documents remain local unless a
+# separate redistribution review explicitly approves them. Already tracked
+# historical files are unaffected by this rule.
+ai-python/eval/documents/public/*.pdf
+ai-python/eval/documents/external_holdout/source/
+
+# Raw External Holdout inputs and adjudication material contain contract text.
+**/pipeline_capture/cases_raw.jsonl
+**/annotation_package/
+**/annotation_review*.jsonl
+**/external_evaluation_sample_v1.jsonl
+**/external_holdout_v1.jsonl
+
+# Large or case-level experiment artifacts are local-only. Aggregate summaries,
+# metadata, manifests, hashes, and explicit public projections remain visible.
+**/replay_*.json
+**/drift_repeat_*.json
+**/hybrid_rrf_repeat_*.json
+**/transitions.json
+**/candidate_snapshot.json
+**/*first_run.json
+
+# Accidental duplicate tree created by running tools from ai-python/.
+ai-python/ai-python/
