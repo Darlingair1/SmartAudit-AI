@@ -1,0 +1,26 @@
+{
+  "schema_version": "claim_evidence_benchmark_v1",
+  "dataset": "eval/judge/claim_evidence_benchmark_v1.jsonl",
+  "dataset_sha256": "e8c68404be3ef8535c8f3cc3f9fe54418616870ad993bf2d676f2eee4cf189f7",
+  "source_audited_dataset": "eval/judge/claim_evidence_v1_audited.jsonl",
+  "source_audited_dataset_sha256": "b2773be96915f917ff9ff0155c2f6fea270fe3fedacbc238937e3f982690bfde",
+  "source_commit": "cf29aae27f51d02ff194d42d156315ebd038be25",
+  "annotation_guideline_version": "claim_evidence_v1",
+  "adjudication_status": "complete",
+  "unresolved_label_conflict_count": 0,
+  "label_action_counts": {
+    "KEEP": 120
+  },
+  "text_action_counts": {
+    "KEEP": 72,
+    "REWRITE": 48
+  },
+  "label_distribution": {
+    "SUPPORTED": 40,
+    "PARTIAL": 40,
+    "UNSUPPORTED": 40
+  },
+  "reviewed_count": 120,
+  "draft_count": 0,
+  "provenance": "Frozen from audited dataset; labels unchanged; text rewrites and audit decisions retained per record."
+}

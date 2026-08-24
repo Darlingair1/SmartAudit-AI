@@ -1,0 +1,849 @@
+{
+  "schema_version": "external_blind_summary_public_v1",
+  "public_projection_version": "publication_projection_v1",
+  "source_artifact": "ai-python/eval/experiments/evidence_judge_external_holdout_v1_20260824/summary.json",
+  "source_artifact_sha256": "411624b62ab65fe1e0e0a1abd9770cc9deec3bb8404e4a091332e390f90b3ccb",
+  "dataset_sha256": "d0f98891bd7e0471516afe11f99a4bae5d51026c9a1d140eee22c3e9b7ca89d3",
+  "metrics": {
+    "v0": {
+      "case_count": 120,
+      "accuracy": 0.133333,
+      "accuracy_count": {
+        "numerator": 16,
+        "denominator": 120
+      },
+      "macro_f1": 0.113193,
+      "macro_f1_scope": "all three labels",
+      "per_class": {
+        "SUPPORTED": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 62,
+          "precision_count": {
+            "numerator": 0,
+            "denominator": 0
+          },
+          "recall_count": {
+            "numerator": 0,
+            "denominator": 62
+          },
+          "precision_wilson_95": {
+            "method": "wilson_95",
+            "numerator": 0,
+            "denominator": 0,
+            "low": null,
+            "high": null
+          },
+          "recall_wilson_95": {
+            "method": "wilson_95",
+            "numerator": 0,
+            "denominator": 62,
+            "low": 0.0,
+            "high": 0.058344
+          }
+        },
+        "PARTIAL": {
+          "precision": 0.333333,
+          "recall": 0.090909,
+          "f1": 0.142857,
+          "support": 44,
+          "precision_count": {
+            "numerator": 4,
+            "denominator": 12
+          },
+          "recall_count": {
+            "numerator": 4,
+            "denominator": 44
+          },
+          "precision_wilson_95": {
+            "method": "wilson_95",
+            "numerator": 4,
+            "denominator": 12,
+            "low": 0.13812,
+            "high": 0.609378
+          },
+          "recall_wilson_95": {
+            "method": "wilson_95",
+            "numerator": 4,
+            "denominator": 44,
+            "low": 0.035922,
+            "high": 0.211592
+          }
+        },
+        "UNSUPPORTED": {
+          "precision": 0.111111,
+          "recall": 0.857143,
+          "f1": 0.196721,
+          "support": 14,
+          "precision_count": {
+            "numerator": 12,
+            "denominator": 108
+          },
+          "recall_count": {
+            "numerator": 12,
+            "denominator": 14
+          },
+          "precision_wilson_95": {
+            "method": "wilson_95",
+            "numerator": 12,
+            "denominator": 108,
+            "low": 0.064713,
+            "high": 0.184224
+          },
+          "recall_wilson_95": {
+            "method": "wilson_95",
+            "numerator": 12,
+            "denominator": 14,
+            "low": 0.600586,
+            "high": 0.959906
+          }
+        }
+      },
+      "supported_precision": 0.0,
+      "supported_recall": 0.0,
+      "partial_f1": 0.142857,
+      "unsupported_recall": 0.857143,
+      "unsafe_acceptance_rate": 0.0,
+      "unsafe_acceptance_count": {
+        "numerator": 0,
+        "denominator": 58
+      },
+      "unsafe_acceptance_wilson_95": {
+        "method": "wilson_95",
+        "numerator": 0,
+        "denominator": 58,
+        "low": 0.0,
+        "high": 0.062118
+      },
+      "supported_false_rejection_rate": 1.0,
+      "supported_false_rejection_count": {
+        "numerator": 62,
+        "denominator": 62
+      },
+      "hard_false_rejection_rate": 0.903226,
+      "hard_false_rejection_count": {
+        "numerator": 56,
+        "denominator": 62
+      },
+      "human_review_rate": 0.1,
+      "human_review_count": {
+        "numerator": 12,
+        "denominator": 120
+      },
+      "human_review_wilson_95": {
+        "method": "wilson_95",
+        "numerator": 12,
+        "denominator": 120,
+        "low": 0.058134,
+        "high": 0.166682
+      },
+      "automation_coverage": 0.9,
+      "automation_coverage_count": {
+        "numerator": 108,
+        "denominator": 120
+      },
+      "automation_coverage_wilson_95": {
+        "method": "wilson_95",
+        "numerator": 108,
+        "denominator": 120,
+        "low": 0.833318,
+        "high": 0.941866
+      },
+      "selective_accuracy": 0.111111,
+      "selective_accuracy_count": {
+        "numerator": 12,
+        "denominator": 108
+      },
+      "confusion_matrix": {
+        "SUPPORTED": {
+          "SUPPORTED": 0,
+          "PARTIAL": 6,
+          "UNSUPPORTED": 56
+        },
+        "PARTIAL": {
+          "SUPPORTED": 0,
+          "PARTIAL": 4,
+          "UNSUPPORTED": 40
+        },
+        "UNSUPPORTED": {
+          "SUPPORTED": 0,
+          "PARTIAL": 2,
+          "UNSUPPORTED": 12
+        }
+      }
+    },
+    "v1": {
+      "case_count": 120,
+      "accuracy": 0.15,
+      "accuracy_count": {
+        "numerator": 18,
+        "denominator": 120
+      },
+      "macro_f1": 0.142907,
+      "macro_f1_scope": "all three labels",
+      "per_class": {
+        "SUPPORTED": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 62,
+          "precision_count": {
+            "numerator": 0,
+            "denominator": 0
+          },
+          "recall_count": {
+            "numerator": 0,
+            "denominator": 62
+          },
+          "precision_wilson_95": {
+            "method": "wilson_95",
+            "numerator": 0,
+            "denominator": 0,
+            "low": null,
+            "high": null
+          },
+          "recall_wilson_95": {
+            "method": "wilson_95",
+            "numerator": 0,
+            "denominator": 62,
+            "low": 0.0,
+            "high": 0.058344
+          }
+        },
+        "PARTIAL": {
+          "precision": 0.357143,
+          "recall": 0.227273,
+          "f1": 0.277778,
+          "support": 44,
+          "precision_count": {
+            "numerator": 10,
+            "denominator": 28
+          },
+          "recall_count": {
+            "numerator": 10,
+            "denominator": 44
+          },
+          "precision_wilson_95": {
+            "method": "wilson_95",
+            "numerator": 10,
+            "denominator": 28,
+            "low": 0.207058,
+            "high": 0.541697
+          },
+          "recall_wilson_95": {
+            "method": "wilson_95",
+            "numerator": 10,
+            "denominator": 44,
+            "low": 0.128419,
+            "high": 0.369924
+          }
+        },
+        "UNSUPPORTED": {
+          "precision": 0.086957,
+          "recall": 0.571429,
+          "f1": 0.150943,
+          "support": 14,
+          "precision_count": {
+            "numerator": 8,
+            "denominator": 92
+          },
+          "recall_count": {
+            "numerator": 8,
+            "denominator": 14
+          },
+          "precision_wilson_95": {
+            "method": "wilson_95",
+            "numerator": 8,
+            "denominator": 92,
+            "low": 0.044721,
+            "high": 0.162303
+          },
+          "recall_wilson_95": {
+            "method": "wilson_95",
+            "numerator": 8,
+            "denominator": 14,
+            "low": 0.325906,
+            "high": 0.786192
+          }
+        }
+      },
+      "supported_precision": 0.0,
+      "supported_recall": 0.0,
+      "partial_f1": 0.277778,
+      "unsupported_recall": 0.571429,
+      "unsafe_acceptance_rate": 0.0,
+      "unsafe_acceptance_count": {
+        "numerator": 0,
+        "denominator": 58
+      },
+      "unsafe_acceptance_wilson_95": {
+        "method": "wilson_95",
+        "numerator": 0,
+        "denominator": 58,
+        "low": 0.0,
+        "high": 0.062118
+      },
+      "supported_false_rejection_rate": 1.0,
+      "supported_false_rejection_count": {
+        "numerator": 62,
+        "denominator": 62
+      },
+      "hard_false_rejection_rate": 0.806452,
+      "hard_false_rejection_count": {
+        "numerator": 50,
+        "denominator": 62
+      },
+      "human_review_rate": 0.233333,
+      "human_review_count": {
+        "numerator": 28,
+        "denominator": 120
+      },
+      "human_review_wilson_95": {
+        "method": "wilson_95",
+        "numerator": 28,
+        "denominator": 120,
+        "low": 0.166656,
+        "high": 0.316554
+      },
+      "automation_coverage": 0.766667,
+      "automation_coverage_count": {
+        "numerator": 92,
+        "denominator": 120
+      },
+      "automation_coverage_wilson_95": {
+        "method": "wilson_95",
+        "numerator": 92,
+        "denominator": 120,
+        "low": 0.683446,
+        "high": 0.833344
+      },
+      "selective_accuracy": 0.086957,
+      "selective_accuracy_count": {
+        "numerator": 8,
+        "denominator": 92
+      },
+      "confusion_matrix": {
+        "SUPPORTED": {
+          "SUPPORTED": 0,
+          "PARTIAL": 12,
+          "UNSUPPORTED": 50
+        },
+        "PARTIAL": {
+          "SUPPORTED": 0,
+          "PARTIAL": 10,
+          "UNSUPPORTED": 34
+        },
+        "UNSUPPORTED": {
+          "SUPPORTED": 0,
+          "PARTIAL": 6,
+          "UNSUPPORTED": 8
+        }
+      }
+    },
+    "v2": {
+      "case_count": 120,
+      "accuracy": 0.416667,
+      "accuracy_count": {
+        "numerator": 50,
+        "denominator": 120
+      },
+      "macro_f1": 0.289574,
+      "macro_f1_scope": "all three labels",
+      "per_class": {
+        "SUPPORTED": {
+          "precision": 0.5,
+          "recall": 0.241935,
+          "f1": 0.326087,
+          "support": 62,
+          "precision_count": {
+            "numerator": 15,
+            "denominator": 30
+          },
+          "recall_count": {
+            "numerator": 15,
+            "denominator": 62
+          },
+          "precision_wilson_95": {
+            "method": "wilson_95",
+            "numerator": 15,
+            "denominator": 30,
+            "low": 0.331541,
+            "high": 0.668459
+          },
+          "recall_wilson_95": {
+            "method": "wilson_95",
+            "numerator": 15,
+            "denominator": 62,
+            "low": 0.152459,
+            "high": 0.361525
+          }
+        },
+        "PARTIAL": {
+          "precision": 0.411765,
+          "recall": 0.795455,
+          "f1": 0.542636,
+          "support": 44,
+          "precision_count": {
+            "numerator": 35,
+            "denominator": 85
+          },
+          "recall_count": {
+            "numerator": 35,
+            "denominator": 44
+          },
+          "precision_wilson_95": {
+            "method": "wilson_95",
+            "numerator": 35,
+            "denominator": 85,
+            "low": 0.31317,
+            "high": 0.51799
+          },
+          "recall_wilson_95": {
+            "method": "wilson_95",
+            "numerator": 35,
+            "denominator": 44,
+            "low": 0.654994,
+            "high": 0.888467
+          }
+        },
+        "UNSUPPORTED": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 14,
+          "precision_count": {
+            "numerator": 0,
+            "denominator": 5
+          },
+          "recall_count": {
+            "numerator": 0,
+            "denominator": 14
+          },
+          "precision_wilson_95": {
+            "method": "wilson_95",
+            "numerator": 0,
+            "denominator": 5,
+            "low": 0.0,
+            "high": 0.434482
+          },
+          "recall_wilson_95": {
+            "method": "wilson_95",
+            "numerator": 0,
+            "denominator": 14,
+            "low": 0.0,
+            "high": 0.215311
+          }
+        }
+      },
+      "supported_precision": 0.5,
+      "supported_recall": 0.241935,
+      "partial_f1": 0.542636,
+      "unsupported_recall": 0.0,
+      "unsafe_acceptance_rate": 0.258621,
+      "unsafe_acceptance_count": {
+        "numerator": 15,
+        "denominator": 58
+      },
+      "unsafe_acceptance_wilson_95": {
+        "method": "wilson_95",
+        "numerator": 15,
+        "denominator": 58,
+        "low": 0.163455,
+        "high": 0.383774
+      },
+      "supported_false_rejection_rate": 0.758065,
+      "supported_false_rejection_count": {
+        "numerator": 47,
+        "denominator": 62
+      },
+      "hard_false_rejection_rate": 0.080645,
+      "hard_false_rejection_count": {
+        "numerator": 5,
+        "denominator": 62
+      },
+      "human_review_rate": 0.708333,
+      "human_review_count": {
+        "numerator": 85,
+        "denominator": 120
+      },
+      "human_review_wilson_95": {
+        "method": "wilson_95",
+        "numerator": 85,
+        "denominator": 120,
+        "low": 0.621558,
+        "high": 0.782184
+      },
+      "automation_coverage": 0.291667,
+      "automation_coverage_count": {
+        "numerator": 35,
+        "denominator": 120
+      },
+      "automation_coverage_wilson_95": {
+        "method": "wilson_95",
+        "numerator": 35,
+        "denominator": 120,
+        "low": 0.217816,
+        "high": 0.378442
+      },
+      "selective_accuracy": 0.428571,
+      "selective_accuracy_count": {
+        "numerator": 15,
+        "denominator": 35
+      },
+      "confusion_matrix": {
+        "SUPPORTED": {
+          "SUPPORTED": 15,
+          "PARTIAL": 42,
+          "UNSUPPORTED": 5
+        },
+        "PARTIAL": {
+          "SUPPORTED": 9,
+          "PARTIAL": 35,
+          "UNSUPPORTED": 0
+        },
+        "UNSUPPORTED": {
+          "SUPPORTED": 6,
+          "PARTIAL": 8,
+          "UNSUPPORTED": 0
+        }
+      }
+    },
+    "v2_1": {
+      "case_count": 120,
+      "accuracy": 0.366667,
+      "accuracy_count": {
+        "numerator": 44,
+        "denominator": 120
+      },
+      "macro_f1": 0.238954,
+      "macro_f1_scope": "all three labels",
+      "per_class": {
+        "SUPPORTED": {
+          "precision": 0.4,
+          "recall": 0.129032,
+          "f1": 0.195122,
+          "support": 62,
+          "precision_count": {
+            "numerator": 8,
+            "denominator": 20
+          },
+          "recall_count": {
+            "numerator": 8,
+            "denominator": 62
+          },
+          "precision_wilson_95": {
+            "method": "wilson_95",
+            "numerator": 8,
+            "denominator": 20,
+            "low": 0.218807,
+            "high": 0.613418
+          },
+          "recall_wilson_95": {
+            "method": "wilson_95",
+            "numerator": 8,
+            "denominator": 62,
+            "low": 0.066859,
+            "high": 0.234493
+          }
+        },
+        "PARTIAL": {
+          "precision": 0.382979,
+          "recall": 0.818182,
+          "f1": 0.521739,
+          "support": 44,
+          "precision_count": {
+            "numerator": 36,
+            "denominator": 94
+          },
+          "recall_count": {
+            "numerator": 36,
+            "denominator": 44
+          },
+          "precision_wilson_95": {
+            "method": "wilson_95",
+            "numerator": 36,
+            "denominator": 94,
+            "low": 0.291142,
+            "high": 0.484004
+          },
+          "recall_wilson_95": {
+            "method": "wilson_95",
+            "numerator": 36,
+            "denominator": 44,
+            "low": 0.680394,
+            "high": 0.904872
+          }
+        },
+        "UNSUPPORTED": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 14,
+          "precision_count": {
+            "numerator": 0,
+            "denominator": 6
+          },
+          "recall_count": {
+            "numerator": 0,
+            "denominator": 14
+          },
+          "precision_wilson_95": {
+            "method": "wilson_95",
+            "numerator": 0,
+            "denominator": 6,
+            "low": 0.0,
+            "high": 0.390334
+          },
+          "recall_wilson_95": {
+            "method": "wilson_95",
+            "numerator": 0,
+            "denominator": 14,
+            "low": 0.0,
+            "high": 0.215311
+          }
+        }
+      },
+      "supported_precision": 0.4,
+      "supported_recall": 0.129032,
+      "partial_f1": 0.521739,
+      "unsupported_recall": 0.0,
+      "unsafe_acceptance_rate": 0.206897,
+      "unsafe_acceptance_count": {
+        "numerator": 12,
+        "denominator": 58
+      },
+      "unsafe_acceptance_wilson_95": {
+        "method": "wilson_95",
+        "numerator": 12,
+        "denominator": 58,
+        "low": 0.122515,
+        "high": 0.327692
+      },
+      "supported_false_rejection_rate": 0.870968,
+      "supported_false_rejection_count": {
+        "numerator": 54,
+        "denominator": 62
+      },
+      "hard_false_rejection_rate": 0.096774,
+      "hard_false_rejection_count": {
+        "numerator": 6,
+        "denominator": 62
+      },
+      "human_review_rate": 0.783333,
+      "human_review_count": {
+        "numerator": 94,
+        "denominator": 120
+      },
+      "human_review_wilson_95": {
+        "method": "wilson_95",
+        "numerator": 94,
+        "denominator": 120,
+        "low": 0.701456,
+        "high": 0.847633
+      },
+      "automation_coverage": 0.216667,
+      "automation_coverage_count": {
+        "numerator": 26,
+        "denominator": 120
+      },
+      "automation_coverage_wilson_95": {
+        "method": "wilson_95",
+        "numerator": 26,
+        "denominator": 120,
+        "low": 0.152367,
+        "high": 0.298544
+      },
+      "selective_accuracy": 0.307692,
+      "selective_accuracy_count": {
+        "numerator": 8,
+        "denominator": 26
+      },
+      "confusion_matrix": {
+        "SUPPORTED": {
+          "SUPPORTED": 8,
+          "PARTIAL": 48,
+          "UNSUPPORTED": 6
+        },
+        "PARTIAL": {
+          "SUPPORTED": 8,
+          "PARTIAL": 36,
+          "UNSUPPORTED": 0
+        },
+        "UNSUPPORTED": {
+          "SUPPORTED": 4,
+          "PARTIAL": 10,
+          "UNSUPPORTED": 0
+        }
+      }
+    }
+  },
+  "confusion_matrices": {
+    "v0": {
+      "SUPPORTED": {
+        "SUPPORTED": 0,
+        "PARTIAL": 6,
+        "UNSUPPORTED": 56
+      },
+      "PARTIAL": {
+        "SUPPORTED": 0,
+        "PARTIAL": 4,
+        "UNSUPPORTED": 40
+      },
+      "UNSUPPORTED": {
+        "SUPPORTED": 0,
+        "PARTIAL": 2,
+        "UNSUPPORTED": 12
+      }
+    },
+    "v1": {
+      "SUPPORTED": {
+        "SUPPORTED": 0,
+        "PARTIAL": 12,
+        "UNSUPPORTED": 50
+      },
+      "PARTIAL": {
+        "SUPPORTED": 0,
+        "PARTIAL": 10,
+        "UNSUPPORTED": 34
+      },
+      "UNSUPPORTED": {
+        "SUPPORTED": 0,
+        "PARTIAL": 6,
+        "UNSUPPORTED": 8
+      }
+    },
+    "v2": {
+      "SUPPORTED": {
+        "SUPPORTED": 15,
+        "PARTIAL": 42,
+        "UNSUPPORTED": 5
+      },
+      "PARTIAL": {
+        "SUPPORTED": 9,
+        "PARTIAL": 35,
+        "UNSUPPORTED": 0
+      },
+      "UNSUPPORTED": {
+        "SUPPORTED": 6,
+        "PARTIAL": 8,
+        "UNSUPPORTED": 0
+      }
+    },
+    "v2_1": {
+      "SUPPORTED": {
+        "SUPPORTED": 8,
+        "PARTIAL": 48,
+        "UNSUPPORTED": 6
+      },
+      "PARTIAL": {
+        "SUPPORTED": 8,
+        "PARTIAL": 36,
+        "UNSUPPORTED": 0
+      },
+      "UNSUPPORTED": {
+        "SUPPORTED": 4,
+        "PARTIAL": 10,
+        "UNSUPPORTED": 0
+      }
+    }
+  },
+  "latency": {
+    "v0": {
+      "invocation_count": 120,
+      "successful_invocation_count": 120,
+      "latency_ms": {
+        "mean": 8.383751,
+        "p50": 8.35295,
+        "p95": 11.7501,
+        "max": 13.2039
+      },
+      "timeout_count": 0,
+      "error_count": 0,
+      "fallback_count": 0,
+      "external_model_api_invocation_count": 0,
+      "estimated_external_model_cost": 0.0
+    },
+    "v1": {
+      "invocation_count": 120,
+      "successful_invocation_count": 120,
+      "latency_ms": {
+        "mean": 12.434243,
+        "p50": 12.0124,
+        "p95": 18.5816,
+        "max": 21.9112
+      },
+      "timeout_count": 0,
+      "error_count": 0,
+      "fallback_count": 0,
+      "external_model_api_invocation_count": 0,
+      "estimated_external_model_cost": 0.0
+    },
+    "v2": {
+      "invocation_count": 120,
+      "successful_invocation_count": 120,
+      "latency_ms": {
+        "mean": 19.256252,
+        "p50": 19.5399,
+        "p95": 24.9601,
+        "max": 35.4434
+      },
+      "timeout_count": 0,
+      "error_count": 0,
+      "fallback_count": 0,
+      "external_model_api_invocation_count": 0,
+      "estimated_external_model_cost": 0.0
+    },
+    "v2_1": {
+      "invocation_count": 120,
+      "successful_invocation_count": 120,
+      "latency_ms": {
+        "mean": 26.154084,
+        "p50": 26.89905,
+        "p95": 33.8107,
+        "max": 55.6622
+      },
+      "timeout_count": 0,
+      "error_count": 0,
+      "fallback_count": 0,
+      "external_model_api_invocation_count": 0,
+      "estimated_external_model_cost": 0.0
+    }
+  },
+  "first_run_result_sha256": {
+    "v0_external_blind_first_run.json": "0edd9d5ec982a7eaa38d8bd1ef5b0eb1668c898aa01c3e7105ec07c8eae851d7",
+    "v1_external_blind_first_run.json": "ca9efe86d94225cd1c0cb8bdf26814e08f567ca1670ac0cf9a0248f960387ef5",
+    "v2_external_blind_first_run.json": "1386eb7947277ed544ca71c6c2912fb3aa1cdaf6695aa5b3ba2ec5f4d522130a",
+    "v2_1_external_blind_first_run.json": "be626a2643c5c91df4da15100cc86efe1354b43c803ec453853a7f15ef3793a2"
+  },
+  "development_acceptance": {
+    "v2_1_overall": "FAIL",
+    "failed_gate": "semantically_related_but_insufficient accuracy = 0.666667 < 0.75"
+  },
+  "failure_mode_aggregate": {
+    "judge": "v2_1",
+    "error_count": 76,
+    "taxonomy_counts": {
+      "conflicting_evidence": 10,
+      "qualifier_exception_scope": 26,
+      "implicit_risk_inference": 20,
+      "multi_evidence_failure": 4,
+      "numeric_temporal_failure": 9,
+      "semantic_paraphrase_failure": 6,
+      "partial_support_boundary": 1
+    },
+    "source_counts": {
+      "judge_failure": 54,
+      "retrieval_evidence_failure": 22
+    }
+  },
+  "production_recommendation": "HITL-first; v2.1 may be a secondary review signal but must not autonomously reject findings.",
+  "external_interpretation": "descriptive blind evaluation; no post-hoc acceptance gate",
+  "content_excluded": [
+    "claims",
+    "evidence",
+    "reviewer notes",
+    "case-level transitions",
+    "local paths"
+  ]
+}

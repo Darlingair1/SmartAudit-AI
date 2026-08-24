@@ -1,0 +1,93 @@
+{
+  "schema_version": "external_holdout_v1_public_metadata_v1",
+  "public_projection_version": "publication_projection_v1",
+  "source_artifact": "ai-python/eval/judge/external_holdout_v1/external_holdout_v1.metadata.json",
+  "source_artifact_sha256": "a145a44f43682e0705bf8892fc4cf7539cd05075b9a90992ff0f6ca9e469301c",
+  "dataset_original_sha256": "d0f98891bd7e0471516afe11f99a4bae5d51026c9a1d140eee22c3e9b7ca89d3",
+  "freeze_manifest_sha256": "348ad3e8a65fe07515dacf9e69c8956085a76855d44c3a87accb737129d090c5",
+  "freeze_status": "EXTERNAL_HOLDOUT_V1_FROZEN",
+  "case_count": 120,
+  "reviewed_count": 120,
+  "draft_count": 0,
+  "unresolved_count": 0,
+  "label_distribution": {
+    "SUPPORTED": 62,
+    "PARTIAL": 44,
+    "UNSUPPORTED": 14
+  },
+  "document_count": 3,
+  "documents": [
+    {
+      "document_id": "public_1746527472741_5024",
+      "filename": "1746527472741_5024.pdf",
+      "title": "高速公路门架系统状态监测运维项目合同",
+      "publisher_or_purchaser": "陕西省高速公路收费中心",
+      "supplier_or_contractor": "陕西交通电子工程科技有限公司",
+      "source_domain": "ccgp-shaanxi.gov.cn",
+      "source_page_url": null,
+      "source_document_identifier": "1746527472741_5024.pdf",
+      "original_sha256": "4605b4bd2a953cd775e9914d8583f92ca97a316dfbcace7863e3b39d13e2c6f6",
+      "normalized_text_sha256": "ef437b4e5ad9fc07875e65071783f2ab18fd3c2d7ae9a8e7dd808937dc654034",
+      "case_count": 40,
+      "label_distribution": {
+        "SUPPORTED": 22,
+        "PARTIAL": 15,
+        "UNSUPPORTED": 3
+      },
+      "pdf_distributed": false
+    },
+    {
+      "document_id": "public_8a69c65e95a7fec40195faa1360d1770",
+      "filename": "8a69c65e95a7fec40195faa1360d1770.pdf",
+      "title": "横山区第三小学智慧校园信息化建设项目系统集成服务收入合同",
+      "publisher_or_purchaser": "榆林市横山区第三小学",
+      "supplier_or_contractor": "联通（陕西）产业互联网有限公司",
+      "source_domain": "ccgp-shaanxi.gov.cn",
+      "source_page_url": null,
+      "source_document_identifier": "8a69c65e95a7fec40195faa1360d1770.pdf",
+      "original_sha256": "5436a6009160b945c57290f6cd777797bc54ea50e8c967c53da08ef4adbd7f84",
+      "normalized_text_sha256": "af78d9b3ef4e18102146de9a639c6a021e5da24c088d0856a25c0c6f82450119",
+      "case_count": 25,
+      "label_distribution": {
+        "PARTIAL": 10,
+        "SUPPORTED": 14,
+        "UNSUPPORTED": 1
+      },
+      "pdf_distributed": false
+    },
+    {
+      "document_id": "public_8a69c8e290831b250190964f57453e46",
+      "filename": "8a69c8e290831b250190964f57453e46.pdf",
+      "title": "2024年城市市政设施维护工程合同（第2标包）",
+      "publisher_or_purchaser": "西安市市政设施管理中心",
+      "supplier_or_contractor": "西安市东郊市政设施养护管理有限公司",
+      "source_domain": "ccgp-shaanxi.gov.cn",
+      "source_page_url": null,
+      "source_document_identifier": "8a69c8e290831b250190964f57453e46.pdf",
+      "original_sha256": "f91f109fc505345ad647015c651e30285026d7baa8bfd27b4afd186f54ae0f87",
+      "normalized_text_sha256": "f0f63a814cf55e2bf5ec230a756d9f7d2edc9f5d06bf2724d4ab4f8062458957",
+      "case_count": 55,
+      "label_distribution": {
+        "UNSUPPORTED": 10,
+        "SUPPORTED": 26,
+        "PARTIAL": 19
+      },
+      "pdf_distributed": false
+    }
+  ],
+  "sampling_seed": 20260824,
+  "sampling_algorithm_fingerprint": "8e449a72c9d12a997daaa941edc4801afa16a5291000210a54da86c387c56aca",
+  "source_pipeline_run_id": "external_holdout_20260824T060635Z_ca661437",
+  "capture_universe_sha256": "d4571f3ef65d5a63ec989497ab6809eec980e4e5a4f852d70b5c88d2028cd6d5",
+  "source_sample_sha256": "b7ff072356563ff05ccfdce136b4d5972599719d2dbb2bacc91b021280e3db84",
+  "judge_leakage_count": 0,
+  "judge_invocation_count_before_evaluation": 0,
+  "content_excluded": [
+    "PDF bytes",
+    "contract text",
+    "claims",
+    "evidence",
+    "reviewer notes",
+    "Gold rows"
+  ]
+}

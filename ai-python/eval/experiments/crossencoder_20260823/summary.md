@@ -31,3 +31,11 @@ The non-reranking controls were also rerun in `ablation_summary.json`: lexical-o
 CrossEncoder is not recommended for the default production pipeline on this CPU environment. The only material tuning, truncation to 256 tokens, remains slower than the timeout and does not provide 40-case success. No timeout increase was used to mask the issue. Use the unchanged RRF/fallback baseline; reconsider with GPU or a dedicated inference service.
 
 Machine-readable details and report paths are in `summary.json` and the sibling run files.
+
+## Ranking drift diagnostic
+
+Three identical `hybrid_rrf` runs were executed with BM25/RRF enabled, reranking disabled, CPU embedding, `OMP_NUM_THREADS=8`, and `MKL_NUM_THREADS=8`. Dataset hash and settings fingerprint were identical across runs; all document and extraction hashes matched. Metrics were not stable: Hit@1 was `0.750, 0.750, 0.725`; Recall@5 was `0.891667, 0.879167, 0.891667`; MRR was `0.830000, 0.833333, 0.818333`. Only 24/40 cases had identical final rankings across all three runs.
+
+The first divergence was vector retrieval for all 8 Guangdong-tax cases and all 8 software-service cases in the pairwise comparisons. Lexical candidate lists were stable across repeats; vector candidate IDs/distances changed, then propagated through RRF input, RRF scores, and final ranking. This identifies the vector/Chroma ANN stage as the first observed divergence, rather than RRF arithmetic. The frozen baseline comparison also contains four DWP cases whose first difference is lexical candidates, but that comparison used a different commit (`5825dfb` vs the diagnostic commit), so it is not a clean repeatability test.
+
+Per-case changed IDs, stage comparisons, configuration, hashes, and ranking fingerprints are in `ranking_drift_summary.json`. The runner now records a SHA-256 ranking fingerprint over `case_id + ordered candidate_ids`; future reranker experiments should consume a frozen candidate snapshot when ranking reproducibility is required. No deterministic behavior was fabricated and no retrieval algorithm was changed.

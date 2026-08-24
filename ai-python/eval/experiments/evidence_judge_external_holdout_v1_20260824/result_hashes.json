@@ -1,0 +1,9 @@
+{
+  "sha256": {
+    "v0_external_blind_first_run.json": "0edd9d5ec982a7eaa38d8bd1ef5b0eb1668c898aa01c3e7105ec07c8eae851d7",
+    "v1_external_blind_first_run.json": "ca9efe86d94225cd1c0cb8bdf26814e08f567ca1670ac0cf9a0248f960387ef5",
+    "v2_external_blind_first_run.json": "1386eb7947277ed544ca71c6c2912fb3aa1cdaf6695aa5b3ba2ec5f4d522130a",
+    "v2_1_external_blind_first_run.json": "be626a2643c5c91df4da15100cc86efe1354b43c803ec453853a7f15ef3793a2"
+  },
+  "hash_method": "SHA256 of exact first-run artifact bytes"
+}

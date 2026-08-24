@@ -1,0 +1,70 @@
+{
+  "v0": {
+    "SUPPORTED": {
+      "SUPPORTED": 0,
+      "PARTIAL": 6,
+      "UNSUPPORTED": 56
+    },
+    "PARTIAL": {
+      "SUPPORTED": 0,
+      "PARTIAL": 4,
+      "UNSUPPORTED": 40
+    },
+    "UNSUPPORTED": {
+      "SUPPORTED": 0,
+      "PARTIAL": 2,
+      "UNSUPPORTED": 12
+    }
+  },
+  "v1": {
+    "SUPPORTED": {
+      "SUPPORTED": 0,
+      "PARTIAL": 12,
+      "UNSUPPORTED": 50
+    },
+    "PARTIAL": {
+      "SUPPORTED": 0,
+      "PARTIAL": 10,
+      "UNSUPPORTED": 34
+    },
+    "UNSUPPORTED": {
+      "SUPPORTED": 0,
+      "PARTIAL": 6,
+      "UNSUPPORTED": 8
+    }
+  },
+  "v2": {
+    "SUPPORTED": {
+      "SUPPORTED": 15,
+      "PARTIAL": 42,
+      "UNSUPPORTED": 5
+    },
+    "PARTIAL": {
+      "SUPPORTED": 9,
+      "PARTIAL": 35,
+      "UNSUPPORTED": 0
+    },
+    "UNSUPPORTED": {
+      "SUPPORTED": 6,
+      "PARTIAL": 8,
+      "UNSUPPORTED": 0
+    }
+  },
+  "v2_1": {
+    "SUPPORTED": {
+      "SUPPORTED": 8,
+      "PARTIAL": 48,
+      "UNSUPPORTED": 6
+    },
+    "PARTIAL": {
+      "SUPPORTED": 8,
+      "PARTIAL": 36,
+      "UNSUPPORTED": 0
+    },
+    "UNSUPPORTED": {
+      "SUPPORTED": 4,
+      "PARTIAL": 10,
+      "UNSUPPORTED": 0
+    }
+  }
+}

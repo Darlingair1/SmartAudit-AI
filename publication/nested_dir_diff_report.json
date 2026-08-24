@@ -1,0 +1,27 @@
+{
+  "schema_version": "nested_dir_diff_report_v1",
+  "nested_directory": "ai-python/ai-python/",
+  "status": "CONFIRMED_ACCIDENTAL_DUPLICATE",
+  "nested_dir_duplicate_count": 2,
+  "unique_files_inside_nested_dir": 0,
+  "runtime_reference_count": 0,
+  "files": [
+    {
+      "nested_path": "ai-python/ai-python/eval/documents/external_holdout/candidate_inventory.json",
+      "formal_path": "ai-python/eval/documents/external_holdout/candidate_inventory.json",
+      "nested_sha256": "8468a9c1cb5bd3dd4296318c5e3b47f0b5f8cb441254f21759890752908d8faf",
+      "formal_sha256": "1f10982182e5d8d934f2f3fcbc4fef45d32f84f4296eeb2579302d7b38d59658",
+      "identical": false,
+      "difference": "nested inventory is an earlier incomplete snapshot; formal inventory is authoritative"
+    },
+    {
+      "nested_path": "ai-python/ai-python/eval/documents/external_holdout/candidate_manifest.json",
+      "formal_path": "ai-python/eval/documents/external_holdout/candidate_manifest.json",
+      "nested_sha256": "cd2b8f810578e6cbea7ee15f8d9bff0a0387a7f15806e40c0aec19c3e3f83988",
+      "formal_sha256": "c246f53522b17144b20aeac9215e17be156ab7a37197273b8efb71b933f13107",
+      "identical": false,
+      "difference": "nested manifest has no candidates; formal manifest contains the reviewed inventory"
+    }
+  ],
+  "disposition": "nested copies deleted locally after this report; formal files retained unchanged"
+}

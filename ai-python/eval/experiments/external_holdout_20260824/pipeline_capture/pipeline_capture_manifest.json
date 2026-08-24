@@ -1,0 +1,10 @@
+{
+  "schema_version": "external_holdout_pipeline_capture_v1",
+  "pipeline_run_id": "external_holdout_20260824T060635Z_ca661437",
+  "source_set": "ai-python/eval/documents/external_holdout/pipeline_source_set.json",
+  "provenance_file": "pipeline_provenance.json",
+  "cases_file": "cases_raw.jsonl",
+  "excluded_file": "excluded_cases.json",
+  "summary_file": "capture_summary.json",
+  "stopped_before_evidence_judge": true
+}

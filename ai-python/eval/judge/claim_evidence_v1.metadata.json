@@ -1,0 +1,17 @@
+{
+  "schema_version": "claim_evidence_v1",
+  "dataset": "eval/judge/claim_evidence_v1.jsonl",
+  "dataset_sha256": "bb6f9924b60db6d247fe04bc429cdc07a22e6e417d28e6fb4065335b7bb52609",
+  "source_dataset": "eval/datasets/rag_eval_dev_v1.jsonl",
+  "source_dataset_sha256": "b00e0a9b9a83c8e838edca6f48c5cebe7878f75d50d38550307b0c00e62737be",
+  "source_commit": "cf29aae27f51d02ff194d42d156315ebd038be25",
+  "case_count": 120,
+  "label_distribution": {
+    "SUPPORTED": 40,
+    "PARTIAL": 40,
+    "UNSUPPORTED": 40
+  },
+  "reviewed_count": 120,
+  "draft_count": 0,
+  "construction": "Three controlled pairs per reviewed retrieval case using its first human-reviewed gold evidence."
+}

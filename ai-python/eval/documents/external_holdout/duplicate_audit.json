@@ -1,0 +1,156 @@
+{
+  "schema_version": "external_holdout_duplicate_audit_v1",
+  "scope": "new candidates vs existing candidates and development exclusion set",
+  "historical_exclusion_set": [
+    {
+      "filename": "guangdong_tax_e_tax_development_contract_2023_gpcgd23c500fg157f.pdf",
+      "document_id": "public_guangdong_tax_e_tax_development_2023_gpcgd23c500fg157f",
+      "status": "development",
+      "sha256": "8b7410a66f0448b0314b1b0f0c6af07da90f9d997675016c25ca45e82742be32",
+      "normalized_text_sha256": "0ed3d01fc68e8a43103201addb331b52e7533d875e17a4dd232cf175b551a2a4",
+      "supporting_repository_paths": [
+        "ai-python/eval/datasets/rag_eval_dev_v1.jsonl",
+        "ai-python/eval/judge/claim_evidence_benchmark_v1.jsonl",
+        "ai-python/eval/judge/claim_evidence_generalization_v1.jsonl"
+      ]
+    },
+    {
+      "filename": "jiyuan_vehicle_procurement_contract_2024_245_a.pdf",
+      "document_id": "public_jiyuan_vehicle_procurement_2024_245_a",
+      "status": "development",
+      "sha256": "406db9334a41d7baddd7cd6f2a57fd0a00c1c5f07dd0f3e6972f2001930af12b",
+      "normalized_text_sha256": "bf300e0cdee020e4de990ccbab18f3b5149b7142cbdb4e9e515c9581cd129c6b",
+      "supporting_repository_paths": [
+        "ai-python/eval/datasets/rag_eval_dev_v1.jsonl",
+        "ai-python/eval/judge/claim_evidence_benchmark_v1.jsonl",
+        "ai-python/eval/judge/claim_evidence_generalization_v1.jsonl"
+      ]
+    },
+    {
+      "filename": "uk_dwp_dos010_curam_technical_architect_call_off_contract_2017.pdf",
+      "document_id": "public_uk_dwp_dos010_curam_technical_architect_2017",
+      "status": "development",
+      "sha256": "dd1f1e1da81075a1fb9f40d313f2c531ad9b7da9b61f4defb36d0a8c7fe9760b",
+      "normalized_text_sha256": "4cf32a0d7e7fe1623e46d6cc948711d204ea4f75f7724f95d9696f122971f7ed",
+      "supporting_repository_paths": [
+        "ai-python/eval/datasets/rag_eval_dev_v1.jsonl",
+        "ai-python/eval/judge/claim_evidence_benchmark_v1.jsonl",
+        "ai-python/eval/judge/claim_evidence_generalization_v1.jsonl"
+      ]
+    }
+  ],
+  "repository_history_search": {
+    "new_filename": "8a69c65e95a7fec40195faa1360d1770.pdf",
+    "new_sha256": "5436a6009160b945c57290f6cd777797bc54ea50e8c967c53da08ef4adbd7f84",
+    "matches_found": false,
+    "method": "git log --all path and content search"
+  },
+  "pairwise_candidate_comparisons": [
+    {
+      "left": "1746527472741_5024.pdf",
+      "right": "1749525786473_9685.pdf",
+      "normalized_text_sha256_equal": false,
+      "preview_similarity": 0.0,
+      "comparison_status": "TEXT_UNAVAILABLE"
+    },
+    {
+      "left": "1746527472741_5024.pdf",
+      "right": "1750995540261_9.pdf",
+      "normalized_text_sha256_equal": false,
+      "preview_similarity": 0.0,
+      "comparison_status": "TEXT_UNAVAILABLE"
+    },
+    {
+      "left": "1746527472741_5024.pdf",
+      "right": "402881d28f394a24018f4e2453c9348d.pdf",
+      "normalized_text_sha256_equal": false,
+      "preview_similarity": 0.0,
+      "comparison_status": "TEXT_UNAVAILABLE"
+    },
+    {
+      "left": "1746527472741_5024.pdf",
+      "right": "8a69c65e95a7fec40195faa1360d1770.pdf",
+      "normalized_text_sha256_equal": false,
+      "preview_similarity": 0.093333,
+      "comparison_status": "COMPARED"
+    },
+    {
+      "left": "1746527472741_5024.pdf",
+      "right": "8a69c8e290831b250190964f57453e46.pdf",
+      "normalized_text_sha256_equal": false,
+      "preview_similarity": 0.073333,
+      "comparison_status": "COMPARED"
+    },
+    {
+      "left": "1749525786473_9685.pdf",
+      "right": "1750995540261_9.pdf",
+      "normalized_text_sha256_equal": false,
+      "preview_similarity": 1.0,
+      "comparison_status": "TEXT_UNAVAILABLE"
+    },
+    {
+      "left": "1749525786473_9685.pdf",
+      "right": "402881d28f394a24018f4e2453c9348d.pdf",
+      "normalized_text_sha256_equal": false,
+      "preview_similarity": 1.0,
+      "comparison_status": "TEXT_UNAVAILABLE"
+    },
+    {
+      "left": "1749525786473_9685.pdf",
+      "right": "8a69c65e95a7fec40195faa1360d1770.pdf",
+      "normalized_text_sha256_equal": false,
+      "preview_similarity": 0.0,
+      "comparison_status": "TEXT_UNAVAILABLE"
+    },
+    {
+      "left": "1749525786473_9685.pdf",
+      "right": "8a69c8e290831b250190964f57453e46.pdf",
+      "normalized_text_sha256_equal": false,
+      "preview_similarity": 0.0,
+      "comparison_status": "TEXT_UNAVAILABLE"
+    },
+    {
+      "left": "1750995540261_9.pdf",
+      "right": "402881d28f394a24018f4e2453c9348d.pdf",
+      "normalized_text_sha256_equal": false,
+      "preview_similarity": 1.0,
+      "comparison_status": "TEXT_UNAVAILABLE"
+    },
+    {
+      "left": "1750995540261_9.pdf",
+      "right": "8a69c65e95a7fec40195faa1360d1770.pdf",
+      "normalized_text_sha256_equal": false,
+      "preview_similarity": 0.0,
+      "comparison_status": "TEXT_UNAVAILABLE"
+    },
+    {
+      "left": "1750995540261_9.pdf",
+      "right": "8a69c8e290831b250190964f57453e46.pdf",
+      "normalized_text_sha256_equal": false,
+      "preview_similarity": 0.0,
+      "comparison_status": "TEXT_UNAVAILABLE"
+    },
+    {
+      "left": "402881d28f394a24018f4e2453c9348d.pdf",
+      "right": "8a69c65e95a7fec40195faa1360d1770.pdf",
+      "normalized_text_sha256_equal": false,
+      "preview_similarity": 0.0,
+      "comparison_status": "TEXT_UNAVAILABLE"
+    },
+    {
+      "left": "402881d28f394a24018f4e2453c9348d.pdf",
+      "right": "8a69c8e290831b250190964f57453e46.pdf",
+      "normalized_text_sha256_equal": false,
+      "preview_similarity": 0.0,
+      "comparison_status": "TEXT_UNAVAILABLE"
+    },
+    {
+      "left": "8a69c65e95a7fec40195faa1360d1770.pdf",
+      "right": "8a69c8e290831b250190964f57453e46.pdf",
+      "normalized_text_sha256_equal": false,
+      "preview_similarity": 0.093333,
+      "comparison_status": "COMPARED"
+    }
+  ],
+  "near_duplicate_policy": "preview similarity is diagnostic only; text-unavailable pairs are not declared duplicates"
+}

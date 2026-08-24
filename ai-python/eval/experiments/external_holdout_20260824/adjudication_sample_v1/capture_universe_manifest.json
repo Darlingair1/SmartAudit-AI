@@ -1,0 +1,15 @@
+{
+  "schema_version": "external_holdout_capture_universe_manifest_v1",
+  "immutable": true,
+  "pipeline_run_id": "external_holdout_20260824T060635Z_ca661437",
+  "capture_universe_path": "ai-python/eval/experiments/external_holdout_20260824/pipeline_capture/cases_raw.jsonl",
+  "case_count": 289,
+  "capture_universe_sha256": "d4571f3ef65d5a63ec989497ab6809eec980e4e5a4f852d70b5c88d2028cd6d5",
+  "ordered_case_ids_sha256": "922aa24f5f711b12cf8607afe6eea197d386adf8495f87a140bae4dd8a36252e",
+  "per_document_count": {
+    "1746527472741_5024.pdf": 52,
+    "8a69c65e95a7fec40195faa1360d1770.pdf": 25,
+    "8a69c8e290831b250190964f57453e46.pdf": 212
+  },
+  "judge_invocation_count": 0
+}

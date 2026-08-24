@@ -1,0 +1,2110 @@
+{
+  "v0": {
+    "1746527472741_5024.pdf": {
+      "label_distribution": {
+        "SUPPORTED": 22,
+        "PARTIAL": 15,
+        "UNSUPPORTED": 3
+      },
+      "metrics": {
+        "case_count": 40,
+        "accuracy": 0.075,
+        "accuracy_count": {
+          "numerator": 3,
+          "denominator": 40
+        },
+        "macro_f1": 0.05,
+        "macro_f1_scope": "labels present in this slice",
+        "per_class": {
+          "SUPPORTED": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 22,
+            "precision_count": {
+              "numerator": 0,
+              "denominator": 0
+            },
+            "recall_count": {
+              "numerator": 0,
+              "denominator": 22
+            },
+            "precision_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 0,
+              "denominator": 0,
+              "low": null,
+              "high": null
+            },
+            "recall_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 0,
+              "denominator": 22,
+              "low": 0.0,
+              "high": 0.148655
+            }
+          },
+          "PARTIAL": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 15,
+            "precision_count": {
+              "numerator": 0,
+              "denominator": 3
+            },
+            "recall_count": {
+              "numerator": 0,
+              "denominator": 15
+            },
+            "precision_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 0,
+              "denominator": 3,
+              "low": 0.0,
+              "high": 0.561497
+            },
+            "recall_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 0,
+              "denominator": 15,
+              "low": 0.0,
+              "high": 0.203883
+            }
+          },
+          "UNSUPPORTED": {
+            "precision": 0.081081,
+            "recall": 1.0,
+            "f1": 0.15,
+            "support": 3,
+            "precision_count": {
+              "numerator": 3,
+              "denominator": 37
+            },
+            "recall_count": {
+              "numerator": 3,
+              "denominator": 3
+            },
+            "precision_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 3,
+              "denominator": 37,
+              "low": 0.027961,
+              "high": 0.213007
+            },
+            "recall_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 3,
+              "denominator": 3,
+              "low": 0.438503,
+              "high": 1.0
+            }
+          }
+        },
+        "supported_precision": 0.0,
+        "supported_recall": 0.0,
+        "partial_f1": 0.0,
+        "unsupported_recall": 1.0,
+        "unsafe_acceptance_rate": 0.0,
+        "unsafe_acceptance_count": {
+          "numerator": 0,
+          "denominator": 18
+        },
+        "unsafe_acceptance_wilson_95": {
+          "method": "wilson_95",
+          "numerator": 0,
+          "denominator": 18,
+          "low": 0.0,
+          "high": 0.175879
+        },
+        "supported_false_rejection_rate": 1.0,
+        "supported_false_rejection_count": {
+          "numerator": 22,
+          "denominator": 22
+        },
+        "hard_false_rejection_rate": 0.863636,
+        "hard_false_rejection_count": {
+          "numerator": 19,
+          "denominator": 22
+        },
+        "human_review_rate": 0.075,
+        "human_review_count": {
+          "numerator": 3,
+          "denominator": 40
+        },
+        "human_review_wilson_95": {
+          "method": "wilson_95",
+          "numerator": 3,
+          "denominator": 40,
+          "low": 0.025836,
+          "high": 0.198642
+        },
+        "automation_coverage": 0.925,
+        "automation_coverage_count": {
+          "numerator": 37,
+          "denominator": 40
+        },
+        "automation_coverage_wilson_95": {
+          "method": "wilson_95",
+          "numerator": 37,
+          "denominator": 40,
+          "low": 0.801358,
+          "high": 0.974164
+        },
+        "selective_accuracy": 0.081081,
+        "selective_accuracy_count": {
+          "numerator": 3,
+          "denominator": 37
+        },
+        "confusion_matrix": {
+          "SUPPORTED": {
+            "SUPPORTED": 0,
+            "PARTIAL": 3,
+            "UNSUPPORTED": 19
+          },
+          "PARTIAL": {
+            "SUPPORTED": 0,
+            "PARTIAL": 0,
+            "UNSUPPORTED": 15
+          },
+          "UNSUPPORTED": {
+            "SUPPORTED": 0,
+            "PARTIAL": 0,
+            "UNSUPPORTED": 3
+          }
+        }
+      }
+    },
+    "8a69c65e95a7fec40195faa1360d1770.pdf": {
+      "label_distribution": {
+        "PARTIAL": 10,
+        "SUPPORTED": 14,
+        "UNSUPPORTED": 1
+      },
+      "metrics": {
+        "case_count": 25,
+        "accuracy": 0.04,
+        "accuracy_count": {
+          "numerator": 1,
+          "denominator": 25
+        },
+        "macro_f1": 0.025641,
+        "macro_f1_scope": "labels present in this slice",
+        "per_class": {
+          "SUPPORTED": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 14,
+            "precision_count": {
+              "numerator": 0,
+              "denominator": 0
+            },
+            "recall_count": {
+              "numerator": 0,
+              "denominator": 14
+            },
+            "precision_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 0,
+              "denominator": 0,
+              "low": null,
+              "high": null
+            },
+            "recall_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 0,
+              "denominator": 14,
+              "low": 0.0,
+              "high": 0.215311
+            }
+          },
+          "PARTIAL": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 10,
+            "precision_count": {
+              "numerator": 0,
+              "denominator": 0
+            },
+            "recall_count": {
+              "numerator": 0,
+              "denominator": 10
+            },
+            "precision_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 0,
+              "denominator": 0,
+              "low": null,
+              "high": null
+            },
+            "recall_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 0,
+              "denominator": 10,
+              "low": 0.0,
+              "high": 0.277533
+            }
+          },
+          "UNSUPPORTED": {
+            "precision": 0.04,
+            "recall": 1.0,
+            "f1": 0.076923,
+            "support": 1,
+            "precision_count": {
+              "numerator": 1,
+              "denominator": 25
+            },
+            "recall_count": {
+              "numerator": 1,
+              "denominator": 1
+            },
+            "precision_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 1,
+              "denominator": 25,
+              "low": 0.007096,
+              "high": 0.195441
+            },
+            "recall_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 1,
+              "denominator": 1,
+              "low": 0.206549,
+              "high": 1.0
+            }
+          }
+        },
+        "supported_precision": 0.0,
+        "supported_recall": 0.0,
+        "partial_f1": 0.0,
+        "unsupported_recall": 1.0,
+        "unsafe_acceptance_rate": 0.0,
+        "unsafe_acceptance_count": {
+          "numerator": 0,
+          "denominator": 11
+        },
+        "unsafe_acceptance_wilson_95": {
+          "method": "wilson_95",
+          "numerator": 0,
+          "denominator": 11,
+          "low": 0.0,
+          "high": 0.258833
+        },
+        "supported_false_rejection_rate": 1.0,
+        "supported_false_rejection_count": {
+          "numerator": 14,
+          "denominator": 14
+        },
+        "hard_false_rejection_rate": 1.0,
+        "hard_false_rejection_count": {
+          "numerator": 14,
+          "denominator": 14
+        },
+        "human_review_rate": 0.0,
+        "human_review_count": {
+          "numerator": 0,
+          "denominator": 25
+        },
+        "human_review_wilson_95": {
+          "method": "wilson_95",
+          "numerator": 0,
+          "denominator": 25,
+          "low": 0.0,
+          "high": 0.133192
+        },
+        "automation_coverage": 1.0,
+        "automation_coverage_count": {
+          "numerator": 25,
+          "denominator": 25
+        },
+        "automation_coverage_wilson_95": {
+          "method": "wilson_95",
+          "numerator": 25,
+          "denominator": 25,
+          "low": 0.866808,
+          "high": 1.0
+        },
+        "selective_accuracy": 0.04,
+        "selective_accuracy_count": {
+          "numerator": 1,
+          "denominator": 25
+        },
+        "confusion_matrix": {
+          "SUPPORTED": {
+            "SUPPORTED": 0,
+            "PARTIAL": 0,
+            "UNSUPPORTED": 14
+          },
+          "PARTIAL": {
+            "SUPPORTED": 0,
+            "PARTIAL": 0,
+            "UNSUPPORTED": 10
+          },
+          "UNSUPPORTED": {
+            "SUPPORTED": 0,
+            "PARTIAL": 0,
+            "UNSUPPORTED": 1
+          }
+        }
+      }
+    },
+    "8a69c8e290831b250190964f57453e46.pdf": {
+      "label_distribution": {
+        "UNSUPPORTED": 10,
+        "SUPPORTED": 26,
+        "PARTIAL": 19
+      },
+      "metrics": {
+        "case_count": 55,
+        "accuracy": 0.218182,
+        "accuracy_count": {
+          "numerator": 12,
+          "denominator": 55
+        },
+        "macro_f1": 0.190476,
+        "macro_f1_scope": "labels present in this slice",
+        "per_class": {
+          "SUPPORTED": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 26,
+            "precision_count": {
+              "numerator": 0,
+              "denominator": 0
+            },
+            "recall_count": {
+              "numerator": 0,
+              "denominator": 26
+            },
+            "precision_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 0,
+              "denominator": 0,
+              "low": null,
+              "high": null
+            },
+            "recall_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 0,
+              "denominator": 26,
+              "low": 0.0,
+              "high": 0.128729
+            }
+          },
+          "PARTIAL": {
+            "precision": 0.444444,
+            "recall": 0.210526,
+            "f1": 0.285714,
+            "support": 19,
+            "precision_count": {
+              "numerator": 4,
+              "denominator": 9
+            },
+            "recall_count": {
+              "numerator": 4,
+              "denominator": 19
+            },
+            "precision_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 4,
+              "denominator": 9,
+              "low": 0.188779,
+              "high": 0.733349
+            },
+            "recall_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 4,
+              "denominator": 19,
+              "low": 0.085077,
+              "high": 0.433343
+            }
+          },
+          "UNSUPPORTED": {
+            "precision": 0.173913,
+            "recall": 0.8,
+            "f1": 0.285714,
+            "support": 10,
+            "precision_count": {
+              "numerator": 8,
+              "denominator": 46
+            },
+            "recall_count": {
+              "numerator": 8,
+              "denominator": 10
+            },
+            "precision_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 8,
+              "denominator": 46,
+              "low": 0.090858,
+              "high": 0.307234
+            },
+            "recall_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 8,
+              "denominator": 10,
+              "low": 0.490162,
+              "high": 0.943318
+            }
+          }
+        },
+        "supported_precision": 0.0,
+        "supported_recall": 0.0,
+        "partial_f1": 0.285714,
+        "unsupported_recall": 0.8,
+        "unsafe_acceptance_rate": 0.0,
+        "unsafe_acceptance_count": {
+          "numerator": 0,
+          "denominator": 29
+        },
+        "unsafe_acceptance_wilson_95": {
+          "method": "wilson_95",
+          "numerator": 0,
+          "denominator": 29,
+          "low": 0.0,
+          "high": 0.11697
+        },
+        "supported_false_rejection_rate": 1.0,
+        "supported_false_rejection_count": {
+          "numerator": 26,
+          "denominator": 26
+        },
+        "hard_false_rejection_rate": 0.884615,
+        "hard_false_rejection_count": {
+          "numerator": 23,
+          "denominator": 26
+        },
+        "human_review_rate": 0.163636,
+        "human_review_count": {
+          "numerator": 9,
+          "denominator": 55
+        },
+        "human_review_wilson_95": {
+          "method": "wilson_95",
+          "numerator": 9,
+          "denominator": 55,
+          "low": 0.088554,
+          "high": 0.282637
+        },
+        "automation_coverage": 0.836364,
+        "automation_coverage_count": {
+          "numerator": 46,
+          "denominator": 55
+        },
+        "automation_coverage_wilson_95": {
+          "method": "wilson_95",
+          "numerator": 46,
+          "denominator": 55,
+          "low": 0.717363,
+          "high": 0.911446
+        },
+        "selective_accuracy": 0.173913,
+        "selective_accuracy_count": {
+          "numerator": 8,
+          "denominator": 46
+        },
+        "confusion_matrix": {
+          "SUPPORTED": {
+            "SUPPORTED": 0,
+            "PARTIAL": 3,
+            "UNSUPPORTED": 23
+          },
+          "PARTIAL": {
+            "SUPPORTED": 0,
+            "PARTIAL": 4,
+            "UNSUPPORTED": 15
+          },
+          "UNSUPPORTED": {
+            "SUPPORTED": 0,
+            "PARTIAL": 2,
+            "UNSUPPORTED": 8
+          }
+        }
+      }
+    }
+  },
+  "v1": {
+    "1746527472741_5024.pdf": {
+      "label_distribution": {
+        "SUPPORTED": 22,
+        "PARTIAL": 15,
+        "UNSUPPORTED": 3
+      },
+      "metrics": {
+        "case_count": 40,
+        "accuracy": 0.025,
+        "accuracy_count": {
+          "numerator": 1,
+          "denominator": 40
+        },
+        "macro_f1": 0.018519,
+        "macro_f1_scope": "labels present in this slice",
+        "per_class": {
+          "SUPPORTED": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 22,
+            "precision_count": {
+              "numerator": 0,
+              "denominator": 0
+            },
+            "recall_count": {
+              "numerator": 0,
+              "denominator": 22
+            },
+            "precision_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 0,
+              "denominator": 0,
+              "low": null,
+              "high": null
+            },
+            "recall_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 0,
+              "denominator": 22,
+              "low": 0.0,
+              "high": 0.148655
+            }
+          },
+          "PARTIAL": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 15,
+            "precision_count": {
+              "numerator": 0,
+              "denominator": 7
+            },
+            "recall_count": {
+              "numerator": 0,
+              "denominator": 15
+            },
+            "precision_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 0,
+              "denominator": 7,
+              "low": 0.0,
+              "high": 0.35433
+            },
+            "recall_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 0,
+              "denominator": 15,
+              "low": 0.0,
+              "high": 0.203883
+            }
+          },
+          "UNSUPPORTED": {
+            "precision": 0.030303,
+            "recall": 0.333333,
+            "f1": 0.055556,
+            "support": 3,
+            "precision_count": {
+              "numerator": 1,
+              "denominator": 33
+            },
+            "recall_count": {
+              "numerator": 1,
+              "denominator": 3
+            },
+            "precision_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 1,
+              "denominator": 33,
+              "low": 0.005369,
+              "high": 0.153187
+            },
+            "recall_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 1,
+              "denominator": 3,
+              "low": 0.061492,
+              "high": 0.79234
+            }
+          }
+        },
+        "supported_precision": 0.0,
+        "supported_recall": 0.0,
+        "partial_f1": 0.0,
+        "unsupported_recall": 0.333333,
+        "unsafe_acceptance_rate": 0.0,
+        "unsafe_acceptance_count": {
+          "numerator": 0,
+          "denominator": 18
+        },
+        "unsafe_acceptance_wilson_95": {
+          "method": "wilson_95",
+          "numerator": 0,
+          "denominator": 18,
+          "low": 0.0,
+          "high": 0.175879
+        },
+        "supported_false_rejection_rate": 1.0,
+        "supported_false_rejection_count": {
+          "numerator": 22,
+          "denominator": 22
+        },
+        "hard_false_rejection_rate": 0.772727,
+        "hard_false_rejection_count": {
+          "numerator": 17,
+          "denominator": 22
+        },
+        "human_review_rate": 0.175,
+        "human_review_count": {
+          "numerator": 7,
+          "denominator": 40
+        },
+        "human_review_wilson_95": {
+          "method": "wilson_95",
+          "numerator": 7,
+          "denominator": 40,
+          "low": 0.087454,
+          "high": 0.3195
+        },
+        "automation_coverage": 0.825,
+        "automation_coverage_count": {
+          "numerator": 33,
+          "denominator": 40
+        },
+        "automation_coverage_wilson_95": {
+          "method": "wilson_95",
+          "numerator": 33,
+          "denominator": 40,
+          "low": 0.6805,
+          "high": 0.912546
+        },
+        "selective_accuracy": 0.030303,
+        "selective_accuracy_count": {
+          "numerator": 1,
+          "denominator": 33
+        },
+        "confusion_matrix": {
+          "SUPPORTED": {
+            "SUPPORTED": 0,
+            "PARTIAL": 5,
+            "UNSUPPORTED": 17
+          },
+          "PARTIAL": {
+            "SUPPORTED": 0,
+            "PARTIAL": 0,
+            "UNSUPPORTED": 15
+          },
+          "UNSUPPORTED": {
+            "SUPPORTED": 0,
+            "PARTIAL": 2,
+            "UNSUPPORTED": 1
+          }
+        }
+      }
+    },
+    "8a69c65e95a7fec40195faa1360d1770.pdf": {
+      "label_distribution": {
+        "PARTIAL": 10,
+        "SUPPORTED": 14,
+        "UNSUPPORTED": 1
+      },
+      "metrics": {
+        "case_count": 25,
+        "accuracy": 0.12,
+        "accuracy_count": {
+          "numerator": 3,
+          "denominator": 25
+        },
+        "macro_f1": 0.13155,
+        "macro_f1_scope": "labels present in this slice",
+        "per_class": {
+          "SUPPORTED": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 14,
+            "precision_count": {
+              "numerator": 0,
+              "denominator": 0
+            },
+            "recall_count": {
+              "numerator": 0,
+              "denominator": 14
+            },
+            "precision_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 0,
+              "denominator": 0,
+              "low": null,
+              "high": null
+            },
+            "recall_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 0,
+              "denominator": 14,
+              "low": 0.0,
+              "high": 0.215311
+            }
+          },
+          "PARTIAL": {
+            "precision": 0.666667,
+            "recall": 0.2,
+            "f1": 0.307692,
+            "support": 10,
+            "precision_count": {
+              "numerator": 2,
+              "denominator": 3
+            },
+            "recall_count": {
+              "numerator": 2,
+              "denominator": 10
+            },
+            "precision_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 2,
+              "denominator": 3,
+              "low": 0.20766,
+              "high": 0.938508
+            },
+            "recall_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 2,
+              "denominator": 10,
+              "low": 0.056682,
+              "high": 0.509838
+            }
+          },
+          "UNSUPPORTED": {
+            "precision": 0.045455,
+            "recall": 1.0,
+            "f1": 0.086957,
+            "support": 1,
+            "precision_count": {
+              "numerator": 1,
+              "denominator": 22
+            },
+            "recall_count": {
+              "numerator": 1,
+              "denominator": 1
+            },
+            "precision_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 1,
+              "denominator": 22,
+              "low": 0.008069,
+              "high": 0.21798
+            },
+            "recall_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 1,
+              "denominator": 1,
+              "low": 0.206549,
+              "high": 1.0
+            }
+          }
+        },
+        "supported_precision": 0.0,
+        "supported_recall": 0.0,
+        "partial_f1": 0.307692,
+        "unsupported_recall": 1.0,
+        "unsafe_acceptance_rate": 0.0,
+        "unsafe_acceptance_count": {
+          "numerator": 0,
+          "denominator": 11
+        },
+        "unsafe_acceptance_wilson_95": {
+          "method": "wilson_95",
+          "numerator": 0,
+          "denominator": 11,
+          "low": 0.0,
+          "high": 0.258833
+        },
+        "supported_false_rejection_rate": 1.0,
+        "supported_false_rejection_count": {
+          "numerator": 14,
+          "denominator": 14
+        },
+        "hard_false_rejection_rate": 0.928571,
+        "hard_false_rejection_count": {
+          "numerator": 13,
+          "denominator": 14
+        },
+        "human_review_rate": 0.12,
+        "human_review_count": {
+          "numerator": 3,
+          "denominator": 25
+        },
+        "human_review_wilson_95": {
+          "method": "wilson_95",
+          "numerator": 3,
+          "denominator": 25,
+          "low": 0.041668,
+          "high": 0.299558
+        },
+        "automation_coverage": 0.88,
+        "automation_coverage_count": {
+          "numerator": 22,
+          "denominator": 25
+        },
+        "automation_coverage_wilson_95": {
+          "method": "wilson_95",
+          "numerator": 22,
+          "denominator": 25,
+          "low": 0.700442,
+          "high": 0.958332
+        },
+        "selective_accuracy": 0.045455,
+        "selective_accuracy_count": {
+          "numerator": 1,
+          "denominator": 22
+        },
+        "confusion_matrix": {
+          "SUPPORTED": {
+            "SUPPORTED": 0,
+            "PARTIAL": 1,
+            "UNSUPPORTED": 13
+          },
+          "PARTIAL": {
+            "SUPPORTED": 0,
+            "PARTIAL": 2,
+            "UNSUPPORTED": 8
+          },
+          "UNSUPPORTED": {
+            "SUPPORTED": 0,
+            "PARTIAL": 0,
+            "UNSUPPORTED": 1
+          }
+        }
+      }
+    },
+    "8a69c8e290831b250190964f57453e46.pdf": {
+      "label_distribution": {
+        "UNSUPPORTED": 10,
+        "SUPPORTED": 26,
+        "PARTIAL": 19
+      },
+      "metrics": {
+        "case_count": 55,
+        "accuracy": 0.254545,
+        "accuracy_count": {
+          "numerator": 14,
+          "denominator": 55
+        },
+        "macro_f1": 0.22925,
+        "macro_f1_scope": "labels present in this slice",
+        "per_class": {
+          "SUPPORTED": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 26,
+            "precision_count": {
+              "numerator": 0,
+              "denominator": 0
+            },
+            "recall_count": {
+              "numerator": 0,
+              "denominator": 26
+            },
+            "precision_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 0,
+              "denominator": 0,
+              "low": null,
+              "high": null
+            },
+            "recall_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 0,
+              "denominator": 26,
+              "low": 0.0,
+              "high": 0.128729
+            }
+          },
+          "PARTIAL": {
+            "precision": 0.444444,
+            "recall": 0.421053,
+            "f1": 0.432432,
+            "support": 19,
+            "precision_count": {
+              "numerator": 8,
+              "denominator": 18
+            },
+            "recall_count": {
+              "numerator": 8,
+              "denominator": 19
+            },
+            "precision_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 8,
+              "denominator": 18,
+              "low": 0.245595,
+              "high": 0.662836
+            },
+            "recall_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 8,
+              "denominator": 19,
+              "low": 0.231419,
+              "high": 0.637241
+            }
+          },
+          "UNSUPPORTED": {
+            "precision": 0.162162,
+            "recall": 0.6,
+            "f1": 0.255319,
+            "support": 10,
+            "precision_count": {
+              "numerator": 6,
+              "denominator": 37
+            },
+            "recall_count": {
+              "numerator": 6,
+              "denominator": 10
+            },
+            "precision_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 6,
+              "denominator": 37,
+              "low": 0.076512,
+              "high": 0.311365
+            },
+            "recall_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 6,
+              "denominator": 10,
+              "low": 0.312674,
+              "high": 0.83182
+            }
+          }
+        },
+        "supported_precision": 0.0,
+        "supported_recall": 0.0,
+        "partial_f1": 0.432432,
+        "unsupported_recall": 0.6,
+        "unsafe_acceptance_rate": 0.0,
+        "unsafe_acceptance_count": {
+          "numerator": 0,
+          "denominator": 29
+        },
+        "unsafe_acceptance_wilson_95": {
+          "method": "wilson_95",
+          "numerator": 0,
+          "denominator": 29,
+          "low": 0.0,
+          "high": 0.11697
+        },
+        "supported_false_rejection_rate": 1.0,
+        "supported_false_rejection_count": {
+          "numerator": 26,
+          "denominator": 26
+        },
+        "hard_false_rejection_rate": 0.769231,
+        "hard_false_rejection_count": {
+          "numerator": 20,
+          "denominator": 26
+        },
+        "human_review_rate": 0.327273,
+        "human_review_count": {
+          "numerator": 18,
+          "denominator": 55
+        },
+        "human_review_wilson_95": {
+          "method": "wilson_95",
+          "numerator": 18,
+          "denominator": 55,
+          "low": 0.218131,
+          "high": 0.458968
+        },
+        "automation_coverage": 0.672727,
+        "automation_coverage_count": {
+          "numerator": 37,
+          "denominator": 55
+        },
+        "automation_coverage_wilson_95": {
+          "method": "wilson_95",
+          "numerator": 37,
+          "denominator": 55,
+          "low": 0.541032,
+          "high": 0.781869
+        },
+        "selective_accuracy": 0.162162,
+        "selective_accuracy_count": {
+          "numerator": 6,
+          "denominator": 37
+        },
+        "confusion_matrix": {
+          "SUPPORTED": {
+            "SUPPORTED": 0,
+            "PARTIAL": 6,
+            "UNSUPPORTED": 20
+          },
+          "PARTIAL": {
+            "SUPPORTED": 0,
+            "PARTIAL": 8,
+            "UNSUPPORTED": 11
+          },
+          "UNSUPPORTED": {
+            "SUPPORTED": 0,
+            "PARTIAL": 4,
+            "UNSUPPORTED": 6
+          }
+        }
+      }
+    }
+  },
+  "v2": {
+    "1746527472741_5024.pdf": {
+      "label_distribution": {
+        "SUPPORTED": 22,
+        "PARTIAL": 15,
+        "UNSUPPORTED": 3
+      },
+      "metrics": {
+        "case_count": 40,
+        "accuracy": 0.525,
+        "accuracy_count": {
+          "numerator": 21,
+          "denominator": 40
+        },
+        "macro_f1": 0.360606,
+        "macro_f1_scope": "labels present in this slice",
+        "per_class": {
+          "SUPPORTED": {
+            "precision": 0.75,
+            "recall": 0.272727,
+            "f1": 0.4,
+            "support": 22,
+            "precision_count": {
+              "numerator": 6,
+              "denominator": 8
+            },
+            "recall_count": {
+              "numerator": 6,
+              "denominator": 22
+            },
+            "precision_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 6,
+              "denominator": 8,
+              "low": 0.409275,
+              "high": 0.928521
+            },
+            "recall_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 6,
+              "denominator": 22,
+              "low": 0.131508,
+              "high": 0.481517
+            }
+          },
+          "PARTIAL": {
+            "precision": 0.517241,
+            "recall": 1.0,
+            "f1": 0.681818,
+            "support": 15,
+            "precision_count": {
+              "numerator": 15,
+              "denominator": 29
+            },
+            "recall_count": {
+              "numerator": 15,
+              "denominator": 15
+            },
+            "precision_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 15,
+              "denominator": 29,
+              "low": 0.34431,
+              "high": 0.686139
+            },
+            "recall_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 15,
+              "denominator": 15,
+              "low": 0.796117,
+              "high": 1.0
+            }
+          },
+          "UNSUPPORTED": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 3,
+            "precision_count": {
+              "numerator": 0,
+              "denominator": 3
+            },
+            "recall_count": {
+              "numerator": 0,
+              "denominator": 3
+            },
+            "precision_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 0,
+              "denominator": 3,
+              "low": 0.0,
+              "high": 0.561497
+            },
+            "recall_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 0,
+              "denominator": 3,
+              "low": 0.0,
+              "high": 0.561497
+            }
+          }
+        },
+        "supported_precision": 0.75,
+        "supported_recall": 0.272727,
+        "partial_f1": 0.681818,
+        "unsupported_recall": 0.0,
+        "unsafe_acceptance_rate": 0.111111,
+        "unsafe_acceptance_count": {
+          "numerator": 2,
+          "denominator": 18
+        },
+        "unsafe_acceptance_wilson_95": {
+          "method": "wilson_95",
+          "numerator": 2,
+          "denominator": 18,
+          "low": 0.03102,
+          "high": 0.327998
+        },
+        "supported_false_rejection_rate": 0.727273,
+        "supported_false_rejection_count": {
+          "numerator": 16,
+          "denominator": 22
+        },
+        "hard_false_rejection_rate": 0.136364,
+        "hard_false_rejection_count": {
+          "numerator": 3,
+          "denominator": 22
+        },
+        "human_review_rate": 0.725,
+        "human_review_count": {
+          "numerator": 29,
+          "denominator": 40
+        },
+        "human_review_wilson_95": {
+          "method": "wilson_95",
+          "numerator": 29,
+          "denominator": 40,
+          "low": 0.57165,
+          "high": 0.83892
+        },
+        "automation_coverage": 0.275,
+        "automation_coverage_count": {
+          "numerator": 11,
+          "denominator": 40
+        },
+        "automation_coverage_wilson_95": {
+          "method": "wilson_95",
+          "numerator": 11,
+          "denominator": 40,
+          "low": 0.16108,
+          "high": 0.42835
+        },
+        "selective_accuracy": 0.545455,
+        "selective_accuracy_count": {
+          "numerator": 6,
+          "denominator": 11
+        },
+        "confusion_matrix": {
+          "SUPPORTED": {
+            "SUPPORTED": 6,
+            "PARTIAL": 13,
+            "UNSUPPORTED": 3
+          },
+          "PARTIAL": {
+            "SUPPORTED": 0,
+            "PARTIAL": 15,
+            "UNSUPPORTED": 0
+          },
+          "UNSUPPORTED": {
+            "SUPPORTED": 2,
+            "PARTIAL": 1,
+            "UNSUPPORTED": 0
+          }
+        }
+      }
+    },
+    "8a69c65e95a7fec40195faa1360d1770.pdf": {
+      "label_distribution": {
+        "PARTIAL": 10,
+        "SUPPORTED": 14,
+        "UNSUPPORTED": 1
+      },
+      "metrics": {
+        "case_count": 25,
+        "accuracy": 0.4,
+        "accuracy_count": {
+          "numerator": 10,
+          "denominator": 25
+        },
+        "macro_f1": 0.235215,
+        "macro_f1_scope": "labels present in this slice",
+        "per_class": {
+          "SUPPORTED": {
+            "precision": 0.5,
+            "recall": 0.071429,
+            "f1": 0.125,
+            "support": 14,
+            "precision_count": {
+              "numerator": 1,
+              "denominator": 2
+            },
+            "recall_count": {
+              "numerator": 1,
+              "denominator": 14
+            },
+            "precision_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 1,
+              "denominator": 2,
+              "low": 0.094531,
+              "high": 0.905469
+            },
+            "recall_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 1,
+              "denominator": 14,
+              "low": 0.012722,
+              "high": 0.314687
+            }
+          },
+          "PARTIAL": {
+            "precision": 0.428571,
+            "recall": 0.9,
+            "f1": 0.580645,
+            "support": 10,
+            "precision_count": {
+              "numerator": 9,
+              "denominator": 21
+            },
+            "recall_count": {
+              "numerator": 9,
+              "denominator": 10
+            },
+            "precision_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 9,
+              "denominator": 21,
+              "low": 0.2447,
+              "high": 0.634534
+            },
+            "recall_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 9,
+              "denominator": 10,
+              "low": 0.59585,
+              "high": 0.982124
+            }
+          },
+          "UNSUPPORTED": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 1,
+            "precision_count": {
+              "numerator": 0,
+              "denominator": 2
+            },
+            "recall_count": {
+              "numerator": 0,
+              "denominator": 1
+            },
+            "precision_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 0,
+              "denominator": 2,
+              "low": 0.0,
+              "high": 0.65762
+            },
+            "recall_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 0,
+              "denominator": 1,
+              "low": 0.0,
+              "high": 0.793451
+            }
+          }
+        },
+        "supported_precision": 0.5,
+        "supported_recall": 0.071429,
+        "partial_f1": 0.580645,
+        "unsupported_recall": 0.0,
+        "unsafe_acceptance_rate": 0.090909,
+        "unsafe_acceptance_count": {
+          "numerator": 1,
+          "denominator": 11
+        },
+        "unsafe_acceptance_wilson_95": {
+          "method": "wilson_95",
+          "numerator": 1,
+          "denominator": 11,
+          "low": 0.016232,
+          "high": 0.377358
+        },
+        "supported_false_rejection_rate": 0.928571,
+        "supported_false_rejection_count": {
+          "numerator": 13,
+          "denominator": 14
+        },
+        "hard_false_rejection_rate": 0.142857,
+        "hard_false_rejection_count": {
+          "numerator": 2,
+          "denominator": 14
+        },
+        "human_review_rate": 0.84,
+        "human_review_count": {
+          "numerator": 21,
+          "denominator": 25
+        },
+        "human_review_wilson_95": {
+          "method": "wilson_95",
+          "numerator": 21,
+          "denominator": 25,
+          "low": 0.653464,
+          "high": 0.935965
+        },
+        "automation_coverage": 0.16,
+        "automation_coverage_count": {
+          "numerator": 4,
+          "denominator": 25
+        },
+        "automation_coverage_wilson_95": {
+          "method": "wilson_95",
+          "numerator": 4,
+          "denominator": 25,
+          "low": 0.064035,
+          "high": 0.346536
+        },
+        "selective_accuracy": 0.25,
+        "selective_accuracy_count": {
+          "numerator": 1,
+          "denominator": 4
+        },
+        "confusion_matrix": {
+          "SUPPORTED": {
+            "SUPPORTED": 1,
+            "PARTIAL": 11,
+            "UNSUPPORTED": 2
+          },
+          "PARTIAL": {
+            "SUPPORTED": 1,
+            "PARTIAL": 9,
+            "UNSUPPORTED": 0
+          },
+          "UNSUPPORTED": {
+            "SUPPORTED": 0,
+            "PARTIAL": 1,
+            "UNSUPPORTED": 0
+          }
+        }
+      }
+    },
+    "8a69c8e290831b250190964f57453e46.pdf": {
+      "label_distribution": {
+        "UNSUPPORTED": 10,
+        "SUPPORTED": 26,
+        "PARTIAL": 19
+      },
+      "metrics": {
+        "case_count": 55,
+        "accuracy": 0.345455,
+        "accuracy_count": {
+          "numerator": 19,
+          "denominator": 55
+        },
+        "macro_f1": 0.251744,
+        "macro_f1_scope": "labels present in this slice",
+        "per_class": {
+          "SUPPORTED": {
+            "precision": 0.4,
+            "recall": 0.307692,
+            "f1": 0.347826,
+            "support": 26,
+            "precision_count": {
+              "numerator": 8,
+              "denominator": 20
+            },
+            "recall_count": {
+              "numerator": 8,
+              "denominator": 26
+            },
+            "precision_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 8,
+              "denominator": 20,
+              "low": 0.218807,
+              "high": 0.613418
+            },
+            "recall_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 8,
+              "denominator": 26,
+              "low": 0.165013,
+              "high": 0.499883
+            }
+          },
+          "PARTIAL": {
+            "precision": 0.314286,
+            "recall": 0.578947,
+            "f1": 0.407407,
+            "support": 19,
+            "precision_count": {
+              "numerator": 11,
+              "denominator": 35
+            },
+            "recall_count": {
+              "numerator": 11,
+              "denominator": 19
+            },
+            "precision_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 11,
+              "denominator": 35,
+              "low": 0.185508,
+              "high": 0.479798
+            },
+            "recall_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 11,
+              "denominator": 19,
+              "low": 0.362759,
+              "high": 0.768581
+            }
+          },
+          "UNSUPPORTED": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 10,
+            "precision_count": {
+              "numerator": 0,
+              "denominator": 0
+            },
+            "recall_count": {
+              "numerator": 0,
+              "denominator": 10
+            },
+            "precision_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 0,
+              "denominator": 0,
+              "low": null,
+              "high": null
+            },
+            "recall_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 0,
+              "denominator": 10,
+              "low": 0.0,
+              "high": 0.277533
+            }
+          }
+        },
+        "supported_precision": 0.4,
+        "supported_recall": 0.307692,
+        "partial_f1": 0.407407,
+        "unsupported_recall": 0.0,
+        "unsafe_acceptance_rate": 0.413793,
+        "unsafe_acceptance_count": {
+          "numerator": 12,
+          "denominator": 29
+        },
+        "unsafe_acceptance_wilson_95": {
+          "method": "wilson_95",
+          "numerator": 12,
+          "denominator": 29,
+          "low": 0.255132,
+          "high": 0.592622
+        },
+        "supported_false_rejection_rate": 0.692308,
+        "supported_false_rejection_count": {
+          "numerator": 18,
+          "denominator": 26
+        },
+        "hard_false_rejection_rate": 0.0,
+        "hard_false_rejection_count": {
+          "numerator": 0,
+          "denominator": 26
+        },
+        "human_review_rate": 0.636364,
+        "human_review_count": {
+          "numerator": 35,
+          "denominator": 55
+        },
+        "human_review_wilson_95": {
+          "method": "wilson_95",
+          "numerator": 35,
+          "denominator": 55,
+          "low": 0.504228,
+          "high": 0.750695
+        },
+        "automation_coverage": 0.363636,
+        "automation_coverage_count": {
+          "numerator": 20,
+          "denominator": 55
+        },
+        "automation_coverage_wilson_95": {
+          "method": "wilson_95",
+          "numerator": 20,
+          "denominator": 55,
+          "low": 0.249305,
+          "high": 0.495772
+        },
+        "selective_accuracy": 0.4,
+        "selective_accuracy_count": {
+          "numerator": 8,
+          "denominator": 20
+        },
+        "confusion_matrix": {
+          "SUPPORTED": {
+            "SUPPORTED": 8,
+            "PARTIAL": 18,
+            "UNSUPPORTED": 0
+          },
+          "PARTIAL": {
+            "SUPPORTED": 8,
+            "PARTIAL": 11,
+            "UNSUPPORTED": 0
+          },
+          "UNSUPPORTED": {
+            "SUPPORTED": 4,
+            "PARTIAL": 6,
+            "UNSUPPORTED": 0
+          }
+        }
+      }
+    }
+  },
+  "v2_1": {
+    "1746527472741_5024.pdf": {
+      "label_distribution": {
+        "SUPPORTED": 22,
+        "PARTIAL": 15,
+        "UNSUPPORTED": 3
+      },
+      "metrics": {
+        "case_count": 40,
+        "accuracy": 0.5,
+        "accuracy_count": {
+          "numerator": 20,
+          "denominator": 40
+        },
+        "macro_f1": 0.337165,
+        "macro_f1_scope": "labels present in this slice",
+        "per_class": {
+          "SUPPORTED": {
+            "precision": 0.714286,
+            "recall": 0.227273,
+            "f1": 0.344828,
+            "support": 22,
+            "precision_count": {
+              "numerator": 5,
+              "denominator": 7
+            },
+            "recall_count": {
+              "numerator": 5,
+              "denominator": 22
+            },
+            "precision_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 5,
+              "denominator": 7,
+              "low": 0.358934,
+              "high": 0.917781
+            },
+            "recall_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 5,
+              "denominator": 22,
+              "low": 0.10123,
+              "high": 0.4344
+            }
+          },
+          "PARTIAL": {
+            "precision": 0.5,
+            "recall": 1.0,
+            "f1": 0.666667,
+            "support": 15,
+            "precision_count": {
+              "numerator": 15,
+              "denominator": 30
+            },
+            "recall_count": {
+              "numerator": 15,
+              "denominator": 15
+            },
+            "precision_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 15,
+              "denominator": 30,
+              "low": 0.331541,
+              "high": 0.668459
+            },
+            "recall_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 15,
+              "denominator": 15,
+              "low": 0.796117,
+              "high": 1.0
+            }
+          },
+          "UNSUPPORTED": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 3,
+            "precision_count": {
+              "numerator": 0,
+              "denominator": 3
+            },
+            "recall_count": {
+              "numerator": 0,
+              "denominator": 3
+            },
+            "precision_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 0,
+              "denominator": 3,
+              "low": 0.0,
+              "high": 0.561497
+            },
+            "recall_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 0,
+              "denominator": 3,
+              "low": 0.0,
+              "high": 0.561497
+            }
+          }
+        },
+        "supported_precision": 0.714286,
+        "supported_recall": 0.227273,
+        "partial_f1": 0.666667,
+        "unsupported_recall": 0.0,
+        "unsafe_acceptance_rate": 0.111111,
+        "unsafe_acceptance_count": {
+          "numerator": 2,
+          "denominator": 18
+        },
+        "unsafe_acceptance_wilson_95": {
+          "method": "wilson_95",
+          "numerator": 2,
+          "denominator": 18,
+          "low": 0.03102,
+          "high": 0.327998
+        },
+        "supported_false_rejection_rate": 0.772727,
+        "supported_false_rejection_count": {
+          "numerator": 17,
+          "denominator": 22
+        },
+        "hard_false_rejection_rate": 0.136364,
+        "hard_false_rejection_count": {
+          "numerator": 3,
+          "denominator": 22
+        },
+        "human_review_rate": 0.75,
+        "human_review_count": {
+          "numerator": 30,
+          "denominator": 40
+        },
+        "human_review_wilson_95": {
+          "method": "wilson_95",
+          "numerator": 30,
+          "denominator": 40,
+          "low": 0.59806,
+          "high": 0.858129
+        },
+        "automation_coverage": 0.25,
+        "automation_coverage_count": {
+          "numerator": 10,
+          "denominator": 40
+        },
+        "automation_coverage_wilson_95": {
+          "method": "wilson_95",
+          "numerator": 10,
+          "denominator": 40,
+          "low": 0.141871,
+          "high": 0.40194
+        },
+        "selective_accuracy": 0.5,
+        "selective_accuracy_count": {
+          "numerator": 5,
+          "denominator": 10
+        },
+        "confusion_matrix": {
+          "SUPPORTED": {
+            "SUPPORTED": 5,
+            "PARTIAL": 14,
+            "UNSUPPORTED": 3
+          },
+          "PARTIAL": {
+            "SUPPORTED": 0,
+            "PARTIAL": 15,
+            "UNSUPPORTED": 0
+          },
+          "UNSUPPORTED": {
+            "SUPPORTED": 2,
+            "PARTIAL": 1,
+            "UNSUPPORTED": 0
+          }
+        }
+      }
+    },
+    "8a69c65e95a7fec40195faa1360d1770.pdf": {
+      "label_distribution": {
+        "PARTIAL": 10,
+        "SUPPORTED": 14,
+        "UNSUPPORTED": 1
+      },
+      "metrics": {
+        "case_count": 25,
+        "accuracy": 0.4,
+        "accuracy_count": {
+          "numerator": 10,
+          "denominator": 25
+        },
+        "macro_f1": 0.235215,
+        "macro_f1_scope": "labels present in this slice",
+        "per_class": {
+          "SUPPORTED": {
+            "precision": 0.5,
+            "recall": 0.071429,
+            "f1": 0.125,
+            "support": 14,
+            "precision_count": {
+              "numerator": 1,
+              "denominator": 2
+            },
+            "recall_count": {
+              "numerator": 1,
+              "denominator": 14
+            },
+            "precision_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 1,
+              "denominator": 2,
+              "low": 0.094531,
+              "high": 0.905469
+            },
+            "recall_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 1,
+              "denominator": 14,
+              "low": 0.012722,
+              "high": 0.314687
+            }
+          },
+          "PARTIAL": {
+            "precision": 0.428571,
+            "recall": 0.9,
+            "f1": 0.580645,
+            "support": 10,
+            "precision_count": {
+              "numerator": 9,
+              "denominator": 21
+            },
+            "recall_count": {
+              "numerator": 9,
+              "denominator": 10
+            },
+            "precision_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 9,
+              "denominator": 21,
+              "low": 0.2447,
+              "high": 0.634534
+            },
+            "recall_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 9,
+              "denominator": 10,
+              "low": 0.59585,
+              "high": 0.982124
+            }
+          },
+          "UNSUPPORTED": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 1,
+            "precision_count": {
+              "numerator": 0,
+              "denominator": 2
+            },
+            "recall_count": {
+              "numerator": 0,
+              "denominator": 1
+            },
+            "precision_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 0,
+              "denominator": 2,
+              "low": 0.0,
+              "high": 0.65762
+            },
+            "recall_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 0,
+              "denominator": 1,
+              "low": 0.0,
+              "high": 0.793451
+            }
+          }
+        },
+        "supported_precision": 0.5,
+        "supported_recall": 0.071429,
+        "partial_f1": 0.580645,
+        "unsupported_recall": 0.0,
+        "unsafe_acceptance_rate": 0.090909,
+        "unsafe_acceptance_count": {
+          "numerator": 1,
+          "denominator": 11
+        },
+        "unsafe_acceptance_wilson_95": {
+          "method": "wilson_95",
+          "numerator": 1,
+          "denominator": 11,
+          "low": 0.016232,
+          "high": 0.377358
+        },
+        "supported_false_rejection_rate": 0.928571,
+        "supported_false_rejection_count": {
+          "numerator": 13,
+          "denominator": 14
+        },
+        "hard_false_rejection_rate": 0.142857,
+        "hard_false_rejection_count": {
+          "numerator": 2,
+          "denominator": 14
+        },
+        "human_review_rate": 0.84,
+        "human_review_count": {
+          "numerator": 21,
+          "denominator": 25
+        },
+        "human_review_wilson_95": {
+          "method": "wilson_95",
+          "numerator": 21,
+          "denominator": 25,
+          "low": 0.653464,
+          "high": 0.935965
+        },
+        "automation_coverage": 0.16,
+        "automation_coverage_count": {
+          "numerator": 4,
+          "denominator": 25
+        },
+        "automation_coverage_wilson_95": {
+          "method": "wilson_95",
+          "numerator": 4,
+          "denominator": 25,
+          "low": 0.064035,
+          "high": 0.346536
+        },
+        "selective_accuracy": 0.25,
+        "selective_accuracy_count": {
+          "numerator": 1,
+          "denominator": 4
+        },
+        "confusion_matrix": {
+          "SUPPORTED": {
+            "SUPPORTED": 1,
+            "PARTIAL": 11,
+            "UNSUPPORTED": 2
+          },
+          "PARTIAL": {
+            "SUPPORTED": 1,
+            "PARTIAL": 9,
+            "UNSUPPORTED": 0
+          },
+          "UNSUPPORTED": {
+            "SUPPORTED": 0,
+            "PARTIAL": 1,
+            "UNSUPPORTED": 0
+          }
+        }
+      }
+    },
+    "8a69c8e290831b250190964f57453e46.pdf": {
+      "label_distribution": {
+        "UNSUPPORTED": 10,
+        "SUPPORTED": 26,
+        "PARTIAL": 19
+      },
+      "metrics": {
+        "case_count": 55,
+        "accuracy": 0.254545,
+        "accuracy_count": {
+          "numerator": 14,
+          "denominator": 55
+        },
+        "macro_f1": 0.165068,
+        "macro_f1_scope": "labels present in this slice",
+        "per_class": {
+          "SUPPORTED": {
+            "precision": 0.181818,
+            "recall": 0.076923,
+            "f1": 0.108108,
+            "support": 26,
+            "precision_count": {
+              "numerator": 2,
+              "denominator": 11
+            },
+            "recall_count": {
+              "numerator": 2,
+              "denominator": 26
+            },
+            "precision_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 2,
+              "denominator": 11,
+              "low": 0.051368,
+              "high": 0.476981
+            },
+            "recall_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 2,
+              "denominator": 26,
+              "low": 0.021355,
+              "high": 0.241416
+            }
+          },
+          "PARTIAL": {
+            "precision": 0.27907,
+            "recall": 0.631579,
+            "f1": 0.387097,
+            "support": 19,
+            "precision_count": {
+              "numerator": 12,
+              "denominator": 43
+            },
+            "recall_count": {
+              "numerator": 12,
+              "denominator": 19
+            },
+            "precision_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 12,
+              "denominator": 43,
+              "low": 0.167466,
+              "high": 0.42691
+            },
+            "recall_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 12,
+              "denominator": 19,
+              "low": 0.410395,
+              "high": 0.808505
+            }
+          },
+          "UNSUPPORTED": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 10,
+            "precision_count": {
+              "numerator": 0,
+              "denominator": 1
+            },
+            "recall_count": {
+              "numerator": 0,
+              "denominator": 10
+            },
+            "precision_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 0,
+              "denominator": 1,
+              "low": 0.0,
+              "high": 0.793451
+            },
+            "recall_wilson_95": {
+              "method": "wilson_95",
+              "numerator": 0,
+              "denominator": 10,
+              "low": 0.0,
+              "high": 0.277533
+            }
+          }
+        },
+        "supported_precision": 0.181818,
+        "supported_recall": 0.076923,
+        "partial_f1": 0.387097,
+        "unsupported_recall": 0.0,
+        "unsafe_acceptance_rate": 0.310345,
+        "unsafe_acceptance_count": {
+          "numerator": 9,
+          "denominator": 29
+        },
+        "unsafe_acceptance_wilson_95": {
+          "method": "wilson_95",
+          "numerator": 9,
+          "denominator": 29,
+          "low": 0.172756,
+          "high": 0.492301
+        },
+        "supported_false_rejection_rate": 0.923077,
+        "supported_false_rejection_count": {
+          "numerator": 24,
+          "denominator": 26
+        },
+        "hard_false_rejection_rate": 0.038462,
+        "hard_false_rejection_count": {
+          "numerator": 1,
+          "denominator": 26
+        },
+        "human_review_rate": 0.781818,
+        "human_review_count": {
+          "numerator": 43,
+          "denominator": 55
+        },
+        "human_review_wilson_95": {
+          "method": "wilson_95",
+          "numerator": 43,
+          "denominator": 55,
+          "low": 0.6563,
+          "high": 0.87054
+        },
+        "automation_coverage": 0.218182,
+        "automation_coverage_count": {
+          "numerator": 12,
+          "denominator": 55
+        },
+        "automation_coverage_wilson_95": {
+          "method": "wilson_95",
+          "numerator": 12,
+          "denominator": 55,
+          "low": 0.12946,
+          "high": 0.3437
+        },
+        "selective_accuracy": 0.166667,
+        "selective_accuracy_count": {
+          "numerator": 2,
+          "denominator": 12
+        },
+        "confusion_matrix": {
+          "SUPPORTED": {
+            "SUPPORTED": 2,
+            "PARTIAL": 23,
+            "UNSUPPORTED": 1
+          },
+          "PARTIAL": {
+            "SUPPORTED": 7,
+            "PARTIAL": 12,
+            "UNSUPPORTED": 0
+          },
+          "UNSUPPORTED": {
+            "SUPPORTED": 2,
+            "PARTIAL": 8,
+            "UNSUPPORTED": 0
+          }
+        }
+      }
+    }
+  }
+}

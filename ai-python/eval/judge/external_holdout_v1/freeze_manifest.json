@@ -1,0 +1,14 @@
+{
+  "schema_version": "external_holdout_freeze_manifest_v1",
+  "status": "EXTERNAL_HOLDOUT_V1_FROZEN",
+  "frozen_at_utc": "2026-08-24T08:14:46.247093+00:00",
+  "dataset_path": "ai-python/eval/judge/external_holdout_v1/external_holdout_v1.jsonl",
+  "dataset_sha256": "d0f98891bd7e0471516afe11f99a4bae5d51026c9a1d140eee22c3e9b7ca89d3",
+  "metadata_sha256": "a145a44f43682e0705bf8892fc4cf7539cd05075b9a90992ff0f6ca9e469301c",
+  "adjudication_summary_sha256": "64d5d4e9017ecc3953251ce3660d0c540d4ecb979630045f0962700d8e1c6f30",
+  "source_sample_sha256": "b7ff072356563ff05ccfdce136b4d5972599719d2dbb2bacc91b021280e3db84",
+  "sampling_manifest_sha256": "64ff9e60b684e697d9cbb66282f3f53f0bc38499470608c7f624a428b18c106c",
+  "capture_universe_manifest_sha256": "45d63093dc2de5739b6a91b7d4bf7caf3e3ef218debf9df9b898a5ac49f65d1e",
+  "capture_universe_sha256": "d4571f3ef65d5a63ec989497ab6809eec980e4e5a4f852d70b5c88d2028cd6d5",
+  "judge_invocation_count": 0
+}

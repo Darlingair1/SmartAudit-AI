@@ -1,0 +1,622 @@
+{
+  "schema_version": "retrieval_public_summary_v1",
+  "public_projection_version": "publication_projection_v1",
+  "baseline": {
+    "source_artifact_sha256": "a268b0828ef4094e3daee13cbc155e1a4db8e44aea762e30f232d9391c13306d",
+    "metadata": {
+      "generated_at": "2026-08-23T01:32:20.626433Z",
+      "dataset": "ai-python/eval/datasets/rag_eval_dev_v1.jsonl",
+      "dataset_sha256": "b00e0a9b9a83c8e838edca6f48c5cebe7878f75d50d38550307b0c00e62737be",
+      "manifest": "ai-python/eval/manifests/rag_eval_dev_v1_documents.json",
+      "manifest_sha256": "c484e5ec45fcc8e2be770097eaa4d53229da10c5f052295daeb9168a773e8bff",
+      "top_k": "1,3,5,10",
+      "baseline_profile": "current_fallback",
+      "runner_profile": "current",
+      "production_code_modified": false,
+      "git_commit": "5825dfbe18f2de720f8103149bd9a6ce11ef09d8",
+      "reviewed_case_count": 40,
+      "environment": {
+        "python_version": "3.11.5",
+        "pypdf_version": "6.14.2"
+      }
+    },
+    "profiles": [
+      {
+        "profile": "lexical_only",
+        "description": "Production lexical retrieval, without RRF or reranking.",
+        "status": "success",
+        "reason": null,
+        "report_sha256": "0403b75a1d4889ca6f13dbde6be0765b03abc53da8cb8b55bb1f95a8c10bd907",
+        "coverage": {
+          "total_case_count": 40,
+          "retrieval_executed_count": 40,
+          "retrieval_success_count": 40,
+          "document_not_found_count": 0,
+          "retrieval_error_count": 0,
+          "evaluation_coverage": 1.0
+        },
+        "metrics": {
+          "hit_at_1": 0.65,
+          "recall_at_1": 0.46875,
+          "hit_at_3": 0.9,
+          "recall_at_3": 0.7625,
+          "hit_at_5": 0.925,
+          "recall_at_5": 0.841667,
+          "hit_at_10": 0.975,
+          "recall_at_10": 0.95,
+          "mrr": 0.774196,
+          "latency": {
+            "mean_ms": 1431.74,
+            "median_ms": 61.549,
+            "p95_ms": 1460.124
+          }
+        },
+        "execution": {
+          "total_runtime_ms": 60703.502,
+          "document_cache_hits": 34,
+          "document_cache_misses": 6,
+          "cross_encoder_success_count": 0,
+          "cross_encoder_timeout_fallback_count": 0,
+          "cross_encoder_other_fallback_count": 0
+        },
+        "retrieval_fallback_counts": {
+          "hybrid": 40
+        }
+      },
+      {
+        "profile": "vector_only",
+        "description": "Production vector retrieval, without lexical retrieval, RRF, or reranking.",
+        "status": "success",
+        "reason": null,
+        "report_sha256": "0ae6aa0bf144df79718ddf996dd50a5faac48d113f3c36f63db59c4871a83ae6",
+        "coverage": {
+          "total_case_count": 40,
+          "retrieval_executed_count": 40,
+          "retrieval_success_count": 40,
+          "document_not_found_count": 0,
+          "retrieval_error_count": 0,
+          "evaluation_coverage": 1.0
+        },
+        "metrics": {
+          "hit_at_1": 0.65,
+          "recall_at_1": 0.460417,
+          "hit_at_3": 0.9,
+          "recall_at_3": 0.7875,
+          "hit_at_5": 0.9,
+          "recall_at_5": 0.85,
+          "hit_at_10": 0.95,
+          "recall_at_10": 0.916667,
+          "mrr": 0.768571,
+          "latency": {
+            "mean_ms": 5915.93,
+            "median_ms": 544.442,
+            "p95_ms": 23978.072
+          }
+        },
+        "execution": {
+          "total_runtime_ms": 238664.979,
+          "document_cache_hits": 34,
+          "document_cache_misses": 6,
+          "cross_encoder_success_count": 0,
+          "cross_encoder_timeout_fallback_count": 0,
+          "cross_encoder_other_fallback_count": 0
+        },
+        "retrieval_fallback_counts": {
+          "hybrid": 40
+        }
+      },
+      {
+        "profile": "hybrid_no_rrf",
+        "description": "Production hybrid retrieval without RRF; ordering is BM25 candidates followed by vector candidates.",
+        "status": "success",
+        "reason": null,
+        "report_sha256": "2962105d757b0036699f130e6534a00ee6a2ed98b976b8455eb9ddb029956b01",
+        "coverage": {
+          "total_case_count": 40,
+          "retrieval_executed_count": 40,
+          "retrieval_success_count": 40,
+          "document_not_found_count": 0,
+          "retrieval_error_count": 0,
+          "evaluation_coverage": 1.0
+        },
+        "metrics": {
+          "hit_at_1": 0.65,
+          "recall_at_1": 0.46875,
+          "hit_at_3": 0.9,
+          "recall_at_3": 0.7625,
+          "hit_at_5": 0.925,
+          "recall_at_5": 0.841667,
+          "hit_at_10": 0.975,
+          "recall_at_10": 0.95,
+          "mrr": 0.774196,
+          "latency": {
+            "mean_ms": 8122.701,
+            "median_ms": 939.136,
+            "p95_ms": 35796.297
+          }
+        },
+        "execution": {
+          "total_runtime_ms": 327412.531,
+          "document_cache_hits": 34,
+          "document_cache_misses": 6,
+          "cross_encoder_success_count": 0,
+          "cross_encoder_timeout_fallback_count": 0,
+          "cross_encoder_other_fallback_count": 0
+        },
+        "retrieval_fallback_counts": {
+          "hybrid": 40
+        }
+      },
+      {
+        "profile": "hybrid_rrf",
+        "description": "Production hybrid retrieval with RRF and without reranking.",
+        "status": "success",
+        "reason": null,
+        "report_sha256": "563e692752fb6a19fa5794b66d32f6b84d8794b4205ca6c526f9b85175231c8b",
+        "coverage": {
+          "total_case_count": 40,
+          "retrieval_executed_count": 40,
+          "retrieval_success_count": 40,
+          "document_not_found_count": 0,
+          "retrieval_error_count": 0,
+          "evaluation_coverage": 1.0
+        },
+        "metrics": {
+          "hit_at_1": 0.725,
+          "recall_at_1": 0.547917,
+          "hit_at_3": 0.875,
+          "recall_at_3": 0.795833,
+          "hit_at_5": 0.925,
+          "recall_at_5": 0.891667,
+          "hit_at_10": 0.95,
+          "recall_at_10": 0.922917,
+          "mrr": 0.81,
+          "latency": {
+            "mean_ms": 8777.833,
+            "median_ms": 933.879,
+            "p95_ms": 26382.761
+          }
+        },
+        "execution": {
+          "total_runtime_ms": 354038.109,
+          "document_cache_hits": 34,
+          "document_cache_misses": 6,
+          "cross_encoder_success_count": 0,
+          "cross_encoder_timeout_fallback_count": 0,
+          "cross_encoder_other_fallback_count": 0
+        },
+        "retrieval_fallback_counts": {
+          "hybrid": 40
+        }
+      },
+      {
+        "profile": "current_fallback",
+        "description": "Current production profile; CrossEncoder fallback is accepted and counted.",
+        "status": "success",
+        "reason": null,
+        "report_sha256": "42871901bb9b7a5e18144843819e998925bea045f048fa758c02b9f5afd6ccff",
+        "coverage": {
+          "total_case_count": 40,
+          "retrieval_executed_count": 40,
+          "retrieval_success_count": 40,
+          "document_not_found_count": 0,
+          "retrieval_error_count": 0,
+          "evaluation_coverage": 1.0
+        },
+        "metrics": {
+          "hit_at_1": 0.875,
+          "recall_at_1": 0.670833,
+          "hit_at_3": 0.95,
+          "recall_at_3": 0.858333,
+          "hit_at_5": 0.95,
+          "recall_at_5": 0.91875,
+          "hit_at_10": 0.95,
+          "recall_at_10": 0.935417,
+          "mrr": 0.908333,
+          "latency": {
+            "mean_ms": 16993.626,
+            "median_ms": 5185.708,
+            "p95_ms": 52251.867
+          }
+        },
+        "execution": {
+          "total_runtime_ms": 682653.829,
+          "document_cache_hits": 34,
+          "document_cache_misses": 6,
+          "cross_encoder_success_count": 0,
+          "cross_encoder_timeout_fallback_count": 40,
+          "cross_encoder_other_fallback_count": 0
+        },
+        "retrieval_fallback_counts": {
+          "hybrid": 40
+        }
+      },
+      {
+        "profile": "hybrid_crossencoder",
+        "description": "Current production profile requiring CrossEncoder success for every executed case.",
+        "status": "unavailable",
+        "reason": "CrossEncoder did not succeed for every executed case under the fixed production timeout. The report is retained as diagnostic evidence.",
+        "report_sha256": "42871901bb9b7a5e18144843819e998925bea045f048fa758c02b9f5afd6ccff",
+        "coverage": {
+          "total_case_count": 40,
+          "retrieval_executed_count": 40,
+          "retrieval_success_count": 40,
+          "document_not_found_count": 0,
+          "retrieval_error_count": 0,
+          "evaluation_coverage": 1.0
+        },
+        "metrics": {
+          "hit_at_1": 0.875,
+          "recall_at_1": 0.670833,
+          "hit_at_3": 0.95,
+          "recall_at_3": 0.858333,
+          "hit_at_5": 0.95,
+          "recall_at_5": 0.91875,
+          "hit_at_10": 0.95,
+          "recall_at_10": 0.935417,
+          "mrr": 0.908333,
+          "latency": {
+            "mean_ms": 16993.626,
+            "median_ms": 5185.708,
+            "p95_ms": 52251.867
+          }
+        },
+        "execution": {
+          "total_runtime_ms": 682653.829,
+          "document_cache_hits": 34,
+          "document_cache_misses": 6,
+          "cross_encoder_success_count": 0,
+          "cross_encoder_timeout_fallback_count": 40,
+          "cross_encoder_other_fallback_count": 0
+        },
+        "retrieval_fallback_counts": {
+          "hybrid": 40
+        }
+      }
+    ]
+  },
+  "ranking_drift": {
+    "source_artifact_sha256": "98bfab67d590b2eb01b6081eae906d67753dd7296b79f72aaba24b069378d4da",
+    "runs": [
+      {
+        "git_commit": "cf29aae27f51d02ff194d42d156315ebd038be25",
+        "dataset_sha256": "b00e0a9b9a83c8e838edca6f48c5cebe7878f75d50d38550307b0c00e62737be",
+        "profile": "current",
+        "python": {
+          "python_version": "3.11.5",
+          "pypdf_version": "6.14.2"
+        },
+        "settings_fingerprints": [
+          "6f689848a1a719572b93ce7ccc9dc63fe307c8ee491efb7956100efc6154279e"
+        ],
+        "metrics": {
+          "hit_at_1": 0.75,
+          "recall_at_1": 0.560417,
+          "hit_at_3": 0.9,
+          "recall_at_3": 0.808333,
+          "hit_at_5": 0.925,
+          "recall_at_5": 0.891667,
+          "hit_at_10": 0.95,
+          "recall_at_10": 0.935417,
+          "mrr": 0.83,
+          "latency": {
+            "mean_ms": 5773.513,
+            "median_ms": 723.957,
+            "p95_ms": 29893.884
+          }
+        },
+        "ranking_fingerprint": {
+          "algorithm": "sha256(case_id\\tordered_candidate_ids)",
+          "case_count": 40,
+          "sha256": "37dc3b56bd6244482c807aa90334a59d0e15cf77925ee70083f0dbcae8b2cf84"
+        }
+      },
+      {
+        "git_commit": "cf29aae27f51d02ff194d42d156315ebd038be25",
+        "dataset_sha256": "b00e0a9b9a83c8e838edca6f48c5cebe7878f75d50d38550307b0c00e62737be",
+        "profile": "current",
+        "python": {
+          "python_version": "3.11.5",
+          "pypdf_version": "6.14.2"
+        },
+        "settings_fingerprints": [
+          "6f689848a1a719572b93ce7ccc9dc63fe307c8ee491efb7956100efc6154279e"
+        ],
+        "metrics": {
+          "hit_at_1": 0.75,
+          "recall_at_1": 0.560417,
+          "hit_at_3": 0.925,
+          "recall_at_3": 0.820833,
+          "hit_at_5": 0.925,
+          "recall_at_5": 0.879167,
+          "hit_at_10": 0.95,
+          "recall_at_10": 0.935417,
+          "mrr": 0.833333,
+          "latency": {
+            "mean_ms": 6219.728,
+            "median_ms": 687.346,
+            "p95_ms": 22530.507
+          }
+        },
+        "ranking_fingerprint": {
+          "algorithm": "sha256(case_id\\tordered_candidate_ids)",
+          "case_count": 40,
+          "sha256": "d581d3565c8141ad4fe51efc004d9097dbfa96a0903d4c9a688969b6aa9bcb29"
+        }
+      },
+      {
+        "git_commit": "cf29aae27f51d02ff194d42d156315ebd038be25",
+        "dataset_sha256": "b00e0a9b9a83c8e838edca6f48c5cebe7878f75d50d38550307b0c00e62737be",
+        "profile": "current",
+        "python": {
+          "python_version": "3.11.5",
+          "pypdf_version": "6.14.2"
+        },
+        "settings_fingerprints": [
+          "6f689848a1a719572b93ce7ccc9dc63fe307c8ee491efb7956100efc6154279e"
+        ],
+        "metrics": {
+          "hit_at_1": 0.725,
+          "recall_at_1": 0.547917,
+          "hit_at_3": 0.9,
+          "recall_at_3": 0.7875,
+          "hit_at_5": 0.95,
+          "recall_at_5": 0.891667,
+          "hit_at_10": 0.95,
+          "recall_at_10": 0.941667,
+          "mrr": 0.818333,
+          "latency": {
+            "mean_ms": 5624.367,
+            "median_ms": 646.02,
+            "p95_ms": 21534.602
+          }
+        },
+        "ranking_fingerprint": {
+          "algorithm": "sha256(case_id\\tordered_candidate_ids)",
+          "case_count": 40,
+          "sha256": "6ba496604da18eaf9e941c8712cf3ed7eb9a2d0cc09a4b010138cff0ef144fde"
+        }
+      }
+    ],
+    "stage_change_counts": {
+      "lexical_candidates": 0,
+      "vector_candidates": 42,
+      "rrf_input": 19,
+      "rrf_scores": 17,
+      "final_candidate_ids": 17
+    },
+    "all_three_same_final_count": 24,
+    "case_count": 40,
+    "first_divergence_source": "Vector/Chroma ANN",
+    "config": {
+      "env": {
+        "RAG_MODE": "hybrid",
+        "LEGAL_BM25_ENABLED": "true",
+        "RRF_ENABLED": "true",
+        "RERANK_ENABLED": "false",
+        "OMP_NUM_THREADS": "8",
+        "MKL_NUM_THREADS": "8"
+      },
+      "index_config": {
+        "bm25_top_k": 30,
+        "vector_top_k_v3": 30,
+        "rrf_top_k": 40,
+        "rrf_k": 60,
+        "vector_index_version": "vector_v1",
+        "bm25_index_version": "bm25_v1",
+        "embedding_normalize": true,
+        "embedding_device": "cpu",
+        "embedding_batch_size": 16
+      }
+    }
+  },
+  "frozen_snapshot": {
+    "source_artifact_sha256": "a97e32dd18690b466f71bb4be319dc60a57908d9082c57c20e425fbe06deff87",
+    "schema": "candidate_snapshot_v1",
+    "snapshot_sha256": "2b627d8d5a89e75e5bd1e0d83c37e981bcf78afb5454095c866f94b8275f61a1",
+    "source_commit": "cf29aae27f51d02ff194d42d156315ebd038be25",
+    "case_count": 40,
+    "deterministic_replay": {
+      "runs": 3,
+      "fingerprints": [
+        "37dc3b56bd6244482c807aa90334a59d0e15cf77925ee70083f0dbcae8b2cf84",
+        "37dc3b56bd6244482c807aa90334a59d0e15cf77925ee70083f0dbcae8b2cf84",
+        "37dc3b56bd6244482c807aa90334a59d0e15cf77925ee70083f0dbcae8b2cf84"
+      ],
+      "candidate_order_equal": true
+    },
+    "strict_reranker_snapshot_run": {
+      "report": "replay_strict_model.json",
+      "cross_encoder_success_count": 2,
+      "cross_encoder_error_count": 38,
+      "heuristic_fallback_count": 0,
+      "error_reason": "2 successes, then 1 timeout_after_3000ms followed by 37 circuit_open_after_timeout responses",
+      "ranking_not_attributed_to_cross_encoder": true
+    },
+    "known_limitations": [
+      "Snapshot contains the recorded top candidates from the source report; it is intentionally not a new retrieval run.",
+      "A timed-out Python inference thread cannot be force-killed safely; the circuit prevents subsequent queue growth but the original work may continue until completion.",
+      "Future reranker experiments must consume this snapshot to avoid ANN ranking drift."
+    ]
+  },
+  "crossencoder": {
+    "source_artifact_sha256": "97612f655cf54c82e5826073d871e6ab21a86e949af5ffd1c42a6bc30f0e0bc5",
+    "experiment": "crossencoder_20260823",
+    "baseline": {
+      "path": "eval/baselines/retrieval_baseline_v1",
+      "commit": "5825dfbe18f2de720f8103149bd9a6ce11ef09d8",
+      "profile": "hybrid_rrf",
+      "metrics": {
+        "hit_at_1": 0.725,
+        "recall_at_1": 0.560417,
+        "recall_at_3": 0.808333,
+        "recall_at_5": 0.891667,
+        "recall_at_10": 0.922917,
+        "mrr": 0.81
+      }
+    },
+    "root_cause": {
+      "model_initialization_ms": 2371.237,
+      "cache_lookup_ms": 1.425,
+      "candidate_count_mean": 9.25,
+      "input_chars_mean": 510,
+      "input_tokens_mean": 282,
+      "tokenization_ms": {
+        "mean": 5.17,
+        "p50": 5.271,
+        "p95": 6.823,
+        "max": 8.371
+      },
+      "batched_inference_ms": {
+        "mean": 8669.474,
+        "p50": 9322.832,
+        "p95": 13149.071,
+        "max": 13441.415
+      },
+      "rerank_total_ms": {
+        "mean": 8675.609,
+        "p50": 9328.26,
+        "p95": 13156.366,
+        "max": 13448.129
+      },
+      "finding": "CPU CrossEncoder forward dominates; cache is singleton, evaluation is one process, and predict uses batch_size=8. 38/40 direct samples exceed the fixed 3000 ms timeout."
+    },
+    "optimization_comparison": [
+      {
+        "name": "warmup",
+        "sample": 8,
+        "max_length": 512,
+        "batch_size": 8,
+        "mean_rerank_ms": 8257,
+        "result": "small improvement"
+      },
+      {
+        "name": "batch_size_1",
+        "sample": 8,
+        "max_length": 512,
+        "batch_size": 1,
+        "mean_rerank_ms": 8769,
+        "result": "no improvement"
+      },
+      {
+        "name": "threads_4",
+        "sample": 8,
+        "max_length": 512,
+        "batch_size": 8,
+        "mean_rerank_ms": 11746,
+        "result": "worse"
+      },
+      {
+        "name": "threads_16",
+        "sample": 8,
+        "max_length": 512,
+        "batch_size": 8,
+        "mean_rerank_ms": 8781,
+        "result": "no improvement"
+      },
+      {
+        "name": "max_length_256",
+        "sample": 8,
+        "max_length": 256,
+        "batch_size": 10,
+        "mean_rerank_ms": 6267,
+        "result": "best measured improvement, still above timeout"
+      },
+      {
+        "name": "max_length_384",
+        "sample": 8,
+        "max_length": 384,
+        "batch_size": 10,
+        "mean_rerank_ms": 8753,
+        "result": "no improvement"
+      },
+      {
+        "name": "microbatch_4",
+        "sample": 8,
+        "max_length": 384,
+        "batch_size": 10,
+        "mean_rerank_ms": 8724,
+        "result": "no improvement"
+      }
+    ],
+    "runs": {
+      "ablation_controls": {
+        "report": "eval/experiments/crossencoder_20260823/ablation_summary.json",
+        "profiles": {
+          "lexical_only": {
+            "status": "success",
+            "hit_at_1": 0.65,
+            "recall_at_5": 0.84,
+            "mrr": 0.77,
+            "latency_mean_ms": 608.26
+          },
+          "vector_only": {
+            "status": "success",
+            "hit_at_1": 0.65,
+            "recall_at_5": 0.85,
+            "mrr": 0.77,
+            "latency_mean_ms": 6084.76
+          },
+          "hybrid_no_rrf": {
+            "status": "success",
+            "hit_at_1": 0.65,
+            "recall_at_5": 0.84,
+            "mrr": 0.77,
+            "latency_mean_ms": 6633.49
+          },
+          "hybrid_rrf": {
+            "status": "success",
+            "hit_at_1": 0.75,
+            "recall_at_5": 0.89,
+            "mrr": 0.83,
+            "latency_mean_ms": 5944.32
+          }
+        }
+      },
+      "hybrid_rrf_crossencoder_max256_fallback": {
+        "report": "eval/experiments/crossencoder_20260823/hybrid_rrf_crossencoder_max256_fallback.json",
+        "metrics": {
+          "hit_at_1": 0.875,
+          "recall_at_1": 0.670833,
+          "recall_at_3": 0.858333,
+          "recall_at_5": 0.91875,
+          "recall_at_10": 0.935417,
+          "mrr": 0.908333,
+          "latency_mean_ms": 13491.312,
+          "latency_p50_ms": 5355.215,
+          "latency_p95_ms": 41173.3
+        },
+        "cross_encoder_success_count": 2,
+        "timeout_count": 38,
+        "error_count": 0,
+        "fallback_count": 38
+      },
+      "hybrid_rrf_crossencoder_strict_max256": {
+        "report": "eval/experiments/crossencoder_20260823/hybrid_rrf_crossencoder_strict_max256.json",
+        "metrics": {
+          "hit_at_1": 0.75,
+          "recall_at_1": 0.560417,
+          "recall_at_3": 0.808333,
+          "recall_at_5": 0.891667,
+          "recall_at_10": 0.935417,
+          "mrr": 0.83,
+          "latency_mean_ms": 80201.558,
+          "latency_p50_ms": 4632.484,
+          "latency_p95_ms": 53142.684
+        },
+        "cross_encoder_success_count": 2,
+        "timeout_count": 0,
+        "error_count": 38,
+        "fallback_count": 0
+      }
+    },
+    "recommendation": "Do not enable CrossEncoder as the default production reranker on this CPU environment. max_length=256 reduces measured inference time but remains too slow and succeeds only 2/40 cases; strict mode is unavailable. Keep RRF/fallback baseline unchanged and revisit with GPU or separately provisioned inference service."
+  },
+  "content_excluded": [
+    "candidate text",
+    "case-level rankings",
+    "repeat dumps",
+    "replay dumps",
+    "local model paths"
+  ]
+}

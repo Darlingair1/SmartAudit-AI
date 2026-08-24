@@ -1,0 +1,11 @@
+{
+  "unsafe_acceptance_gate": true,
+  "conflicting_evidence_gate": true,
+  "insufficient_evidence_gate": false,
+  "unsupported_recall_gate": true,
+  "supported_recall_preservation_gate": true,
+  "partial_f1_preservation_gate": true,
+  "multi_evidence_preservation_gate": true,
+  "macro_f1_gate": true,
+  "overall_pass": false
+}

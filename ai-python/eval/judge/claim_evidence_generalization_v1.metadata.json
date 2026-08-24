@@ -1,0 +1,28 @@
+{
+  "schema_version": "claim_evidence_generalization_v1",
+  "dataset": "ai-python/eval/judge/claim_evidence_generalization_v1.jsonl",
+  "dataset_sha256": "8b171081aa27a07e7e4d9d0b4ccc8de75e28926aa582822a04985182b7831d8e",
+  "source_commit_sha": "cf29aae27f51d02ff194d42d156315ebd038be25",
+  "source_dataset": "ai-python/eval/datasets/rag_eval_dev_v1.jsonl",
+  "annotation_guideline_version": "claim_evidence_generalization_v1",
+  "adjudication_status": "adjudicated",
+  "reviewed_count": 107,
+  "draft_count": 0,
+  "label_distribution": {
+    "SUPPORTED": 40,
+    "UNSUPPORTED": 40,
+    "PARTIAL": 27
+  },
+  "challenge_type_distribution": {
+    "paraphrase_synonym": 7,
+    "conflicting_evidence": 16,
+    "implicit_entity_coreference": 7,
+    "chinese_numeral_or_amount": 7,
+    "multi_evidence_support": 27,
+    "cross_sentence_qualifier": 7,
+    "complex_negation_exception": 6,
+    "implicit_risk_inference": 6,
+    "semantically_related_but_insufficient": 24
+  },
+  "provenance_policy": "real reviewed retrieval queries and production evidence; no slot substitution; Judge not consulted"
+}

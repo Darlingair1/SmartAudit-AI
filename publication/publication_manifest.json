@@ -1,0 +1,1312 @@
+{
+  "schema_version": "github_publication_manifest_v1",
+  "policy": "docs/BENCHMARK_ARTIFACT_POLICY.md",
+  "summary": {
+    "PUBLIC_COMMIT": {
+      "file_count": 99,
+      "size_bytes": 564294
+    },
+    "LOCAL_ONLY": {
+      "file_count": 50,
+      "size_bytes": 99571419
+    },
+    "IGNORE": {
+      "file_count": 12,
+      "size_bytes": 41494601
+    },
+    "NEEDS_MANUAL_REVIEW": {
+      "file_count": 0,
+      "size_bytes": 0
+    }
+  },
+  "files": [
+    {
+      "path": ".gitignore",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 2033,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "publication policy or sanitized projection",
+      "target_commit_group": "commit_1"
+    },
+    {
+      "path": "ai-python/eval/candidate_snapshot.py",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 3793,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "retrieval evaluation tooling",
+      "target_commit_group": "commit_2"
+    },
+    {
+      "path": "ai-python/eval/diagnose_ranking_drift.py",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 3659,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "retrieval evaluation tooling",
+      "target_commit_group": "commit_2"
+    },
+    {
+      "path": "ai-python/eval/documents/external_holdout/apply_confirmed_provenance.py",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 4277,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "External Holdout tooling",
+      "target_commit_group": "commit_4"
+    },
+    {
+      "path": "ai-python/eval/documents/external_holdout/candidate_inventory.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 19859,
+      "classification": "LOCAL_ONLY",
+      "reason": "local source inventory superseded by sanitized public projection",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/documents/external_holdout/candidate_manifest.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 9748,
+      "classification": "LOCAL_ONLY",
+      "reason": "local provenance source contains capability-style URL",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/documents/external_holdout/capture_external_holdout.py",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 12819,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "External Holdout tooling",
+      "target_commit_group": "commit_4"
+    },
+    {
+      "path": "ai-python/eval/documents/external_holdout/create_adjudication_sample.py",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 10110,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "External Holdout tooling",
+      "target_commit_group": "commit_4"
+    },
+    {
+      "path": "ai-python/eval/documents/external_holdout/duplicate_audit.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 6104,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "aggregate metadata, manifest, or metrics",
+      "target_commit_group": "commit_5"
+    },
+    {
+      "path": "ai-python/eval/documents/external_holdout/freeze_external_holdout_v1.py",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 10498,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "External Holdout tooling",
+      "target_commit_group": "commit_4"
+    },
+    {
+      "path": "ai-python/eval/documents/external_holdout/inventory_public_pdfs.py",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 5973,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "External Holdout tooling",
+      "target_commit_group": "commit_4"
+    },
+    {
+      "path": "ai-python/eval/documents/external_holdout/pipeline_source_set.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 5258,
+      "classification": "LOCAL_ONLY",
+      "reason": "local provenance source contains capability-style URL",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/documents/external_holdout/update_inventory_status.py",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 11595,
+      "classification": "LOCAL_ONLY",
+      "reason": "local provenance source contains capability-style URL",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/documents/external_holdout/validate_adjudication_sample.py",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 5678,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "External Holdout tooling",
+      "target_commit_group": "commit_4"
+    },
+    {
+      "path": "ai-python/eval/documents/external_holdout/validate_external_holdout_v1.py",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 6344,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "External Holdout tooling",
+      "target_commit_group": "commit_4"
+    },
+    {
+      "path": "ai-python/eval/documents/external_holdout/validate_pipeline_capture.py",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 4068,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "External Holdout tooling",
+      "target_commit_group": "commit_4"
+    },
+    {
+      "path": "ai-python/eval/documents/public/1746527472741_5024.pdf",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 12449545,
+      "classification": "LOCAL_ONLY",
+      "reason": "real contract PDF; redistribution not approved",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/documents/public/1749525786473_9685.pdf",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 6782056,
+      "classification": "LOCAL_ONLY",
+      "reason": "real contract PDF; redistribution not approved",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/documents/public/1750995540261_9.pdf",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 1223629,
+      "classification": "LOCAL_ONLY",
+      "reason": "real contract PDF; redistribution not approved",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/documents/public/402881d28f394a24018f4e2453c9348d.pdf",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 1853550,
+      "classification": "LOCAL_ONLY",
+      "reason": "real contract PDF; redistribution not approved",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/documents/public/8a69c65e95a7fec40195faa1360d1770.pdf",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 337020,
+      "classification": "LOCAL_ONLY",
+      "reason": "real contract PDF; redistribution not approved",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/documents/public/8a69c8e290831b250190964f57453e46.pdf",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 4425565,
+      "classification": "LOCAL_ONLY",
+      "reason": "real contract PDF; redistribution not approved",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/documents/public/guangdong_tax_e_tax_development_contract_2023_gpcgd23c500fg157f.pdf",
+      "action": "DELETE",
+      "size_bytes": 0,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "remove real contract PDF from current tree; redistribution not approved",
+      "target_commit_group": "commit_1"
+    },
+    {
+      "path": "ai-python/eval/documents/public/jiyuan_vehicle_procurement_contract_2024_245_a.pdf",
+      "action": "DELETE",
+      "size_bytes": 0,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "remove real contract PDF from current tree; redistribution not approved",
+      "target_commit_group": "commit_1"
+    },
+    {
+      "path": "ai-python/eval/documents/public/uk_dwp_dos010_curam_technical_architect_call_off_contract_2017.pdf",
+      "action": "DELETE",
+      "size_bytes": 0,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "remove real contract PDF from current tree; redistribution not approved",
+      "target_commit_group": "commit_1"
+    },
+    {
+      "path": "ai-python/eval/experiments/crossencoder_20260823/drift_frozen_baseline_vs_repeat1.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 6625,
+      "classification": "LOCAL_ONLY",
+      "reason": "source experiment JSON superseded by aggregate public projection",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/experiments/crossencoder_20260823/drift_repeat_1_vs_2.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 9640,
+      "classification": "IGNORE",
+      "reason": "redundant case-level repeat/replay dump",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/experiments/crossencoder_20260823/drift_repeat_1_vs_3.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 9459,
+      "classification": "IGNORE",
+      "reason": "redundant case-level repeat/replay dump",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/experiments/crossencoder_20260823/hybrid_rrf_repeat_1.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 1261276,
+      "classification": "IGNORE",
+      "reason": "redundant case-level repeat/replay dump",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/experiments/crossencoder_20260823/hybrid_rrf_repeat_2.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 1174674,
+      "classification": "IGNORE",
+      "reason": "redundant case-level repeat/replay dump",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/experiments/crossencoder_20260823/hybrid_rrf_repeat_3.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 1220007,
+      "classification": "IGNORE",
+      "reason": "redundant case-level repeat/replay dump",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/experiments/crossencoder_20260823/ranking_drift_summary.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 17768,
+      "classification": "LOCAL_ONLY",
+      "reason": "source experiment JSON superseded by aggregate public projection",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/experiments/crossencoder_20260823/summary.md",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 4186,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "aggregate Markdown summary",
+      "target_commit_group": "commit_5"
+    },
+    {
+      "path": "ai-python/eval/experiments/crossencoder_snapshot_20260823/candidate_snapshot.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 621151,
+      "classification": "LOCAL_ONLY",
+      "reason": "immutable case-level text/prediction artifact",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/experiments/crossencoder_snapshot_20260823/replay_1.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 18270,
+      "classification": "IGNORE",
+      "reason": "redundant case-level repeat/replay dump",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/experiments/crossencoder_snapshot_20260823/replay_2.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 18270,
+      "classification": "IGNORE",
+      "reason": "redundant case-level repeat/replay dump",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/experiments/crossencoder_snapshot_20260823/replay_3.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 18270,
+      "classification": "IGNORE",
+      "reason": "redundant case-level repeat/replay dump",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/experiments/crossencoder_snapshot_20260823/replay_strict_model.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 31527,
+      "classification": "IGNORE",
+      "reason": "redundant case-level repeat/replay dump",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/experiments/crossencoder_snapshot_20260823/summary.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 1335,
+      "classification": "LOCAL_ONLY",
+      "reason": "source experiment JSON superseded by aggregate public projection",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/experiments/crossencoder_snapshot_20260823/summary.md",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 1402,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "aggregate Markdown summary",
+      "target_commit_group": "commit_5"
+    },
+    {
+      "path": "ai-python/eval/experiments/evidence_judge_external_holdout_v1_20260824/comparison.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 23142,
+      "classification": "LOCAL_ONLY",
+      "reason": "full or case-level experiment output",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/experiments/evidence_judge_external_holdout_v1_20260824/comparison.md",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 1271,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "aggregate Markdown summary",
+      "target_commit_group": "commit_5"
+    },
+    {
+      "path": "ai-python/eval/experiments/evidence_judge_external_holdout_v1_20260824/confusion_matrices.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 1166,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "aggregate metadata, manifest, or metrics",
+      "target_commit_group": "commit_5"
+    },
+    {
+      "path": "ai-python/eval/experiments/evidence_judge_external_holdout_v1_20260824/failure_analysis.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 78738,
+      "classification": "LOCAL_ONLY",
+      "reason": "full or case-level experiment output",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/experiments/evidence_judge_external_holdout_v1_20260824/freeze_state.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 6878,
+      "classification": "LOCAL_ONLY",
+      "reason": "source experiment JSON superseded by aggregate public projection",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/experiments/evidence_judge_external_holdout_v1_20260824/latency.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 1441,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "aggregate metadata, manifest, or metrics",
+      "target_commit_group": "commit_5"
+    },
+    {
+      "path": "ai-python/eval/experiments/evidence_judge_external_holdout_v1_20260824/per_document_metrics.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 57677,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "aggregate metadata, manifest, or metrics",
+      "target_commit_group": "commit_5"
+    },
+    {
+      "path": "ai-python/eval/experiments/evidence_judge_external_holdout_v1_20260824/per_risk_type_metrics.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 20369,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "aggregate metadata, manifest, or metrics",
+      "target_commit_group": "commit_5"
+    },
+    {
+      "path": "ai-python/eval/experiments/evidence_judge_external_holdout_v1_20260824/result_hashes.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 516,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "aggregate metadata, manifest, or metrics",
+      "target_commit_group": "commit_5"
+    },
+    {
+      "path": "ai-python/eval/experiments/evidence_judge_external_holdout_v1_20260824/summary.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 24520,
+      "classification": "LOCAL_ONLY",
+      "reason": "source experiment JSON superseded by aggregate public projection",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/experiments/evidence_judge_external_holdout_v1_20260824/summary.md",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 4919,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "aggregate Markdown summary",
+      "target_commit_group": "commit_5"
+    },
+    {
+      "path": "ai-python/eval/experiments/evidence_judge_external_holdout_v1_20260824/transitions.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 1981955,
+      "classification": "LOCAL_ONLY",
+      "reason": "immutable case-level text/prediction artifact",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/experiments/evidence_judge_external_holdout_v1_20260824/v0_external_blind_first_run.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 231961,
+      "classification": "LOCAL_ONLY",
+      "reason": "immutable case-level text/prediction artifact",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/experiments/evidence_judge_external_holdout_v1_20260824/v1_external_blind_first_run.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 534008,
+      "classification": "LOCAL_ONLY",
+      "reason": "immutable case-level text/prediction artifact",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/experiments/evidence_judge_external_holdout_v1_20260824/v2_1_external_blind_first_run.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 2268848,
+      "classification": "LOCAL_ONLY",
+      "reason": "immutable case-level text/prediction artifact",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/experiments/evidence_judge_external_holdout_v1_20260824/v2_external_blind_first_run.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 2184089,
+      "classification": "LOCAL_ONLY",
+      "reason": "immutable case-level text/prediction artifact",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/experiments/evidence_judge_generalization_v1_20260823/results.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 531282,
+      "classification": "LOCAL_ONLY",
+      "reason": "full or case-level experiment output",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/experiments/evidence_judge_generalization_v1_20260823/summary.md",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 9968,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "aggregate Markdown summary",
+      "target_commit_group": "commit_5"
+    },
+    {
+      "path": "ai-python/eval/experiments/evidence_judge_generalization_v1_20260823/v0_v1_comparison.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 473138,
+      "classification": "LOCAL_ONLY",
+      "reason": "full or case-level experiment output",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/experiments/evidence_judge_generalization_v1_20260823/v0_v1_comparison.md",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 1948,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "aggregate Markdown summary",
+      "target_commit_group": "commit_5"
+    },
+    {
+      "path": "ai-python/eval/experiments/evidence_judge_v0_20260823/audit_summary.md",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 1876,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "aggregate Markdown summary",
+      "target_commit_group": "commit_5"
+    },
+    {
+      "path": "ai-python/eval/experiments/evidence_judge_v0_20260823/audited_fresh.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 171197,
+      "classification": "LOCAL_ONLY",
+      "reason": "full or case-level experiment output",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/experiments/evidence_judge_v0_20260823/freeze_summary.md",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 2076,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "aggregate Markdown summary",
+      "target_commit_group": "commit_5"
+    },
+    {
+      "path": "ai-python/eval/experiments/evidence_judge_v0_20260823/original_fresh.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 171952,
+      "classification": "LOCAL_ONLY",
+      "reason": "full or case-level experiment output",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/experiments/evidence_judge_v0_20260823/original_to_audited.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 1670,
+      "classification": "LOCAL_ONLY",
+      "reason": "full or case-level experiment output",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/experiments/evidence_judge_v0_20260823/results.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 171835,
+      "classification": "LOCAL_ONLY",
+      "reason": "full or case-level experiment output",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/experiments/evidence_judge_v0_20260823/results_audited.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 171197,
+      "classification": "LOCAL_ONLY",
+      "reason": "full or case-level experiment output",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/experiments/evidence_judge_v0_20260823/summary.md",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 2027,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "aggregate Markdown summary",
+      "target_commit_group": "commit_5"
+    },
+    {
+      "path": "ai-python/eval/experiments/evidence_judge_v1_20260823/comparison.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 178833,
+      "classification": "LOCAL_ONLY",
+      "reason": "full or case-level experiment output",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/experiments/evidence_judge_v1_20260823/results.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 353105,
+      "classification": "LOCAL_ONLY",
+      "reason": "full or case-level experiment output",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/experiments/evidence_judge_v1_20260823/summary.md",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 2854,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "aggregate Markdown summary",
+      "target_commit_group": "commit_5"
+    },
+    {
+      "path": "ai-python/eval/experiments/evidence_judge_v2_20260823/comparison.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 3585678,
+      "classification": "LOCAL_ONLY",
+      "reason": "full or case-level experiment output",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/experiments/evidence_judge_v2_20260823/freeze_state.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 685,
+      "classification": "LOCAL_ONLY",
+      "reason": "source experiment JSON superseded by aggregate public projection",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/experiments/evidence_judge_v2_20260823/results.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 1511320,
+      "classification": "LOCAL_ONLY",
+      "reason": "full or case-level experiment output",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/experiments/evidence_judge_v2_20260823/summary.md",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 2120,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "aggregate Markdown summary",
+      "target_commit_group": "commit_5"
+    },
+    {
+      "path": "ai-python/eval/experiments/evidence_judge_v2_safety_hardening_20260823/acceptance_criteria.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 694,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "aggregate metadata, manifest, or metrics",
+      "target_commit_group": "commit_5"
+    },
+    {
+      "path": "ai-python/eval/experiments/evidence_judge_v2_safety_hardening_20260823/acceptance_result.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 339,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "aggregate metadata, manifest, or metrics",
+      "target_commit_group": "commit_5"
+    },
+    {
+      "path": "ai-python/eval/experiments/evidence_judge_v2_safety_hardening_20260823/comparison.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 15298,
+      "classification": "LOCAL_ONLY",
+      "reason": "full or case-level experiment output",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/experiments/evidence_judge_v2_safety_hardening_20260823/freeze_state.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 539,
+      "classification": "LOCAL_ONLY",
+      "reason": "source experiment JSON superseded by aggregate public projection",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/experiments/evidence_judge_v2_safety_hardening_20260823/results.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 1641352,
+      "classification": "LOCAL_ONLY",
+      "reason": "full or case-level experiment output",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/experiments/evidence_judge_v2_safety_hardening_20260823/summary.md",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 2649,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "aggregate Markdown summary",
+      "target_commit_group": "commit_5"
+    },
+    {
+      "path": "ai-python/eval/experiments/evidence_judge_v2_safety_hardening_20260823/transitions.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 163892,
+      "classification": "LOCAL_ONLY",
+      "reason": "immutable case-level text/prediction artifact",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/experiments/evidence_judge_v2_safety_hardening_20260823/unsafe_acceptance_root_causes.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 64916,
+      "classification": "LOCAL_ONLY",
+      "reason": "source experiment JSON superseded by aggregate public projection",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/experiments/external_holdout_20260824/adjudication_sample_v1/annotation_review_sample_v1.jsonl",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 11641440,
+      "classification": "IGNORE",
+      "reason": "raw or duplicate annotation package",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/experiments/external_holdout_20260824/adjudication_sample_v1/capture_universe_manifest.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 698,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "aggregate metadata, manifest, or metrics",
+      "target_commit_group": "commit_5"
+    },
+    {
+      "path": "ai-python/eval/experiments/external_holdout_20260824/adjudication_sample_v1/external_evaluation_sample_v1.jsonl",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 12037123,
+      "classification": "LOCAL_ONLY",
+      "reason": "raw capture/sample contains contract and evidence text",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/experiments/external_holdout_20260824/adjudication_sample_v1/external_evaluation_sample_v1.metadata.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 9706,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "aggregate metadata, manifest, or metrics",
+      "target_commit_group": "commit_5"
+    },
+    {
+      "path": "ai-python/eval/experiments/external_holdout_20260824/adjudication_sample_v1/sampling_manifest.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 9758,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "aggregate metadata, manifest, or metrics",
+      "target_commit_group": "commit_5"
+    },
+    {
+      "path": "ai-python/eval/experiments/external_holdout_20260824/annotation_package/annotation_guidelines.md",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 278,
+      "classification": "IGNORE",
+      "reason": "raw or duplicate annotation package",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/experiments/external_holdout_20260824/annotation_package/annotation_review.jsonl",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 26091490,
+      "classification": "IGNORE",
+      "reason": "raw or duplicate annotation package",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/experiments/external_holdout_20260824/pipeline_capture/capture_summary.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 2547,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "aggregate metadata, manifest, or metrics",
+      "target_commit_group": "commit_5"
+    },
+    {
+      "path": "ai-python/eval/experiments/external_holdout_20260824/pipeline_capture/cases_raw.jsonl",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 30823023,
+      "classification": "LOCAL_ONLY",
+      "reason": "raw capture/sample contains contract and evidence text",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/experiments/external_holdout_20260824/pipeline_capture/excluded_cases.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 4,
+      "classification": "LOCAL_ONLY",
+      "reason": "source experiment JSON superseded by aggregate public projection",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/experiments/external_holdout_20260824/pipeline_capture/pipeline_capture_manifest.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 435,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "aggregate metadata, manifest, or metrics",
+      "target_commit_group": "commit_5"
+    },
+    {
+      "path": "ai-python/eval/experiments/external_holdout_20260824/pipeline_capture/pipeline_provenance.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 5119,
+      "classification": "LOCAL_ONLY",
+      "reason": "machine provenance contains working-tree state",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/judge/analyze_v2_unsafe_acceptance.py",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 2040,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "Judge evaluator, validator, or schema",
+      "target_commit_group": "commit_3"
+    },
+    {
+      "path": "ai-python/eval/judge/audit_claim_evidence_v1.py",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 4175,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "Judge evaluator, validator, or schema",
+      "target_commit_group": "commit_3"
+    },
+    {
+      "path": "ai-python/eval/judge/build_claim_evidence_v1.py",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 4056,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "Judge evaluator, validator, or schema",
+      "target_commit_group": "commit_3"
+    },
+    {
+      "path": "ai-python/eval/judge/build_generalization_benchmark.py",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 5738,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "Judge evaluator, validator, or schema",
+      "target_commit_group": "commit_3"
+    },
+    {
+      "path": "ai-python/eval/judge/claim_evidence_benchmark_v1.jsonl",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 211209,
+      "classification": "LOCAL_ONLY",
+      "reason": "frozen/full benchmark contains evidence text",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/judge/claim_evidence_benchmark_v1.metadata.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 973,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "aggregate metadata, manifest, or metrics",
+      "target_commit_group": "commit_5"
+    },
+    {
+      "path": "ai-python/eval/judge/claim_evidence_generalization_v1.jsonl",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 164420,
+      "classification": "LOCAL_ONLY",
+      "reason": "frozen/full benchmark contains evidence text",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/judge/claim_evidence_generalization_v1.metadata.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 1123,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "aggregate metadata, manifest, or metrics",
+      "target_commit_group": "commit_5"
+    },
+    {
+      "path": "ai-python/eval/judge/claim_evidence_v1.audit.jsonl",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 76757,
+      "classification": "LOCAL_ONLY",
+      "reason": "frozen/full benchmark contains evidence text",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/judge/claim_evidence_v1.audit.metadata.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 856,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "aggregate metadata, manifest, or metrics",
+      "target_commit_group": "commit_5"
+    },
+    {
+      "path": "ai-python/eval/judge/claim_evidence_v1.jsonl",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 118887,
+      "classification": "LOCAL_ONLY",
+      "reason": "frozen/full benchmark contains evidence text",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/judge/claim_evidence_v1.metadata.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 694,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "aggregate metadata, manifest, or metrics",
+      "target_commit_group": "commit_5"
+    },
+    {
+      "path": "ai-python/eval/judge/claim_evidence_v1_audited.jsonl",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 186705,
+      "classification": "LOCAL_ONLY",
+      "reason": "frozen/full benchmark contains evidence text",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/judge/compare_evidence_judges.py",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 2899,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "Judge evaluator, validator, or schema",
+      "target_commit_group": "commit_3"
+    },
+    {
+      "path": "ai-python/eval/judge/compare_generalization_v0_v1.py",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 6901,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "Judge evaluator, validator, or schema",
+      "target_commit_group": "commit_3"
+    },
+    {
+      "path": "ai-python/eval/judge/compare_generalization_v0_v1_v2.py",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 7615,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "Judge evaluator, validator, or schema",
+      "target_commit_group": "commit_3"
+    },
+    {
+      "path": "ai-python/eval/judge/compare_v0_runs.py",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 1159,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "Judge evaluator, validator, or schema",
+      "target_commit_group": "commit_3"
+    },
+    {
+      "path": "ai-python/eval/judge/evaluate_evidence_judge_v0.py",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 4640,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "Judge evaluator, validator, or schema",
+      "target_commit_group": "commit_3"
+    },
+    {
+      "path": "ai-python/eval/judge/evaluate_evidence_judge_v1.py",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 3601,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "Judge evaluator, validator, or schema",
+      "target_commit_group": "commit_3"
+    },
+    {
+      "path": "ai-python/eval/judge/evaluate_evidence_judge_v2.py",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 2177,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "Judge evaluator, validator, or schema",
+      "target_commit_group": "commit_3"
+    },
+    {
+      "path": "ai-python/eval/judge/evaluate_evidence_judge_v2_1.py",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 2050,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "Judge evaluator, validator, or schema",
+      "target_commit_group": "commit_3"
+    },
+    {
+      "path": "ai-python/eval/judge/evaluate_external_holdout_blind.py",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 28191,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "Judge evaluator, validator, or schema",
+      "target_commit_group": "commit_3"
+    },
+    {
+      "path": "ai-python/eval/judge/evaluate_generalization_v1.py",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 5552,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "Judge evaluator, validator, or schema",
+      "target_commit_group": "commit_3"
+    },
+    {
+      "path": "ai-python/eval/judge/external_holdout_schema.md",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 1037,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "Judge evaluator, validator, or schema",
+      "target_commit_group": "commit_3"
+    },
+    {
+      "path": "ai-python/eval/judge/external_holdout_v1/adjudication_summary.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 4915,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "aggregate metadata, manifest, or metrics",
+      "target_commit_group": "commit_5"
+    },
+    {
+      "path": "ai-python/eval/judge/external_holdout_v1/external_holdout_v1.jsonl",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 11641440,
+      "classification": "LOCAL_ONLY",
+      "reason": "frozen/full benchmark contains evidence text",
+      "target_commit_group": "none"
+    },
+    {
+      "path": "ai-python/eval/judge/external_holdout_v1/external_holdout_v1.metadata.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 6095,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "aggregate metadata, manifest, or metrics",
+      "target_commit_group": "commit_5"
+    },
+    {
+      "path": "ai-python/eval/judge/external_holdout_v1/freeze_manifest.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 965,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "aggregate metadata, manifest, or metrics",
+      "target_commit_group": "commit_5"
+    },
+    {
+      "path": "ai-python/eval/judge/freeze_benchmark_v1.py",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 2467,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "Judge evaluator, validator, or schema",
+      "target_commit_group": "commit_3"
+    },
+    {
+      "path": "ai-python/eval/judge/report_v2_safety_hardening.py",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 7176,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "Judge evaluator, validator, or schema",
+      "target_commit_group": "commit_3"
+    },
+    {
+      "path": "ai-python/eval/judge/schema.md",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 666,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "Judge evaluator, validator, or schema",
+      "target_commit_group": "commit_3"
+    },
+    {
+      "path": "ai-python/eval/judge/validate_claim_evidence.py",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 2558,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "Judge evaluator, validator, or schema",
+      "target_commit_group": "commit_3"
+    },
+    {
+      "path": "ai-python/eval/judge/validate_external_holdout.py",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 5423,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "Judge evaluator, validator, or schema",
+      "target_commit_group": "commit_3"
+    },
+    {
+      "path": "ai-python/eval/judge/validate_generalization_benchmark.py",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 2684,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "Judge evaluator, validator, or schema",
+      "target_commit_group": "commit_3"
+    },
+    {
+      "path": "ai-python/eval/run_snapshot_rerank.py",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 2302,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "retrieval evaluation tooling",
+      "target_commit_group": "commit_2"
+    },
+    {
+      "path": "ai-python/eval/runners/run_retrieval_eval.py",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 22598,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "retrieval evaluation tooling",
+      "target_commit_group": "commit_2"
+    },
+    {
+      "path": "ai-python/services/evidence_judge_v1.py",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 4528,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "implementation source",
+      "target_commit_group": "commit_3"
+    },
+    {
+      "path": "ai-python/services/evidence_judge_v2.py",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 5317,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "implementation source",
+      "target_commit_group": "commit_3"
+    },
+    {
+      "path": "ai-python/services/evidence_judge_v2_1.py",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 3154,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "implementation source",
+      "target_commit_group": "commit_3"
+    },
+    {
+      "path": "ai-python/services/reranker.py",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 9516,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "implementation source",
+      "target_commit_group": "commit_2"
+    },
+    {
+      "path": "ai-python/services/retrieval_hybrid.py",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 21599,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "implementation source",
+      "target_commit_group": "commit_2"
+    },
+    {
+      "path": "ai-python/tests/test_candidate_snapshot.py",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 2345,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "test source",
+      "target_commit_group": "commit_2"
+    },
+    {
+      "path": "ai-python/tests/test_eval_runner.py",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 8600,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "test source",
+      "target_commit_group": "commit_2"
+    },
+    {
+      "path": "ai-python/tests/test_evidence_benchmark_freeze.py",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 437,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "test source",
+      "target_commit_group": "commit_3"
+    },
+    {
+      "path": "ai-python/tests/test_evidence_judge_eval.py",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 1307,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "test source",
+      "target_commit_group": "commit_3"
+    },
+    {
+      "path": "ai-python/tests/test_evidence_judge_v1.py",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 1615,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "test source",
+      "target_commit_group": "commit_3"
+    },
+    {
+      "path": "ai-python/tests/test_evidence_judge_v1_benchmark.py",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 550,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "test source",
+      "target_commit_group": "commit_3"
+    },
+    {
+      "path": "ai-python/tests/test_evidence_judge_v2.py",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 1721,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "test source",
+      "target_commit_group": "commit_3"
+    },
+    {
+      "path": "ai-python/tests/test_evidence_judge_v2_1.py",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 2507,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "test source",
+      "target_commit_group": "commit_3"
+    },
+    {
+      "path": "ai-python/tests/test_external_holdout_blind_eval.py",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 2203,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "test source",
+      "target_commit_group": "commit_3"
+    },
+    {
+      "path": "ai-python/tests/test_external_holdout_capture.py",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 484,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "test source",
+      "target_commit_group": "commit_3"
+    },
+    {
+      "path": "ai-python/tests/test_external_holdout_sampling.py",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 619,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "test source",
+      "target_commit_group": "commit_3"
+    },
+    {
+      "path": "ai-python/tests/test_external_holdout_v1_freeze.py",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 604,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "test source",
+      "target_commit_group": "commit_3"
+    },
+    {
+      "path": "ai-python/tests/test_external_holdout_validator.py",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 2409,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "test source",
+      "target_commit_group": "commit_3"
+    },
+    {
+      "path": "ai-python/tests/test_generalization_benchmark.py",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 2355,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "test source",
+      "target_commit_group": "commit_3"
+    },
+    {
+      "path": "docs/BENCHMARK_ARTIFACT_POLICY.md",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 3202,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "publication policy or sanitized projection",
+      "target_commit_group": "commit_1"
+    },
+    {
+      "path": "docs/PUBLIC_TEST_DATA.md",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 2107,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "publication policy or sanitized projection",
+      "target_commit_group": "commit_1"
+    },
+    {
+      "path": "publication/build_publication_artifacts.py",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 23112,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "publication policy or sanitized projection",
+      "target_commit_group": "commit_5"
+    },
+    {
+      "path": "publication/candidate_manifest.public.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 5291,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "publication policy or sanitized projection",
+      "target_commit_group": "commit_5"
+    },
+    {
+      "path": "publication/external_blind_summary.public.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 22105,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "publication policy or sanitized projection",
+      "target_commit_group": "commit_5"
+    },
+    {
+      "path": "publication/external_blind_summary.public.md",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 1142,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "publication policy or sanitized projection",
+      "target_commit_group": "commit_5"
+    },
+    {
+      "path": "publication/external_holdout_v1.public.metadata.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 4007,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "publication policy or sanitized projection",
+      "target_commit_group": "commit_5"
+    },
+    {
+      "path": "publication/nested_dir_diff_report.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 1405,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "publication policy or sanitized projection",
+      "target_commit_group": "commit_5"
+    },
+    {
+      "path": "publication/publication_manifest.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 47389,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "publication policy or sanitized projection",
+      "target_commit_group": "commit_5"
+    },
+    {
+      "path": "publication/publication_sensitive_scan.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 672,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "publication policy or sanitized projection",
+      "target_commit_group": "commit_5"
+    },
+    {
+      "path": "publication/retrieval_summary.public.json",
+      "action": "ADD_OR_MODIFY",
+      "size_bytes": 20668,
+      "classification": "PUBLIC_COMMIT",
+      "reason": "publication policy or sanitized projection",
+      "target_commit_group": "commit_5"
+    }
+  ]
+}

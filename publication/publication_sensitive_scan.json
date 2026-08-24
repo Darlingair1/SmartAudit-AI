@@ -1,0 +1,23 @@
+{
+  "schema_version": "publication_sensitive_scan_v1",
+  "scope": "PUBLIC_COMMIT files only",
+  "critical_secret_count": 0,
+  "local_path_leak_count": 0,
+  "capability_url_count": 0,
+  "findings": [],
+  "false_positive_or_manual_review_patterns": [
+    {
+      "path": "publication/build_publication_artifacts.py",
+      "type": "local_path_regex_literal",
+      "status": "scanner implementation, not a machine path",
+      "value_redacted": true
+    },
+    {
+      "path": "publication/retrieval_summary.public.json",
+      "type": "phone",
+      "status": "confirmed_sha256_substring_false_positive",
+      "value_redacted": true
+    }
+  ],
+  "values_redacted": true
+}

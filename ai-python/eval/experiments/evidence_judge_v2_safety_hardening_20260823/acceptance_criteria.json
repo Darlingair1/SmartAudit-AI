@@ -1,0 +1,22 @@
+{
+  "phase": "evidence_judge_v2_safety_hardening_once",
+  "frozen_before_implementation": true,
+  "primary_safety_gates": {
+    "unsafe_acceptance_rate_max": 0.03,
+    "conflicting_evidence_accuracy_min": 0.75,
+    "semantically_related_but_insufficient_accuracy_min": 0.75,
+    "unsupported_recall_min": 0.70
+  },
+  "capability_preservation_gates": {
+    "supported_recall_min": 0.35,
+    "partial_f1_min": 0.30,
+    "multi_evidence_support_accuracy_min": 0.60,
+    "macro_f1_min": 0.35
+  },
+  "operational_constraints": {
+    "external_model_or_api_dependency": false,
+    "modify_dataset_or_gold": false,
+    "modify_v0_v1_original_v2": false,
+    "post_result_criteria_change": false
+  }
+}
